@@ -1,17 +1,34 @@
 ﻿using UnityEngine;
 public class StandaloneInputService : InputService
 {
-    public override Vector2 Axis
+    private const string Horizontal = "Horizontal";
+    private const string Vertical = "Vertical";
+    private const string MouseX = "Mouse X";
+    private const string MouseY = "Mouse Y";
+
+    public override Vector2 MoveAxis
     {
         get
         {
-            Vector2 axis = SimpleInputAxis();
+            Vector2 axis = SimpleMoveInputAxis();
             if (axis == Vector2.zero)
-                axis = UnityAxis();
+                axis = UnityMoveAxis();
             return axis;
         }
     }
 
-    private Vector2 UnityAxis() => new Vector2(Input.GetAxis(Horizontal), Input.GetAxis(Vertical));
+    public override Vector2 LookAxis
+    {
+        get
+        {
+            Vector2 axis = SimpleLookInputAxis();
+            if (axis == Vector2.zero)
+                axis = UnityLookAxis();
+            return axis;
+        }
+    }
+
+    private Vector2 UnityMoveAxis() => new Vector2(Input.GetAxis(Horizontal), Input.GetAxis(Vertical));
+    private Vector2 UnityLookAxis() => new Vector2(Input.GetAxis(MouseX), Input.GetAxis(MouseY));
 
 }

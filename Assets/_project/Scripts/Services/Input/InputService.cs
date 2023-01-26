@@ -4,12 +4,19 @@ using UnityEngine;
 
 public abstract class InputService : IInputService
 {
-    protected const string Horizontal = "Horizontal";
-    protected const string Vertical = "Vertical";
+    protected const string HorizontalMove = "HorizontalMove";
+    protected const string VerticalMove = "VerticalMove";
+    protected const string HorizontalLook = "HorizontalLook";
+    protected const string VerticalLook = "VerticalLook";
     protected const string Action = "Action";
+    protected const string Jump = "Jump";
 
-    public abstract Vector2 Axis { get; }
-    public bool IsActionButtonUp() => SimpleInput.GetButtonUp(Action);
+    public abstract Vector2 MoveAxis { get; }
+    public abstract Vector2 LookAxis { get; }
 
-    protected Vector2 SimpleInputAxis() => new Vector2(SimpleInput.GetAxis(Horizontal), SimpleInput.GetAxis(Vertical));
+    public bool IsActionButton() => SimpleInput.GetButtonDown(Action);
+    public bool IsJumpButton() => SimpleInput.GetButtonDown(Jump);
+
+    protected Vector2 SimpleMoveInputAxis() => new Vector2(SimpleInput.GetAxis(HorizontalMove), SimpleInput.GetAxis(VerticalMove));
+    protected Vector2 SimpleLookInputAxis() => new Vector2(SimpleInput.GetAxis(HorizontalLook), -SimpleInput.GetAxis(VerticalLook));
 }

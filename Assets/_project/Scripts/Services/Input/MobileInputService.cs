@@ -1,14 +1,25 @@
 ﻿
 
+using System;
 using UnityEngine;
 
 public class MobileInputService : InputService
 {
-    public override Vector2 Axis
+    public override Vector2 MoveAxis
     {
         get
         {
-            return SimpleInputAxis();
+            return SimpleMoveInputAxis();
         }
     }
+
+    public override Vector2 LookAxis
+    {
+        get
+        {
+            return SimpleLookInputAxis();
+        }
+    }
+
+   
 }
