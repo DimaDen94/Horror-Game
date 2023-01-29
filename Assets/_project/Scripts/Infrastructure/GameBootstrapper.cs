@@ -1,13 +1,15 @@
 using UnityEngine;
+using Zenject;
 
 public class GameBootstrapper : MonoBehaviour
 {
     [SerializeField] private HeroMover _heroMover;
     private IInputService _inputService;
     private Camera _camera;
-    private void Awake()
-    {
-        RegisterInputService();
+
+    [Inject]
+    private void Construct(IInputService inputService) {
+        _inputService = inputService;
     }
     private void Start()
     {
@@ -15,11 +17,5 @@ public class GameBootstrapper : MonoBehaviour
         _heroMover.Construct(_inputService, _camera);
     }
 
-    private void RegisterInputService()
-    {
-        if (Application.isEditor)
-            _inputService = new StandaloneInputService();
-        else
-            _inputService = new MobileInputService();
-    }
+    
 }
