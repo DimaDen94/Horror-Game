@@ -3,19 +3,17 @@ using Zenject;
 
 public class GameBootstrapper : MonoBehaviour
 {
-    [SerializeField] private HeroMover _heroMover;
-    private IInputService _inputService;
-    private Camera _camera;
+    private StateMachine _stateMachine;
 
     [Inject]
-    private void Construct(IInputService inputService) {
-        _inputService = inputService;
-    }
-    private void Start()
+    private void Construct(StateMachine stateMachine)
     {
-        _camera = Camera.main;
-        _heroMover.Construct(_inputService, _camera);
+        _stateMachine = stateMachine;
     }
 
-    
+    private void Start()
+    {
+        _stateMachine.Enter<BootstrapState>();
+        DontDestroyOnLoad(this);
+    }
 }

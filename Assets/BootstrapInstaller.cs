@@ -3,17 +3,37 @@ using Zenject;
 
 public class BootstrapInstaller : MonoInstaller
 {
+    [SerializeField] private GameBootstrapper _bootstrapperPrefab;
+    [SerializeField] private SceenLoader _sceenLoader;
 
     public override void InstallBindings()
     {
-        RegisterInputService();
+        BindSceenLoader();
+        BindInputService();
+        BindStateMachine();
+        BindGameBootstrapper();
     }
 
-    private void RegisterInputService()
+    private void BindSceenLoader()
+    {
+        SceenLoader sceenLoader = Container.InstantiatePrefabForComponent<SceenLoader>(_sceenLoader);
+        Container.Bind<ISceenLoader>().FromInstance(sceenLoader).AsSingle();
+    }
+
+    private void BindInputService()
     {
         if (Application.isEditor)
             Container.Bind<IInputService>().To<StandaloneInputService>().AsSingle();
         else
             Container.Bind<IInputService>().To<MobileInputService>().AsSingle();
+    }
+
+    private void BindStateMachine() =>
+        Container.Bind<StateMachine>().To<StateMachine>().AsSingle();
+
+    private void BindGameBootstrapper()
+    {
+        GameBootstrapper gameBootstrapper = Container.InstantiatePrefabForComponent<GameBootstrapper>(_bootstrapperPrefab);
+        Container.Bind<GameBootstrapper>().FromInstance(gameBootstrapper).AsSingle();
     }
 }
