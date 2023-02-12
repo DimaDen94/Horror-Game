@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Zenject;
 
@@ -11,7 +12,19 @@ public class BootstrapInstaller : MonoInstaller
         BindSceenLoader();
         BindInputService();
         BindStateMachine();
+        BindAssetProvider();
+        BindUIFactory();
         BindGameBootstrapper();
+    }
+
+    private void BindAssetProvider()
+    {
+        Container.Bind<IAssetProvider>().To<AssetProvider>().AsSingle();
+    }
+
+    private void BindUIFactory()
+    {
+        Container.Bind<IUIFactory>().To<UIFactory>().AsSingle();
     }
 
     private void BindSceenLoader()
