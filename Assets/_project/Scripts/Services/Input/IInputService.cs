@@ -6,4 +6,5 @@ public interface IInputService
     Vector2 LookAxis { get; }
 
     bool IsActionButton();
+    bool IsDropButton();
 }
