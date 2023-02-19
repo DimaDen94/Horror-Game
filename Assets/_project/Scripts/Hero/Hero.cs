@@ -7,7 +7,7 @@ public class Hero : MonoBehaviour
     private Camera _camera;
     private Hud _hud;
 
-    private LiftedThing _currentInteractionObject;
+    private InteractionObject _currentInteractionObject;
 
     private Vector3 _centerPosition;
     private IInputService _inputService;
@@ -30,8 +30,13 @@ public class Hero : MonoBehaviour
     private void DoAction()
     {
         if (_inputService.IsActionButton()) {
-            _slot.Put(_currentInteractionObject);
-            _currentInteractionObject = null;
+            if (_currentInteractionObject is LiftedThing)
+            {
+                _slot.Put((LiftedThing)_currentInteractionObject);
+            }
+            else if (_currentInteractionObject is ExitDoor) {
+                ((ExitDoor)_currentInteractionObject).TryUse(_slot.Thing);
+            }
         }
     }
 
@@ -39,8 +44,9 @@ public class Hero : MonoBehaviour
     {
         Ray ray = _camera.ScreenPointToRay(_centerPosition);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit))
-            _currentInteractionObject = hit.transform.GetComponent<LiftedThing>();
+        if (Physics.Raycast(ray, out hit) && hit.distance < 2)
+            if (hit.transform.GetComponent<InteractionObject>() != _slot.Thing)
+                _currentInteractionObject = hit.transform.GetComponent<InteractionObject>();
         else
             _currentInteractionObject = null;
     }
