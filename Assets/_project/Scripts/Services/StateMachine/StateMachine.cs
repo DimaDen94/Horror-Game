@@ -8,11 +8,12 @@ public class StateMachine
     private IState _activeState;
 
     [Inject]
-    private void Construct(ISceenLoader sceneLoader)
+    private void Construct(ISceenLoader sceneLoader, IUIFactory uiFactory)
     {
         _states = new Dictionary<Type, IState>()
         {
             [typeof(BootstrapState)] = new BootstrapState(this, sceneLoader),
+            [typeof(MainMenuState)] = new MainMenuState(this, sceneLoader, uiFactory),
             [typeof(GameLoopState)] = new GameLoopState(this, sceneLoader),
         };
     }

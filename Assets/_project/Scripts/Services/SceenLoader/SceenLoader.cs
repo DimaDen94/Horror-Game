@@ -39,7 +39,7 @@ public class SceenLoader : MonoBehaviour, ISceenLoader
     private IEnumerator LoadSceene(string name, Action onLoad)
     {
         AsyncOperation waitForNextSceen = SceneManager.LoadSceneAsync(name);
-        if (!waitForNextSceen.isDone)
+        while (!waitForNextSceen.isDone)
             yield return null;
         onLoad?.Invoke();
     }

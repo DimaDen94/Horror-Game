@@ -2,6 +2,7 @@
 {
     None,
     Initialize,
+    MainMenu,
     Game
 
 }

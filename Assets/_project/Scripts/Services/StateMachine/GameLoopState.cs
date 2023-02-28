@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-public class GameLoopState : IState
+﻿public class GameLoopState : IState
 {
     private readonly StateMachine _stateMachine;
     private readonly ISceenLoader _sceneLoader;
@@ -13,7 +11,6 @@ public class GameLoopState : IState
 
     public void Enter()
     {
-        Debug.Log("Enter");
         _sceneLoader.Load(SceneEnum.Game);
     }
 

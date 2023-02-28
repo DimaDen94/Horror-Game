@@ -4,5 +4,6 @@ public interface IUIFactory
 {
     GameObject Hud { get; }
 
-    void CreateHud();
+    void CreateGameHud();
+    MainMenuMediator CreateMainMenuHud();
 }

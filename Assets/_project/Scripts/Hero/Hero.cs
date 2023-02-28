@@ -3,7 +3,6 @@ using UnityEngine;
 public class Hero : MonoBehaviour
 {
     [SerializeField]private HeroSlot _slot;
-    //[SerializeField]private CapsuleCollider _collider;
 
     private Camera _camera;
     private Hud _hud;
@@ -35,13 +34,11 @@ public class Hero : MonoBehaviour
             {
                 _slot.Put((LiftedThing)_currentInteractionObject);
                 _currentInteractionObject = null;
-               // _collider.radius = 1;
             }
             else if (_currentInteractionObject is ExitDoor)
                 ((ExitDoor)_currentInteractionObject).TryUse(_slot.Thing);
         }
         if (_inputService.IsDropButton()) {
-           // _collider.radius = 0.25f;
             _slot.Drop();
 
         }

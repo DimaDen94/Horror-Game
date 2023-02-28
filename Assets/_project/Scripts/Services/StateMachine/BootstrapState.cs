@@ -16,7 +16,7 @@
 
     private void OnSceenLoaded()
     {
-        _stateMachine.Enter<GameLoopState>();
+        _stateMachine.Enter<MainMenuState>();
     }
 
     public void Exit()

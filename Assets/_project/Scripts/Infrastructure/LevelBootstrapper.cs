@@ -16,7 +16,7 @@ public class LevelBootstrapper : MonoBehaviour
     private void Start()
     {
         _camera = Camera.main;
-        _uiFactory.CreateHud();
+        _uiFactory.CreateGameHud();
         _heroMover.Construct(_inputService, _camera);
         _heroMover.GetComponent<Hero>().Construct(_uiFactory.Hud.GetComponent<Hud>(), _camera, _inputService);
     }

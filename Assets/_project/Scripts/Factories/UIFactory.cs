@@ -12,7 +12,9 @@ public class UIFactory : IUIFactory
 
     public GameObject Hud => _hud;
 
-    public void CreateHud() {
+    public void CreateGameHud() =>
         _hud = _assetProvider.Instantiate(AsserPath.HudPath);
-    }
+
+    public MainMenuMediator CreateMainMenuHud() =>
+        _assetProvider.Instantiate(AsserPath.MainMenuHudPath).GetComponent<MainMenuMediator>();
 }
