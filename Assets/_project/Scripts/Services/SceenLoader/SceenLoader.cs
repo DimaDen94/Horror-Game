@@ -18,7 +18,7 @@ public class SceenLoader : MonoBehaviour, ISceenLoader
             onLoad?.Invoke();
     }
 
-    private void Load(string name, Action onLoad = null)
+    public void Load(string name, Action onLoad = null)
     {
         StartCoroutine(LoadSceene(name, onLoad));
     }

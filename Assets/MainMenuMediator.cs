@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-using Zenject;
 
 public class MainMenuMediator : MonoBehaviour
 {
@@ -19,6 +18,6 @@ public class MainMenuMediator : MonoBehaviour
 
     private void StartGame()
     {
-        _stateMachine.Enter<GameLoopState>();
+        _stateMachine.Enter<LoadLevelState, string>(LevelEnum.Level1.ToString());
     }
 }

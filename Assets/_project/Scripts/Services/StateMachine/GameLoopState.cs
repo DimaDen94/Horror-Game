@@ -1,17 +1,17 @@
-﻿public class GameLoopState : IState
+﻿public class LoadLevelState : IPayloadState<string>
 {
     private readonly StateMachine _stateMachine;
     private readonly ISceenLoader _sceneLoader;
 
-    public GameLoopState(StateMachine stateMachine,ISceenLoader sceneLoader)
+    public LoadLevelState(StateMachine stateMachine,ISceenLoader sceneLoader)
     {
         _stateMachine = stateMachine;
         _sceneLoader = sceneLoader;
     }
 
-    public void Enter()
+    public void Enter(string level)
     {
-        _sceneLoader.Load(SceneEnum.Game);
+        _sceneLoader.Load(level);
     }
 
     public void Exit()
