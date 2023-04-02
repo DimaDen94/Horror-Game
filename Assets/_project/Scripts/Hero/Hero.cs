@@ -1,8 +1,12 @@
+using System;
 using UnityEngine;
+using DG.Tweening;
 
 public class Hero : MonoBehaviour
 {
-    [SerializeField]private HeroSlot _slot;
+    [SerializeField] private float _interactionDistance = 2.5f;
+    [SerializeField] private HeroSlot _slot;
+    [SerializeField] private HeroMover _mover;
 
     private Camera _camera;
     private Hud _hud;
@@ -32,11 +36,14 @@ public class Hero : MonoBehaviour
         if (_inputService.IsActionButton()) {
             if (_currentInteractionObject is LiftedThing)
             {
+                _slot.Drop();
                 _slot.Put((LiftedThing)_currentInteractionObject);
                 _currentInteractionObject = null;
             }
-            else if (_currentInteractionObject is ExitDoor)
-                ((ExitDoor)_currentInteractionObject).TryUse(_slot.Thing);
+            else if (_currentInteractionObject is InteractionObject)
+            {
+                _currentInteractionObject.TryUse(_slot);
+            }
         }
         if (_inputService.IsDropButton()) {
             _slot.Drop();
@@ -44,11 +51,27 @@ public class Hero : MonoBehaviour
         }
     }
 
+    public void Death(Transform killer)
+    {
+        _mover.Lock();
+        transform.DOLookAt(killer.position, 1);
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        if (_camera != null)
+        {
+            Gizmos.color = Color.red;
+            Vector3 direction = _camera.transform.TransformDirection(Vector3.forward) * _interactionDistance;
+            Gizmos.DrawRay(_camera.transform.position, direction);
+        }
+    }
+
     private void FindInteractionObject()
     {
         Ray ray = _camera.ScreenPointToRay(_centerPosition);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit) && hit.distance < 2)
+        if (Physics.Raycast(ray, out hit) && hit.distance < _interactionDistance)
             if (hit.transform.GetComponent<InteractionObject>() != _slot.Thing)
                 _currentInteractionObject = hit.transform.GetComponent<InteractionObject>();
         else

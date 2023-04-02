@@ -4,7 +4,7 @@ using UnityEngine;
 public class HeroSlot : MonoBehaviour
 {
     private const float RotateDuration = 0.25f;
-    private const float _moveSpeed = 10;
+    private const float MoveSpeed = 10;
 
     private LiftedThing _thing;
 
@@ -18,6 +18,12 @@ public class HeroSlot : MonoBehaviour
         _thing.transform.DOLocalRotate(_thing.SlotRotation, RotateDuration);
         _thing.DisablePhysics();
     }
+
+    public void RemoveThing()
+    {
+        _thing = null;
+    }
+
     public void Drop()
     {
         if (_thing == null)
@@ -25,7 +31,6 @@ public class HeroSlot : MonoBehaviour
         _thing.transform.parent = null;
         _thing.EnablePhysics();
         _thing = null;
-
     }
 
     private void Update()
@@ -34,7 +39,6 @@ public class HeroSlot : MonoBehaviour
             return;
 
         if (Vector3.Distance(_thing.transform.position, transform.position) > Constants.Epsilon)
-            _thing.transform.position = Vector3.MoveTowards(_thing.transform.position, transform.position, _moveSpeed * Time.deltaTime);
-
+            _thing.transform.position = Vector3.MoveTowards(_thing.transform.position, transform.position, MoveSpeed * Time.deltaTime);
     }
 }

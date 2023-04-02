@@ -1,3 +1,5 @@
+using System;
+using DG.Tweening;
 using UnityEngine;
 
 public class LiftedThing : InteractionObject
@@ -20,4 +22,6 @@ public class LiftedThing : InteractionObject
         _rigidbody.useGravity = true;
         _rigidbody.WakeUp();
     }
+
+   
 }

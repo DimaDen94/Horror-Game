@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class HeroMover : MonoBehaviour
@@ -8,7 +9,7 @@ public class HeroMover : MonoBehaviour
     [SerializeField] private float _rotationSpeed = 1.0f;
     [SerializeField] private float _topCameraClamp = 90.0f;
     [SerializeField] private float _bottomCameraClamp = -90.0f;
-
+    private bool _lock = false;
 
     private float _cinemachineTargetPitch;
     private float _rotationVelocity;
@@ -31,6 +32,9 @@ public class HeroMover : MonoBehaviour
     }
     private void Move()
     {
+        if (_lock)
+            return;
+
         Vector3 movementVector = Vector3.zero;
 
         if (_inputService.MoveAxis.sqrMagnitude > Constants.Epsilon)
@@ -44,6 +48,11 @@ public class HeroMover : MonoBehaviour
 
         movementVector += Physics.gravity;
         _characterController.Move(_movementSpeed * movementVector * Time.deltaTime);
+    }
+
+    public void Lock()
+    {
+        _lock = true;   
     }
 
     private void CameraRotation()

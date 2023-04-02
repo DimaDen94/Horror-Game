@@ -12,12 +12,12 @@ public class ExitDoor : InteractionObject
         _stateMachine = stateMachine;
     }
 
-    public void TryUse(LiftedThing thing)
+    public override void TryUse(HeroSlot slot)
     {
         if (_nextLevel == LevelEnum.None)
             return;
 
-        if (thing is ExitKey) {
+        if (slot.Thing is ExitKey) {
             _stateMachine.Enter<LoadLevelState, string>(_nextLevel.ToString());
         }
     }
