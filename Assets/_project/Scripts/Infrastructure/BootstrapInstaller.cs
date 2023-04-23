@@ -10,6 +10,7 @@ public class BootstrapInstaller : MonoInstaller
     public override void InstallBindings()
     {
         BindSceenLoader();
+        BindAudioServiceLoader();
         BindInputService();
         BindStateMachine();
         BindAssetProvider();
@@ -17,15 +18,11 @@ public class BootstrapInstaller : MonoInstaller
         BindGameBootstrapper();
     }
 
-    private void BindAssetProvider()
-    {
-        Container.Bind<IAssetProvider>().To<AssetProvider>().AsSingle();
-    }
+    private void BindAudioServiceLoader() => Container.Bind<IAudioService>().To<AudioService>().AsSingle();
 
-    private void BindUIFactory()
-    {
-        Container.Bind<IUIFactory>().To<UIFactory>().AsSingle();
-    }
+    private void BindAssetProvider() => Container.Bind<IAssetProvider>().To<AssetProvider>().AsSingle();
+
+    private void BindUIFactory() => Container.Bind<IUIFactory>().To<UIFactory>().AsSingle();
 
     private void BindSceenLoader()
     {

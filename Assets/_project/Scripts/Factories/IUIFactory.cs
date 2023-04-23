@@ -3,7 +3,9 @@
 public interface IUIFactory
 {
     GameObject Hud { get; }
+    BlackoutMediator Blackout { get; }
 
-    void CreateGameHud();
+    BlackoutMediator CreateBlackout();
+    Hud CreateGameHud();
     MainMenuMediator CreateMainMenuHud();
 }

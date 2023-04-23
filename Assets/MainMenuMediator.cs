@@ -10,8 +10,14 @@ public class MainMenuMediator : MonoBehaviour
 
     private StateMachine _stateMachine;
 
-    public void Construct(StateMachine stateMachine) {
+    public void Construct(StateMachine stateMachine, IAudioService audioService) {
         _stateMachine = stateMachine;
+
+        _continue.GetComponent<ButtonClickPlayer>().Construct(audioService);
+        _newGame.GetComponent<ButtonClickPlayer>().Construct(audioService);
+        _setting.GetComponent<ButtonClickPlayer>().Construct(audioService);
+        _adOff.GetComponent<ButtonClickPlayer>().Construct(audioService);
+
         _continue.onClick.AddListener(StartGame);
         _newGame.onClick.AddListener(StartGame);
     }

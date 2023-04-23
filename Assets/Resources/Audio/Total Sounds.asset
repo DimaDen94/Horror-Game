@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8131a0ac8a5af43aa88b6cfcfa50d346, type: 3}
+  m_Name: Total Sounds
+  m_EditorClassIdentifier: 
+  _sounds:
+  - soundName: 3
+    clip: {fileID: 8300000, guid: a09c33f58502b403abe7277f1751bd20, type: 3}
+    valume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - soundName: 4
+    clip: {fileID: 8300000, guid: ecb34a282d9fa48459144f9b9e187e81, type: 3}
+    valume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - soundName: 5
+    clip: {fileID: 8300000, guid: 36bf89f20f5284920bb9c44fb1bb7740, type: 3}
+    valume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  _music:
+  - soundName: 0
+    clip: {fileID: 8300000, guid: 19977d9c24ff14d43b683583ff2c025c, type: 3}
+    valume: 1
+    pitch: 0.7
+    loop: 1
+    source: {fileID: 0}
+  - soundName: 1
+    clip: {fileID: 8300000, guid: 144d71e7867e9434aaa9eeb56fd3361c, type: 3}
+    valume: 1
+    pitch: 0.65
+    loop: 1
+    source: {fileID: 0}
+  - soundName: 2
+    clip: {fileID: 8300000, guid: 21c9a367ca41bc04c90d37c2761bfe65, type: 3}
+    valume: 1
+    pitch: 0.7
+    loop: 1
+    source: {fileID: 0}

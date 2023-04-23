@@ -8,13 +8,13 @@ public class StateMachine
     private IExitableState _activeState;
 
     [Inject]
-    private void Construct(ISceenLoader sceneLoader, IUIFactory uiFactory)
+    private void Construct(ISceenLoader sceneLoader, IUIFactory uiFactory, IAudioService audioService)
     {
         _states = new Dictionary<Type, IExitableState>()
         {
             [typeof(BootstrapState)] = new BootstrapState(this, sceneLoader),
-            [typeof(MainMenuState)] = new MainMenuState(this, sceneLoader, uiFactory),
-            [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader),
+            [typeof(MainMenuState)] = new MainMenuState(this, sceneLoader, uiFactory, audioService),
+            [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader, audioService, uiFactory),
         };
     }
 

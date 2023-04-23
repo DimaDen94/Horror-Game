@@ -15,13 +15,15 @@ public class Hero : MonoBehaviour
 
     private Vector3 _centerPosition;
     private IInputService _inputService;
+    private IAudioService _audioService;
 
-    public void Construct(Hud hud, Camera camera, IInputService inputService)
+    public void Construct(Hud hud, Camera camera, IInputService inputService, IAudioService audioService)
     {
         _camera = camera;
         _hud = hud;
         _centerPosition = new Vector3(Screen.width / 2, Screen.height / 2, 0);
         _inputService = inputService;
+        _audioService = audioService;
     }
 
     void Update()
@@ -36,6 +38,7 @@ public class Hero : MonoBehaviour
         if (_inputService.IsActionButton()) {
             if (_currentInteractionObject is LiftedThing)
             {
+                _audioService.PlayAudio(SoundEnum.PickUp);
                 _slot.Drop();
                 _slot.Put((LiftedThing)_currentInteractionObject);
                 _currentInteractionObject = null;
@@ -45,7 +48,8 @@ public class Hero : MonoBehaviour
                 _currentInteractionObject.TryUse(_slot);
             }
         }
-        if (_inputService.IsDropButton()) {
+        if (_inputService.IsDropButton()) { 
+            _audioService.PlayAudio(SoundEnum.Drop);
             _slot.Drop();
 
         }
