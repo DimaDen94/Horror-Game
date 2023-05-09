@@ -5,5 +5,6 @@
     HorrorLoopMusic,
     Click,
     Drop,
-    PickUp
+    PickUp,
+    Wrong
 }

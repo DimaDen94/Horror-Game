@@ -2,7 +2,7 @@
 
 public class InteractionObject : MonoBehaviour
 {
-    public virtual void TryUse(HeroSlot slot) {
-
+    public virtual bool TryUse(HeroSlot slot) {
+        return true;
     }
 }

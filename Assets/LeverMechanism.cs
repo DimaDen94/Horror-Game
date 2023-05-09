@@ -4,6 +4,8 @@ using UnityEngine.Events;
 
 public class LeverMechanism : InteractionObject
 {
+    [SerializeField] private AudioSource _audioSourcePut;
+    [SerializeField] private AudioSource _audioSourceSwitch;
     private const int MovementDuration = 2;
     private Lever _lever;
     private bool _isActivated = false;
@@ -11,18 +13,22 @@ public class LeverMechanism : InteractionObject
 
     public UnityEvent MechanismActivated;
 
-    public override void TryUse(HeroSlot slot)
+    public override bool TryUse(HeroSlot slot)
     {
         if (slot.Thing is Lever)
         {
             PutInSlot((Lever)slot.Thing);
             slot.RemoveThing();
+            return true;
         }
         else if (_lever != null && !_isActivated) {
             _lever.transform.DOLocalRotate(_leverFinishRotation, MovementDuration);
+            _audioSourceSwitch.Play();
             MechanismActivated?.Invoke();
             _isActivated = true;
+            return true;
         }
+        return false;
     }
 
     private void PutInSlot(Lever lever)
@@ -30,7 +36,9 @@ public class LeverMechanism : InteractionObject
         lever.GetComponent<Collider>().enabled = false;
         lever.transform.parent = transform;
         lever.transform.DOLocalMove(lever.MechanismSlotPosition, MovementDuration);
-        lever.transform.DOLocalRotate(lever.MechanismSlotRotation, MovementDuration);
+        lever.transform.DOLocalRotate(lever.MechanismSlotRotation, MovementDuration).OnComplete(()=> {
+            _audioSourcePut.Play();
+        });
         _lever = lever;
     }
 }

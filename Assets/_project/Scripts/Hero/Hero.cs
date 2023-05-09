@@ -1,10 +1,8 @@
-using System;
 using UnityEngine;
 using DG.Tweening;
 
 public class Hero : MonoBehaviour
 {
-    [SerializeField] private float _interactionDistance = 2.5f;
     [SerializeField] private HeroSlot _slot;
     [SerializeField] private HeroMover _mover;
 
@@ -45,7 +43,10 @@ public class Hero : MonoBehaviour
             }
             else if (_currentInteractionObject is InteractionObject)
             {
-                _currentInteractionObject.TryUse(_slot);
+                bool wasUsed = _currentInteractionObject.TryUse(_slot);
+                if (!wasUsed){
+                    _audioService.PlayAudio(SoundEnum.Wrong);
+                }
             }
         }
         if (_inputService.IsDropButton()) { 
@@ -66,7 +67,7 @@ public class Hero : MonoBehaviour
         if (_camera != null)
         {
             Gizmos.color = Color.red;
-            Vector3 direction = _camera.transform.TransformDirection(Vector3.forward) * _interactionDistance;
+            Vector3 direction = _camera.transform.TransformDirection(Vector3.forward) * HeroParameters.InteractionDistance;
             Gizmos.DrawRay(_camera.transform.position, direction);
         }
     }
@@ -75,7 +76,7 @@ public class Hero : MonoBehaviour
     {
         Ray ray = _camera.ScreenPointToRay(_centerPosition);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit) && hit.distance < _interactionDistance)
+        if (Physics.Raycast(ray, out hit) && hit.distance < HeroParameters.InteractionDistance)
             if (hit.transform.GetComponent<InteractionObject>() != _slot.Thing)
                 _currentInteractionObject = hit.transform.GetComponent<InteractionObject>();
         else

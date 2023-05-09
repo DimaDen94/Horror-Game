@@ -1,14 +1,9 @@
-using System;
 using UnityEngine;
 
 public class HeroMover : MonoBehaviour
 {
     [SerializeField] private CharacterController _characterController;
-    [Space(10)]
-    [SerializeField] private float _movementSpeed;
-    [SerializeField] private float _rotationSpeed = 1.0f;
-    [SerializeField] private float _topCameraClamp = 90.0f;
-    [SerializeField] private float _bottomCameraClamp = -90.0f;
+
     private bool _lock = false;
 
     private float _cinemachineTargetPitch;
@@ -22,14 +17,10 @@ public class HeroMover : MonoBehaviour
         _camera = camera;
     }
 
-    private void Update()
-    {
-        Move();
-    }
-    private void LateUpdate()
-    {
-        CameraRotation();
-    }
+    private void Update() => Move();
+
+    private void LateUpdate() => CameraRotation();
+
     private void Move()
     {
         if (_lock)
@@ -47,22 +38,19 @@ public class HeroMover : MonoBehaviour
             movementVector = transform.right * _inputService.MoveAxis.x + transform.forward * _inputService.MoveAxis.y;
 
         movementVector += Physics.gravity;
-        _characterController.Move(_movementSpeed * movementVector * Time.deltaTime);
+        _characterController.Move(HeroParameters.MovementSpeed * movementVector * Time.deltaTime);
     }
 
-    public void Lock()
-    {
-        _lock = true;   
-    }
+    public void Lock() => _lock = true;
 
     private void CameraRotation()
     {
         if (_inputService.LookAxis.sqrMagnitude >= Constants.Epsilon)
         {
-            _cinemachineTargetPitch += _inputService.LookAxis.y * _rotationSpeed * Time.deltaTime;
-            _rotationVelocity = _inputService.LookAxis.x * _rotationSpeed * Time.deltaTime;
+            _cinemachineTargetPitch += _inputService.LookAxis.y * HeroParameters.RotationSpeed * Time.deltaTime;
+            _rotationVelocity = _inputService.LookAxis.x * HeroParameters.RotationSpeed * Time.deltaTime;
 
-            _cinemachineTargetPitch = ClampAngle(_cinemachineTargetPitch, _bottomCameraClamp, _topCameraClamp);
+            _cinemachineTargetPitch = ClampAngle(_cinemachineTargetPitch, HeroParameters.BottomCameraClamp, HeroParameters.TopCameraClamp);
 
             _camera.transform.localRotation = Quaternion.Euler(_cinemachineTargetPitch, 0.0f, 0.0f);
 

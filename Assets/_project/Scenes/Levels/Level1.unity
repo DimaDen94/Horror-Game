@@ -1028,7 +1028,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _characterController: {fileID: 649535236}
   _movementSpeed: 4
-  _rotationSpeed: 90
+  _rotationSpeed: 120
   _topCameraClamp: 90
   _bottomCameraClamp: -90
 --- !u!143 &649535236
@@ -1063,7 +1063,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interactionDistance: 2.5
   _slot: {fileID: 1404898836}
-  _mover: {fileID: 0}
+  _mover: {fileID: 649535234}
 --- !u!1001 &690159225
 PrefabInstance:
   m_ObjectHideFlags: 0

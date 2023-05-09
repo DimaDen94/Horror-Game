@@ -7,9 +7,20 @@ public class BlackoutMediator : MonoBehaviour
 
     private void Awake() => DontDestroyOnLoad(this);
 
-    public void Backout() => _animator.SetBool(BlackoutAnimationKey, true);
+    public void Backout()
+    {
+        gameObject.SetActive(true);
+        _animator.SetBool(BlackoutAnimationKey, true);
+    }
 
-    public void Daybreak() => _animator.SetBool(BlackoutAnimationKey, false);
+    public void Daybreak()
+    {
+        gameObject.SetActive(true);
+        _animator.SetBool(BlackoutAnimationKey, false);
+    }
 
-    public void DestroyBlackout() => Destroy(gameObject);
+    public void DestroyBlackout()
+    {
+        gameObject.SetActive(false);
+    }
 }

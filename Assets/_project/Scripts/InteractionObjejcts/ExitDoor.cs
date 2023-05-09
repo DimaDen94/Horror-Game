@@ -15,17 +15,20 @@ public class ExitDoor : InteractionObject
         _uiFactory = uiFactory;
     }
 
-    public override void TryUse(HeroSlot slot)
+    public override bool TryUse(HeroSlot slot)
     {
         if (_nextLevel == LevelEnum.None)
-            return;
+            return false;
 
         if (slot.Thing is ExitKey)
         {
             _audioSource.Play();
-            BlackoutMediator blackout = _uiFactory.CreateBlackout();
-            Invoke("NextLevel",0.5f);
+            _uiFactory.CreateBlackout();
+            Invoke("NextLevel", 0.5f);
+            return true;
+
         }
+        return false;
     }
 
     private void NextLevel()
