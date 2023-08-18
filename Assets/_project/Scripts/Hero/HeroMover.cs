@@ -11,6 +11,9 @@ public class HeroMover : MonoBehaviour
     
     private IInputService _inputService;
     private Camera _camera;
+    private float _speed;
+
+    public float SpeedChangeRate = 10.0f;
 
     public void Construct(IInputService inputService, Camera camera) {
         _inputService = inputService;
@@ -25,8 +28,9 @@ public class HeroMover : MonoBehaviour
     {
         if (_lock)
             return;
-
         Vector3 movementVector = Vector3.zero;
+
+        SpeedCalculate();
 
         if (_inputService.MoveAxis.sqrMagnitude > Constants.Epsilon)
         {
@@ -38,7 +42,32 @@ public class HeroMover : MonoBehaviour
             movementVector = transform.right * _inputService.MoveAxis.x + transform.forward * _inputService.MoveAxis.y;
 
         movementVector += Physics.gravity;
-        _characterController.Move(HeroParameters.MovementSpeed * movementVector * Time.deltaTime);
+        _characterController.Move(_speed * movementVector * Time.deltaTime);
+    }
+
+    private void SpeedCalculate()
+    {
+        float targetSpeed = HeroParameters.MovementSpeed;
+
+        if (_inputService.MoveAxis == Vector2.zero) targetSpeed = 0.0f;
+
+        float currentHorizontalSpeed = new Vector3(_characterController.velocity.x, 0.0f, _characterController.velocity.z).magnitude;
+
+
+        float speedOffset = 0.1f;
+        float inputMagnitude = _inputService.MoveAxis.magnitude;
+
+
+        if (currentHorizontalSpeed < targetSpeed - speedOffset || currentHorizontalSpeed > targetSpeed + speedOffset)
+        {
+            _speed = Mathf.Lerp(currentHorizontalSpeed, targetSpeed * inputMagnitude, Time.deltaTime * SpeedChangeRate);
+
+            _speed = Mathf.Round(_speed * 1000f) / 1000f;
+        }
+        else
+        {
+            _speed = targetSpeed;
+        }
     }
 
     public void Lock() => _lock = true;
