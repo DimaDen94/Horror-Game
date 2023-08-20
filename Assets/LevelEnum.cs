@@ -1,5 +1,4 @@
 ﻿public enum LevelEnum
 {
-   None, Level1, Level2, Level3,
-    Level4
+   None, Level1, Level2, Level3, Level4, Level5
 }

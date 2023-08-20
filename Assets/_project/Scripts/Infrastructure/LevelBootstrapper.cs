@@ -17,11 +17,15 @@ public class LevelBootstrapper : MonoBehaviour
     }
     private void Start()
     {
+        InitHero();
+    }
+
+    protected void InitHero()
+    {
         _camera = Camera.main;
         Hud hud = _uiFactory.CreateGameHud();
-        
+
         _heroMover.Construct(_inputService, _camera);
         _heroMover.GetComponent<Hero>().Construct(hud, _camera, _inputService, _audioService);
     }
-
 }
