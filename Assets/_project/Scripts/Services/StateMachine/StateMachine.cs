@@ -1,20 +1,22 @@
 using System;
 using System.Collections.Generic;
-using Zenject;
 
 public class StateMachine
 {
     private Dictionary<Type, IExitableState> _states;
     private IExitableState _activeState;
+    private ICoroutineRunner _coroutineRunner;
 
-    [Inject]
-    private void Construct(ISceenLoader sceneLoader, IUIFactory uiFactory, IAudioService audioService)
+
+    public void Construct(ISceenLoader sceneLoader, IUIFactory uiFactory, IAudioService audioService, ICoroutineRunner coroutineRunner)
     {
+        _coroutineRunner = coroutineRunner;
         _states = new Dictionary<Type, IExitableState>()
         {
             [typeof(BootstrapState)] = new BootstrapState(this, sceneLoader),
             [typeof(MainMenuState)] = new MainMenuState(this, sceneLoader, uiFactory, audioService),
             [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader, audioService, uiFactory),
+            [typeof(DeadState)] = new DeadState(this, audioService, uiFactory, _coroutineRunner),
         };
     }
 

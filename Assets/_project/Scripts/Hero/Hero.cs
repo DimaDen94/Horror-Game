@@ -1,5 +1,6 @@
 using UnityEngine;
 using DG.Tweening;
+using System.Collections;
 
 public class Hero : MonoBehaviour
 {
@@ -14,14 +15,16 @@ public class Hero : MonoBehaviour
     private Vector3 _centerPosition;
     private IInputService _inputService;
     private IAudioService _audioService;
+    private StateMachine _stateMachine;
 
-    public void Construct(Hud hud, Camera camera, IInputService inputService, IAudioService audioService)
+    public void Construct(Hud hud, Camera camera, IInputService inputService, IAudioService audioService, StateMachine stateMachine)
     {
         _camera = camera;
         _hud = hud;
         _centerPosition = new Vector3(Screen.width / 2, Screen.height / 2, 0);
         _inputService = inputService;
         _audioService = audioService;
+        _stateMachine = stateMachine;
     }
 
     void Update()
@@ -60,6 +63,7 @@ public class Hero : MonoBehaviour
     {
         _mover.Lock();
         transform.DOLookAt(killer.position, 1);
+        _stateMachine.Enter<DeadState>();
     }
 
     void OnDrawGizmosSelected()

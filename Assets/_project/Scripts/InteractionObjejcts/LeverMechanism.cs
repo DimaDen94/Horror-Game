@@ -1,17 +1,17 @@
+using System;
 using DG.Tweening;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class LeverMechanism : InteractionObject
 {
     [SerializeField] private AudioSource _audioSourcePut;
     [SerializeField] private AudioSource _audioSourceSwitch;
+    [SerializeField] private Lever _lever;
     private const int MovementDuration = 2;
-    private Lever _lever;
     private bool _isActivated = false;
-    private Vector3 _leverFinishRotation = new Vector3(0, 0, 0);
+    private Vector3 _leverFinishRotation = new Vector3(0, -90, 90);
 
-    public UnityEvent MechanismActivated;
+    public event Action MechanismActivated;
 
     public override bool TryUse(HeroSlot slot)
     {

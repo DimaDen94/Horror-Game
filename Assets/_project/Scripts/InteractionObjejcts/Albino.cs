@@ -41,7 +41,6 @@ public class Albino : InteractionObject
             _audioSourceAttack.Play();
             transform.LookAt(other.transform);
             other.GetComponent<Hero>().Death(transform);
-            StartCoroutine(RestartGame());
         }
     }
 
@@ -53,11 +52,5 @@ public class Albino : InteractionObject
         _loot.GetComponent<Collider>().enabled = true;
     }
 
-    public IEnumerator RestartGame()
-    {
-        yield return new WaitForSeconds(1);
-        _uiFactory.CreateBlackout();
-        yield return new WaitForSeconds(0.5f);
-        _stateMachine.Enter<LoadLevelState, string>(LevelEnum.Level3.ToString());
-    }
+
 }

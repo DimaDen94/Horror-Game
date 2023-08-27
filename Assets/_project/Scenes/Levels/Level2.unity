@@ -977,6 +977,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _characterController: {fileID: 649535236}
+  SpeedChangeRate: 10
 --- !u!143 &649535236
 CharacterController:
   m_ObjectHideFlags: 0
@@ -3450,7 +3451,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1814988961}
-  - component: {fileID: 1814988960}
+  - component: {fileID: 1814988962}
   m_Layer: 0
   m_Name: Bootstrapper
   m_TagString: Untagged
@@ -3458,19 +3459,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1814988960
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1814988959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 115227f4b361c46adb61405e4daa2074, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _heroMover: {fileID: 649535234}
 --- !u!4 &1814988961
 Transform:
   m_ObjectHideFlags: 0
@@ -3486,6 +3474,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1814988962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1814988959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99fe6ac4346fe46a8acbb2dfefb9aaeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _heroMover: {fileID: 649535234}
+  _wallWithHidingPlace: {fileID: 4232981867202867337}
+  _leverMechanism: {fileID: 2575938327738852596}
 --- !u!1 &1823478656 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 986119350, guid: 5c9c4124d72f4794da50c15ca40dd2ac,
@@ -6220,21 +6223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audioSourcePut: {fileID: 2575938327738852599}
   _audioSourceSwitch: {fileID: 2575938327738852598}
-  MechanismActivated:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4232981867202867337}
-        m_TargetAssemblyTypeName: WallWithHidingPlace, Assembly-CSharp
-        m_MethodName: OpenDamper
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  _lever: {fileID: 0}
 --- !u!65 &2575938327738852597
 BoxCollider:
   m_ObjectHideFlags: 0

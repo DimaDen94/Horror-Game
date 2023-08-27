@@ -2491,6 +2491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _characterController: {fileID: 649535236}
+  SpeedChangeRate: 10
 --- !u!143 &649535236
 CharacterController:
   m_ObjectHideFlags: 0
@@ -9879,7 +9880,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c76c89b75fff478f9f5f406d46630a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _nextLevel: 1
+  _nextLevel: 4
   _audioSource: {fileID: 2049807464}
 --- !u!23 &2049807462
 MeshRenderer:
