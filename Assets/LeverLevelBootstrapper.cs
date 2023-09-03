@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,11 +11,19 @@ public class LeverLevelBootstrapper : LevelBootstrapper
     private void Start()
     {
         InitHero();
-        _leverMechanism.MechanismActivated += _wallWithHidingPlace.OpenDamper;
+        _leverMechanism.MechanismActivated += TryOpenDamper;
+    }
+
+    private void TryOpenDamper()
+    {
+        if(_leverMechanism.IsActivated)
+            _wallWithHidingPlace.OpenDamper();
+        else
+            _wallWithHidingPlace.CloseDamper();
     }
 
     private void OnDestroy()
     {
-        _leverMechanism.MechanismActivated -= _wallWithHidingPlace.OpenDamper;
+        _leverMechanism.MechanismActivated -= TryOpenDamper;
     }
 }

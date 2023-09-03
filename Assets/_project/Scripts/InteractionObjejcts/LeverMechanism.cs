@@ -6,12 +6,20 @@ public class LeverMechanism : InteractionObject
 {
     [SerializeField] private AudioSource _audioSourcePut;
     [SerializeField] private AudioSource _audioSourceSwitch;
+    [SerializeField] private Transform _leverContainer;
     [SerializeField] private Lever _lever;
-    private const int MovementDuration = 2;
+
+    [SerializeField] private Vector3 _leverFinishRotation = new Vector3(0, -90, 0);
+    [SerializeField] private Vector3 _leverStartRotation = new Vector3(0, 0, 0);
+
+    private bool _lock = false;
+    private const int MovementDuration = 3;
     private bool _isActivated = false;
-    private Vector3 _leverFinishRotation = new Vector3(0, -90, 90);
+
 
     public event Action MechanismActivated;
+    
+    public bool IsActivated => _isActivated;
 
     public override bool TryUse(HeroSlot slot)
     {
@@ -20,12 +28,22 @@ public class LeverMechanism : InteractionObject
             PutInSlot((Lever)slot.Thing);
             slot.RemoveThing();
             return true;
-        }
-        else if (_lever != null && !_isActivated) {
-            _lever.transform.DOLocalRotate(_leverFinishRotation, MovementDuration);
+        }else if (_lever != null && !IsActivated && !_lock) {
+            _lock = true;
+            _lever.transform.DOLocalRotate(_leverFinishRotation, MovementDuration).OnComplete(()=> { _lock = false; });
+
             _audioSourceSwitch.Play();
-            MechanismActivated?.Invoke();
             _isActivated = true;
+            MechanismActivated?.Invoke();
+            return true;
+        }else if (_lever != null && IsActivated && !_lock)
+        {
+            _lock = true;
+            _lever.transform.DOLocalRotate(_leverStartRotation, MovementDuration).OnComplete(() => { _lock = false; }); ;
+
+            _audioSourceSwitch.Play();
+            _isActivated = false;
+            MechanismActivated?.Invoke();
             return true;
         }
         return false;
@@ -34,9 +52,9 @@ public class LeverMechanism : InteractionObject
     private void PutInSlot(Lever lever)
     {
         lever.GetComponent<Collider>().enabled = false;
-        lever.transform.parent = transform;
-        lever.transform.DOLocalMove(lever.MechanismSlotPosition, MovementDuration);
-        lever.transform.DOLocalRotate(lever.MechanismSlotRotation, MovementDuration).OnComplete(()=> {
+        lever.transform.parent = _leverContainer;
+        lever.transform.DOMove(_leverContainer.position, MovementDuration);
+        lever.transform.DOLocalRotate(_leverStartRotation, MovementDuration).OnComplete(()=> {
             _audioSourcePut.Play();
         });
         _lever = lever;

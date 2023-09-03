@@ -6223,7 +6223,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audioSourcePut: {fileID: 2575938327738852599}
   _audioSourceSwitch: {fileID: 2575938327738852598}
+  _leverContainer: {fileID: 506214209479976529}
   _lever: {fileID: 0}
+  _leverFinishRotation: {x: 0, y: -90, z: 0}
+  _leverStartRotation: {x: -90, y: -90, z: 0}
 --- !u!65 &2575938327738852597
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7173,8 +7176,6 @@ MonoBehaviour:
   _collider: {fileID: 9078037237114920764}
   _rigidbody: {fileID: 9078037237114920765}
   _slotRotation: {x: 0, y: 0, z: 0}
-  _mechanismSlotRotation: {x: -90, y: 0, z: 0}
-  _mechanismSlotPosition: {x: 0.003893272, y: 0.9976938, z: 0.1236353}
 --- !u!65 &9078037237114920764
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -26802,7 +26802,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.033333335
+  m_VoxelSize: 0.1
   m_BuildHeightMesh: 0
   m_NavMeshData: {fileID: 23800000, guid: 794f2f672981b40429b12463ad36ed61, type: 2}
 --- !u!1 &433488379 stripped
@@ -78677,8 +78677,6 @@ MonoBehaviour:
   _collider: {fileID: 0}
   _rigidbody: {fileID: 0}
   _slotRotation: {x: 0, y: 0, z: 0}
-  _mechanismSlotRotation: {x: -90, y: 0, z: 0}
-  _mechanismSlotPosition: {x: 0.003893272, y: 0.9976938, z: 0.1236353}
 --- !u!23 &1080493796
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -78738,14 +78736,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1080493792}
-  m_LocalRotation: {x: -0.70710677, y: 0, z: 0, w: 0.70710677}
+  m_LocalRotation: {x: -0.5, y: -0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1668446119}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90, y: -90, z: 90}
+  m_LocalEulerAnglesHint: {x: -90, y: -90, z: 0}
 --- !u!1 &1086826420
 GameObject:
   m_ObjectHideFlags: 0
@@ -108888,7 +108886,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audioSourcePut: {fileID: 1888973822}
   _audioSourceSwitch: {fileID: 1888973821}
+  _leverContainer: {fileID: 0}
   _lever: {fileID: 1080493793}
+  _leverFinishRotation: {x: 0, y: -90, z: 0}
+  _leverStartRotation: {x: -90, y: -90, z: 0}
 --- !u!4 &1888973825
 Transform:
   m_ObjectHideFlags: 0

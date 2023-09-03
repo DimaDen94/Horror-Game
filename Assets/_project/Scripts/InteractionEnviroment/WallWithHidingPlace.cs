@@ -12,4 +12,9 @@ public class WallWithHidingPlace : MonoBehaviour
         _damper.DOMove(Vector3.up * _movingDistanceUp, 2);
         _loot.SetActive(true);
     }
+
+    public void CloseDamper()
+    {
+        _damper.DOMove(Vector3.up * -_movingDistanceUp, 2);
+    }
 }

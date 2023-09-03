@@ -12,11 +12,22 @@ public class ClownLevelBootstrupper : LevelBootstrapper
     {
         InitHero();
 
-        _leverMechanism.MechanismActivated += _clownGate.OpenGate;
-        _leverMechanism.MechanismActivated += _lvlGate.OpenGate;
+        _leverMechanism.MechanismActivated += SwitchGates;
         _clownGate.GateOpened += StartHorrorStep;
 
         _enemy.GetComponent<EnemyStateMachine>().SetTarget(_heroMover.GetComponent<Hero>());
+    }
+
+    private void SwitchGates()
+    {
+        if (_leverMechanism.IsActivated)
+        {
+            _clownGate.OpenGate();
+            _lvlGate.OpenGate();
+        }else {
+            _clownGate.CloseGate();
+            _lvlGate.CloseGate();
+        }
     }
 
     private void StartHorrorStep()
@@ -28,8 +39,7 @@ public class ClownLevelBootstrupper : LevelBootstrapper
 
     private void OnDestroy()
     {
-        _leverMechanism.MechanismActivated -= _clownGate.OpenGate;
-        _leverMechanism.MechanismActivated -= _lvlGate.OpenGate;
+        _leverMechanism.MechanismActivated -= SwitchGates;
         _clownGate.GateOpened -= StartHorrorStep;
     }
 }
