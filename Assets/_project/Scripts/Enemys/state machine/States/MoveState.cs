@@ -19,6 +19,7 @@ public class MoveState : State
             Target = GetComponent<EnemyStateMachine>().Target;
 
         _time = _delay;
+        _navMeshAgent.isStopped = false;
     }
 
     private void Update()
@@ -26,7 +27,7 @@ public class MoveState : State
         if (Target != null)
         {
             _navMeshAgent.SetDestination(Target.gameObject.transform.position);
-
+            
             Debug.DrawLine(transform.position, Target.transform.position, Color.red);
         }
 

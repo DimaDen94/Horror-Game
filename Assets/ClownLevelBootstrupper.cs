@@ -15,7 +15,7 @@ public class ClownLevelBootstrupper : LevelBootstrapper
         _leverMechanism.MechanismActivated += SwitchGates;
         _clownGate.GateOpened += StartHorrorStep;
 
-        _enemy.GetComponent<EnemyStateMachine>().SetTarget(_heroMover.GetComponent<Hero>());
+        _enemy.GetComponent<EnemyStateMachine>().SetTarget(_heroMover.transform);
     }
 
     private void SwitchGates()
@@ -32,7 +32,7 @@ public class ClownLevelBootstrupper : LevelBootstrapper
 
     private void StartHorrorStep()
     {
-        _enemy.GetComponent<FollowHeroTransition>().Follow();
+        _enemy.GetComponent<FollowTargetTransition>().Follow();
         _audioService.PlayBackMusic(SoundEnum.HorrorLoopMusic);
 
     }

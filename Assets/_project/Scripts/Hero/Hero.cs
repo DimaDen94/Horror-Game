@@ -2,7 +2,7 @@ using UnityEngine;
 using DG.Tweening;
 using System.Collections;
 
-public class Hero : MonoBehaviour
+public class Hero : MonoBehaviour, IHitable
 {
     [SerializeField] private HeroSlot _slot;
     [SerializeField] private HeroMover _mover;
@@ -98,5 +98,10 @@ public class Hero : MonoBehaviour
             _hud.ShowDropButton();
         else
             _hud.HideDropButton();
+    }
+
+    public void Hit(Transform striking)
+    {
+        Death(striking);
     }
 }

@@ -7,13 +7,13 @@ public abstract class State : MonoBehaviour
 {
     [SerializeField] private List<Transition> _transitions;
 
-    [SerializeField]public Hero Target {get;protected set;}
+    [SerializeField]public Transform Target {get;protected set;}
 
 
-    public void Enter(Hero target) {
+    public void Enter(Transform target) {
         Target = target;
         enabled = true;
-        foreach (var transition in _transitions) {
+        foreach (Transition transition in _transitions) {
             transition.enabled = true;
             transition.Init(Target);
         }

@@ -1,14 +1,32 @@
 ﻿using DG.Tweening;
 using UnityEngine;
 
-public class ThingSlot : MonoBehaviour
+public class ThingSlot : InteractionObject
 {
     private const int PutDuration = 1;
 
     private LiftedThing _thing;
 
+    public LiftedThing Thing  => _thing;
+
+    public override bool TryUse(HeroSlot slot)
+    {
+        if (!(slot.Thing is WeightThing))
+            return false;
+        else
+        {
+            PutThing(slot.Thing);
+            slot.RemoveThing();
+            return true;
+        }
+
+    }
+
     public void PutThing(LiftedThing thing)
     {
+        if (!(thing is WeightThing))
+            return;
+
         _thing = thing;
         _thing.GetComponent<Collider>().enabled = false;
         MoveToSlot();
@@ -22,4 +40,5 @@ public class ThingSlot : MonoBehaviour
     }
 
     public bool IsEmpty => _thing == null;
+
 }

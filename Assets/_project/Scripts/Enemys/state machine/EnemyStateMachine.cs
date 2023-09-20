@@ -1,7 +1,7 @@
 using UnityEngine;
 public class EnemyStateMachine : MonoBehaviour
 {
-    private Hero _target;
+    private Transform _target;
 
     private State _currentState;
 
@@ -9,10 +9,10 @@ public class EnemyStateMachine : MonoBehaviour
 
     public State CurrentState => _currentState;
 
-    public Hero Target { get => _target; set => _target = value; }
+    public Transform Target { get => _target; set => _target = value; }
 
 
-    public void SetTarget(Hero hero)
+    public void SetTarget(Transform hero)
     {
         _target = hero;
     }

@@ -24,6 +24,6 @@ public class MainMenuMediator : MonoBehaviour
 
     private void StartGame()
     {
-        _stateMachine.Enter<LoadLevelState, string>(LevelEnum.Level8.ToString());
+        _stateMachine.Enter<LoadLevelState, string>(LevelEnum.Level9.ToString());
     }
 }

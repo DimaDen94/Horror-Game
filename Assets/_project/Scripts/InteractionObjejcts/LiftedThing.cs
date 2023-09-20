@@ -1,5 +1,4 @@
 using System;
-using DG.Tweening;
 using UnityEngine;
 
 public class LiftedThing : InteractionObject
@@ -10,10 +9,14 @@ public class LiftedThing : InteractionObject
 
     public Vector3 SlotRotation => _slotRotation;
 
+    public event Action Lifted;
+
     public void DisablePhysics() {
         _collider.isTrigger = true;
         _rigidbody.useGravity = false;
         _rigidbody.Sleep();
+
+        Lifted?.Invoke();
     }
 
     public void EnablePhysics()
@@ -22,6 +25,4 @@ public class LiftedThing : InteractionObject
         _rigidbody.useGravity = true;
         _rigidbody.WakeUp();
     }
-
-   
 }
