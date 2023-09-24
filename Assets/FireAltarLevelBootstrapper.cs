@@ -12,10 +12,10 @@ public class FireAltarLevelBootstrapper : LevelBootstrapper
     void Start()
     {
         InitHero();
-        //_torch.Lifted += StartHorrorStep;
+        _torch.Lifted += StartHorrorStep;
         _enemy.GetComponent<EnemyStateMachine>().SetTarget(_barrier.transform);
         _barrier.BarrierDestroyed += FollowHero;
-        StartHorrorStep();
+        //StartHorrorStep();
     }
 
     private void FollowHero()
