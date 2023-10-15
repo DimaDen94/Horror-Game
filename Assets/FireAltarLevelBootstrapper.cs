@@ -9,13 +9,12 @@ public class FireAltarLevelBootstrapper : LevelBootstrapper
     [SerializeField] private Enemy _enemy;
     [SerializeField] private LiftedThing _torch;
 
-    void Start()
+    private new void Start()
     {
-        InitHero();
+        base.Start();
         _torch.Lifted += StartHorrorStep;
         _enemy.GetComponent<EnemyStateMachine>().SetTarget(_barrier.transform);
         _barrier.BarrierDestroyed += FollowHero;
-        //StartHorrorStep();
     }
 
     private void FollowHero()

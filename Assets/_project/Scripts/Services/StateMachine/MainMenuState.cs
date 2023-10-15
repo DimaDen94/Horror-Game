@@ -6,13 +6,15 @@ public class MainMenuState : IState
     private ISceenLoader _sceneLoader;
     private IUIFactory _uiFactory;
     private IAudioService _audioService;
+    private IProgressService _progressService;
 
-    public MainMenuState(StateMachine stateMachine, ISceenLoader sceneLoader, IUIFactory uiFactory, IAudioService audioService)
+    public MainMenuState(StateMachine stateMachine, ISceenLoader sceneLoader, IUIFactory uiFactory, IAudioService audioService, IProgressService progressService)
     {
         _stateMachine = stateMachine;
         _sceneLoader = sceneLoader;
         _uiFactory = uiFactory;
         _audioService = audioService;
+        _progressService = progressService;
     }
 
     public void Enter()
@@ -25,7 +27,7 @@ public class MainMenuState : IState
     private void OnLoad()
     {
         MainMenuMediator hud = _uiFactory.CreateMainMenuHud();
-        hud.Construct(_stateMachine, _audioService);
+        hud.Construct(_stateMachine, _audioService,_progressService);
     }
 
     public void Exit()

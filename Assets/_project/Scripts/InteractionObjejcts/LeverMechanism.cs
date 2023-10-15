@@ -1,5 +1,6 @@
 using System;
 using DG.Tweening;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class LeverMechanism : InteractionObject
@@ -59,4 +60,10 @@ public class LeverMechanism : InteractionObject
         });
         _lever = lever;
     }
+
+    [Button]
+    private void MechanismActivateTest() {
+        MechanismActivated?.Invoke();
+    }
+
 }

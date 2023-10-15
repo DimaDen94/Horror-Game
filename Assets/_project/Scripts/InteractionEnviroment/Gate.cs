@@ -15,17 +15,23 @@ public class Gate : MonoBehaviour
 
     public void OpenGate() {
         _metalSound.Play();
-        _matalGrate.DOMoveY(YOffset, OpenDuration).OnComplete(()=> {
-            if(_isClose)
+        _matalGrate.DOLocalMoveY(YOffset, OpenDuration).OnComplete(()=> {
+            if (_isClose)
+            {
                 GateOpened?.Invoke();
+                _matalGrate.gameObject.SetActive(false);
+            }
             _isClose = false;
         });
     }
 
     public void CloseGate()
     {
+        if (!_matalGrate.gameObject.activeSelf)
+            _matalGrate.gameObject.SetActive(true);
+
         Debug.Log("Close");
         _metalSound.Play();
-        _matalGrate.DOMoveY(0, OpenDuration);
+        _matalGrate.DOLocalMoveY(0, OpenDuration);
     }
 }

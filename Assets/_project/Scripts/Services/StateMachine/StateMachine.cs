@@ -8,15 +8,16 @@ public class StateMachine
     private ICoroutineRunner _coroutineRunner;
 
 
-    public void Construct(ISceenLoader sceneLoader, IUIFactory uiFactory, IAudioService audioService, ICoroutineRunner coroutineRunner)
+    public void Construct(ISceenLoader sceneLoader, IUIFactory uiFactory, IAudioService audioService, ICoroutineRunner coroutineRunner, IProgressService progressService)
     {
         _coroutineRunner = coroutineRunner;
         _states = new Dictionary<Type, IExitableState>()
         {
             [typeof(BootstrapState)] = new BootstrapState(this, sceneLoader),
-            [typeof(MainMenuState)] = new MainMenuState(this, sceneLoader, uiFactory, audioService),
+            [typeof(MainMenuState)] = new MainMenuState(this, sceneLoader, uiFactory, audioService, progressService),
             [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader, audioService, uiFactory),
             [typeof(DeadState)] = new DeadState(this, audioService, uiFactory, _coroutineRunner),
+            [typeof(GameCompletedState)] = new GameCompletedState(this, audioService, uiFactory, _coroutineRunner),
         };
     }
 

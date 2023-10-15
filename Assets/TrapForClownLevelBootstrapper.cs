@@ -12,9 +12,9 @@ public class TrapForClownLevelBootstrapper : LevelBootstrapper
 
     [SerializeField] private Enemy _clown;
 
-    private void Start()
+    private new void Start()
     {
-        InitHero();
+        base.Start();
         _clown.GetComponent<EnemyStateMachine>().SetTarget(_heroMover.transform);
 
         _clownLeverMechanism.MechanismActivated += TryOpenClownGate;

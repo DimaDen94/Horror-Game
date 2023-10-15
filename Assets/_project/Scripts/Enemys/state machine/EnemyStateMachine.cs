@@ -15,11 +15,13 @@ public class EnemyStateMachine : MonoBehaviour
     public void SetTarget(Transform hero)
     {
         _target = hero;
+        _currentState?.Enter(_target);
     }
 
     private void Awake()
     {
         _currentState = _firstState;
+        _currentState.Enter(_target);
     }
 
 
@@ -27,7 +29,7 @@ public class EnemyStateMachine : MonoBehaviour
     {
         if (_currentState == null)
             return;
-        var nextState = _currentState.GetNextState();
+        State nextState = _currentState.GetNextState();
         if (nextState != null)
             Transit(nextState);
     }

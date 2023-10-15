@@ -8,13 +8,11 @@ public class ClownLevelBootstrupper : LevelBootstrapper
     [SerializeField] private Enemy _enemy;
     [SerializeField] private LeverMechanism _leverMechanism;
 
-    private void Start()
+    private new void Start()
     {
-        InitHero();
-
+        base.Start();
         _leverMechanism.MechanismActivated += SwitchGates;
         _clownGate.GateOpened += StartHorrorStep;
-
         _enemy.GetComponent<EnemyStateMachine>().SetTarget(_heroMover.transform);
     }
 
@@ -42,4 +40,6 @@ public class ClownLevelBootstrupper : LevelBootstrapper
         _leverMechanism.MechanismActivated -= SwitchGates;
         _clownGate.GateOpened -= StartHorrorStep;
     }
+
+
 }

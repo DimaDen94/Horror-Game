@@ -21,4 +21,6 @@ public class UIFactory : IUIFactory
 
     public BlackoutMediator CreateBlackout() => _blackout = _assetProvider.Instantiate(AsserPath.BlackoutPath).GetComponent<BlackoutMediator>();
 
+    public BlackoutMediator CreateFinishBlackout() => _blackout = _assetProvider.Instantiate(AsserPath.FinishBlackoutPath).GetComponent<BlackoutMediator>();
+
 }

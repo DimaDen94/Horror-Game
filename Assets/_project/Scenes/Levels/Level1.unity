@@ -1027,10 +1027,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _characterController: {fileID: 649535236}
-  _movementSpeed: 4
-  _rotationSpeed: 120
-  _topCameraClamp: 90
-  _bottomCameraClamp: -90
+  SpeedChangeRate: 10
 --- !u!143 &649535236
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1061,7 +1058,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d7d242486b824321bebdd72d3c0a733, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactionDistance: 2.5
   _slot: {fileID: 1404898836}
   _mover: {fileID: 649535234}
 --- !u!1001 &690159225
@@ -1896,7 +1892,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c76c89b75fff478f9f5f406d46630a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _nextLevel: 2
   _audioSource: {fileID: 964762612}
 --- !u!23 &964762610
 MeshRenderer:
@@ -3780,6 +3775,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _heroMover: {fileID: 649535234}
+  _nextLevel: 2
+  _exitDoor: {fileID: 964762609}
 --- !u!4 &1814988961
 Transform:
   m_ObjectHideFlags: 0

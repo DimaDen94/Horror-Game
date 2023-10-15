@@ -9,21 +9,27 @@ public class MainMenuMediator : MonoBehaviour
     [SerializeField] private Button _adOff;
 
     private StateMachine _stateMachine;
+    private IProgressService _progressService;
 
-    public void Construct(StateMachine stateMachine, IAudioService audioService) {
+    public void Construct(StateMachine stateMachine, IAudioService audioService, IProgressService progressService) {
         _stateMachine = stateMachine;
-
+        _progressService = progressService;
         _continue.GetComponent<ButtonClickPlayer>().Construct(audioService);
         _newGame.GetComponent<ButtonClickPlayer>().Construct(audioService);
         _setting.GetComponent<ButtonClickPlayer>().Construct(audioService);
         _adOff.GetComponent<ButtonClickPlayer>().Construct(audioService);
 
-        _continue.onClick.AddListener(StartGame);
-        _newGame.onClick.AddListener(StartGame);
+        _continue.onClick.AddListener(Continue);
+        _newGame.onClick.AddListener(NewGame);
     }
 
-    private void StartGame()
+    private void NewGame()
     {
-        _stateMachine.Enter<LoadLevelState, string>(LevelEnum.Level9.ToString());
+        _progressService.ResetProgress();
+        _stateMachine.Enter<LoadLevelState, string>(_progressService.GetCurrentLevel().ToString());
+    }
+    private void Continue()
+    {
+        _stateMachine.Enter<LoadLevelState, string>(_progressService.GetCurrentLevel().ToString());
     }
 }

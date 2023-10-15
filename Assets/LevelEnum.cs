@@ -4,5 +4,6 @@
     Level6,
     Level7,
     Level8,
-    Level9
+    Level9,
+    Level10
 }

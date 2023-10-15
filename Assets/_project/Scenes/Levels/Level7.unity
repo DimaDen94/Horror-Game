@@ -108216,6 +108216,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _heroMover: {fileID: 649535234}
+  _nextLevel: 8
+  _exitDoor: {fileID: 2049807461}
   _clownGate: {fileID: 8347762596577640728}
   _lvlGate: {fileID: 8347762596076611741}
   _enemy: {fileID: 1259267036}
@@ -124520,7 +124522,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c76c89b75fff478f9f5f406d46630a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _nextLevel: 8
   _audioSource: {fileID: 2049807464}
 --- !u!23 &2049807462
 MeshRenderer:

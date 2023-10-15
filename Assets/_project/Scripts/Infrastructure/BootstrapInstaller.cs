@@ -9,6 +9,9 @@ public class BootstrapInstaller : MonoInstaller
 
     public override void InstallBindings()
     {
+        BindPlayerPrefsService();
+        BindJsonConvertor();
+        ProgressService();
         BindSceenLoader();
         BindAudioServiceLoader();
         BindInputService();
@@ -17,6 +20,12 @@ public class BootstrapInstaller : MonoInstaller
         BindUIFactory();
         BindGameBootstrapper();
     }
+
+    private void BindPlayerPrefsService() => Container.Bind<IPlayerPrefsService>().To<PlayerPrefsService>().AsSingle();
+
+    private void BindJsonConvertor() => Container.Bind<IJsonConvertor>().To<JsonConvertor>().AsSingle();
+
+    private void ProgressService() => Container.Bind<IProgressService>().To<ProgressService>().AsSingle();
 
     private void BindAudioServiceLoader() => Container.Bind<IAudioService>().To<AudioService>().AsSingle();
 

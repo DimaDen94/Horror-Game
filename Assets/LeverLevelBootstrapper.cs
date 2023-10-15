@@ -8,9 +8,9 @@ public class LeverLevelBootstrapper : LevelBootstrapper
     [SerializeField] private WallWithHidingPlace _wallWithHidingPlace;
     [SerializeField] private LeverMechanism _leverMechanism;
 
-    private void Start()
+    private new void Start()
     {
-        InitHero();
+        base.Start();
         _leverMechanism.MechanismActivated += TryOpenDamper;
     }
 
