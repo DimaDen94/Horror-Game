@@ -27,6 +27,8 @@ public class MoveState : State
         if (Target != null)
         {
             _navMeshAgent.SetDestination(Target.gameObject.transform.position);
+            //_animator.SetTrigger("Walk");
+            _animator.SetFloat("RunSpeed", _navMeshAgent.velocity.magnitude);
             
             Debug.DrawLine(transform.position, Target.transform.position, Color.red);
         }

@@ -26,7 +26,8 @@ public class MainMenuMediator : MonoBehaviour
     private void NewGame()
     {
         _progressService.ResetProgress();
-        _stateMachine.Enter<LoadLevelState, string>(_progressService.GetCurrentLevel().ToString());
+        //_stateMachine.Enter<LoadLevelState, string>(_progressService.GetCurrentLevel().ToString());
+        _stateMachine.Enter<LoadLevelState, string>(LevelEnum.Level8.ToString());
     }
     private void Continue()
     {

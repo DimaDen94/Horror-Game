@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class HeroMover : MonoBehaviour
 {
+    private const string AnimationKey = "Speed";
     [SerializeField] private CharacterController _characterController;
+    [SerializeField] private Animator _animator;
 
     private bool _lock = false;
 
@@ -67,6 +69,7 @@ public class HeroMover : MonoBehaviour
         else
         {
             _speed = targetSpeed;
+            _animator.SetFloat(AnimationKey, _speed);
         }
     }
 
