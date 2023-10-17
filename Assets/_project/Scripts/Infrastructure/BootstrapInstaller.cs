@@ -18,6 +18,7 @@ public class BootstrapInstaller : MonoInstaller
         BindStateMachine();
         BindAssetProvider();
         BindUIFactory();
+        BindGameFactory();
         BindGameBootstrapper();
     }
 
@@ -32,6 +33,8 @@ public class BootstrapInstaller : MonoInstaller
     private void BindAssetProvider() => Container.Bind<IAssetProvider>().To<AssetProvider>().AsSingle();
 
     private void BindUIFactory() => Container.Bind<IUIFactory>().To<UIFactory>().AsSingle();
+
+    private void BindGameFactory() => Container.Bind<IGameFactory>().To<GameFactory>().AsSingle();
 
     private void BindSceenLoader()
     {

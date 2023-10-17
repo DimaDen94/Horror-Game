@@ -4,4 +4,5 @@
     public const string MainMenuHudPath = "UI/MainMenuHud";
     public const string BlackoutPath = "UI/Blackout";
     public const string FinishBlackoutPath = "UI/Finish";
+    public const string HeroPath = "Hero/Hero";
 }

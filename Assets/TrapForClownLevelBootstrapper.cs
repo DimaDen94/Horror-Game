@@ -15,7 +15,7 @@ public class TrapForClownLevelBootstrapper : LevelBootstrapper
     private new void Start()
     {
         base.Start();
-        _clown.GetComponent<EnemyStateMachine>().SetTarget(_heroMover.transform);
+        _clown.GetComponent<EnemyStateMachine>().SetTarget(_hero.transform);
 
         _clownLeverMechanism.MechanismActivated += TryOpenClownGate;
         _firstLeverMechanism.MechanismActivated += TryOpenFirstGate;

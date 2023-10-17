@@ -20,7 +20,7 @@ public class FinalLevelBootstrapper : LevelBootstrapper
         base.Start();
         _startLevelar.MechanismActivated += OnStartLevelar;
         _bridgeLevelar.MechanismActivated += MoveBridge;
-        _enemy.GetComponent<EnemyStateMachine>().SetTarget(_heroMover.transform);
+        _enemy.GetComponent<EnemyStateMachine>().SetTarget(_hero.transform);
 
         _bridge.BridgeCompleted += OnBridgeCompleted;
         _lastLevelar.MechanismActivated += OnFinishLevelar;

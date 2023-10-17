@@ -4,34 +4,37 @@ using Zenject;
 
 public class LevelBootstrapper : MonoBehaviour
 {
-    [SerializeField] protected HeroMover _heroMover;
+    [SerializeField] protected Vector3 _heroStartPosition;
     [SerializeField] protected LevelEnum _nextLevel;
     [SerializeField] protected ExitDoor _exitDoor;
+    [SerializeField] protected GameObject _startCamera;
 
-    private IInputService _inputService;
-    private IUIFactory _uiFactory;
     protected IAudioService _audioService;
     protected StateMachine _stateMachine;
+    protected Hero _hero;
+    private IInputService _inputService;
+    private IUIFactory _uiFactory;
     private IProgressService _progressService;
-    private Camera _camera;
-    
+    private IGameFactory _gameFactory;
 
     [Inject]
-    private void Construct(IInputService inputService, IUIFactory uiFactory, IAudioService audioService, StateMachine stateMachine, IProgressService progressService) {
+    private void Construct(IInputService inputService, IUIFactory uiFactory, IAudioService audioService,
+        StateMachine stateMachine, IProgressService progressService, IGameFactory gameFactory) {
         _inputService = inputService;
         _uiFactory = uiFactory;
         _audioService = audioService;
         _stateMachine = stateMachine;
         _progressService = progressService;
+        _gameFactory = gameFactory;
     }
 
     protected void Start()
     {
+        _startCamera.SetActive(false);
         InitHero();
         if (_exitDoor != null)
             _exitDoor.ExitDoorOpened += OnExitDoorOpened;
     }
-
 
     private void OnExitDoorOpened()
     {
@@ -46,14 +49,11 @@ public class LevelBootstrapper : MonoBehaviour
         _stateMachine.Enter<LoadLevelState, string>(_nextLevel.ToString());
     }
 
-
     private void InitHero()
     {
-        _camera = Camera.main;
         Hud hud = _uiFactory.CreateGameHud();
-
-        _heroMover.Construct(_inputService, _camera);
-        _heroMover.GetComponent<Hero>().Construct(hud, _camera, _inputService, _audioService,_stateMachine);
+        _hero = _gameFactory.CreateHero();
+        _hero.Construct(hud, _inputService, _audioService,_stateMachine, _heroStartPosition);
     }
 
     private void OnDestroy()

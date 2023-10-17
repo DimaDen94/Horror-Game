@@ -13,7 +13,7 @@ public class ClownLevelBootstrupper : LevelBootstrapper
         base.Start();
         _leverMechanism.MechanismActivated += SwitchGates;
         _clownGate.GateOpened += StartHorrorStep;
-        _enemy.GetComponent<EnemyStateMachine>().SetTarget(_heroMover.transform);
+        _enemy.GetComponent<EnemyStateMachine>().SetTarget(_hero.transform);
     }
 
     private void SwitchGates()

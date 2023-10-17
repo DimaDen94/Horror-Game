@@ -1,13 +1,12 @@
 using UnityEngine;
 using DG.Tweening;
-using System.Collections;
 
 public class Hero : MonoBehaviour, IHitable
 {
     [SerializeField] private HeroSlot _slot;
     [SerializeField] private HeroMover _mover;
+    [SerializeField] private Camera _camera;
 
-    private Camera _camera;
     private Hud _hud;
 
     private InteractionObject _currentInteractionObject;
@@ -17,14 +16,15 @@ public class Hero : MonoBehaviour, IHitable
     private IAudioService _audioService;
     private StateMachine _stateMachine;
 
-    public void Construct(Hud hud, Camera camera, IInputService inputService, IAudioService audioService, StateMachine stateMachine)
+    public void Construct(Hud hud, IInputService inputService, IAudioService audioService, StateMachine stateMachine, Vector3 heroStartPosition)
     {
-        _camera = camera;
         _hud = hud;
         _centerPosition = new Vector3(Screen.width / 2, Screen.height / 2, 0);
         _inputService = inputService;
         _audioService = audioService;
         _stateMachine = stateMachine;
+        _mover.Construct(inputService, _camera);
+        transform.position = heroStartPosition;
     }
 
     void Update()

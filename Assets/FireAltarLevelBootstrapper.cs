@@ -19,7 +19,7 @@ public class FireAltarLevelBootstrapper : LevelBootstrapper
 
     private void FollowHero()
     {
-        _enemy.GetComponent<EnemyStateMachine>().SetTarget(_heroMover.transform);
+        _enemy.GetComponent<EnemyStateMachine>().SetTarget(_hero.transform);
         _enemy.GetComponent<FollowTargetTransition>().Follow();
     }
 
