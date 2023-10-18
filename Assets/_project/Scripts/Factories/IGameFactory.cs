@@ -1,4 +1,6 @@
-﻿public interface IGameFactory
+﻿using UnityEngine;
+
+public interface IGameFactory
 {
-    Hero CreateHero();
+    Hero CreateHero(Vector3 _heroStartPosition, Quaternion quaternion);
 }

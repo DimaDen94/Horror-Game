@@ -5,6 +5,7 @@ using Zenject;
 public class LevelBootstrapper : MonoBehaviour
 {
     [SerializeField] protected Vector3 _heroStartPosition;
+    [SerializeField] protected Vector3 _heroStartRotation;
     [SerializeField] protected LevelEnum _nextLevel;
     [SerializeField] protected ExitDoor _exitDoor;
     [SerializeField] protected GameObject _startCamera;
@@ -52,8 +53,8 @@ public class LevelBootstrapper : MonoBehaviour
     private void InitHero()
     {
         Hud hud = _uiFactory.CreateGameHud();
-        _hero = _gameFactory.CreateHero();
-        _hero.Construct(hud, _inputService, _audioService,_stateMachine, _heroStartPosition);
+        _hero = _gameFactory.CreateHero(_heroStartPosition, Quaternion.Euler(_heroStartRotation));
+        _hero.Construct(hud, _inputService, _audioService,_stateMachine, _heroStartPosition, _heroStartRotation);
     }
 
     private void OnDestroy()
