@@ -16,15 +16,21 @@ public class AudioService : IAudioService
     public string TotalSoundsPath = "Audio/Total Sounds";
     public string AudioContainerPath = "Audio/AudioContainer";
 
+    private SoundEnum _curentMusic = SoundEnum.None;
+
     public AudioService() {
         _totalSounds = Resources.Load<TotalAudio>(TotalSoundsPath);
         _audioContainer = Object.Instantiate(Resources.Load<AudioContainer>(AudioContainerPath));
-        CreateSoundSources();
 
         _mixer = Resources.Load<AudioMixer>(AudioMixerPath);
         _soundGroup = _mixer.FindMatchingGroups(AudioEnum.Sound.ToString())[0];
         _musicGroup = _mixer.FindMatchingGroups(AudioEnum.Music.ToString())[0];
+        CreateSoundSources();
+
+        LoadVolumeData();
     }
+
+
 
     private void CreateSoundSources()
     {
@@ -52,8 +58,11 @@ public class AudioService : IAudioService
         {
             if (audioData.soundName == soundEnum)
             {
-                audioData.source.Play();
+                if(soundEnum != _curentMusic)
+                    audioData.source.Play();
+
                 _deaultMusicVolume = audioData.valume;
+                _curentMusic = soundEnum;
             }
             else {
                 audioData.source.Stop();
@@ -107,4 +116,22 @@ public class AudioService : IAudioService
         else
             _mixer.SetFloat(_audioType.ToString(), -80f);
     }
+
+    public void SoundEnable(bool enable)
+    {
+        PlayerPrefs.SetString(AudioEnum.Sound.ToString(), enable.ToString());
+        SwitchVolume(AudioEnum.Sound, enable);
+    }
+
+    public void MusicEnable(bool enable)
+    {
+        PlayerPrefs.SetString(AudioEnum.Music.ToString(), enable.ToString());
+        SwitchVolume(AudioEnum.Music, enable);
+    }
+
+
+    public bool IsSoundEnable() => PlayerPrefs.GetString(AudioEnum.Sound.ToString(), true.ToString()).Equals("True");
+
+    public bool IsMusicEnable() => PlayerPrefs.GetString(AudioEnum.Music.ToString(), true.ToString()).Equals("True");
+
 }

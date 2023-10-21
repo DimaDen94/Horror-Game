@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731713, g: 0.13414736, b: 0.121078536, a: 1}
+  m_IndirectSpecularColor: {r: 0.12733805, g: 0.13418624, b: 0.12118639, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3081,11 +3081,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1814988959}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99fe6ac4346fe46a8acbb2dfefb9aaeb, type: 3}
+  m_Script: {fileID: 11500000, guid: 7e883e4197e674ae5b736e11e39be699, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _heroStartPosition: {x: 0, y: 0, z: -3}
-  _nextLevel: 3
+  _heroStartRotation: {x: 0, y: 0, z: 0}
+  _nextLevel: 0
   _exitDoor: {fileID: 346938424100320219}
   _startCamera: {fileID: 925196571}
   _wallWithHidingPlace: {fileID: 4232981867202867337}

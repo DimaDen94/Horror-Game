@@ -13,7 +13,8 @@ public class BootstrapInstaller : MonoInstaller
         BindJsonConvertor();
         ProgressService();
         BindSceenLoader();
-        BindAudioServiceLoader();
+        BindAudioService();
+        BindVibrationService();
         BindInputService();
         BindStateMachine();
         BindAssetProvider();
@@ -28,7 +29,9 @@ public class BootstrapInstaller : MonoInstaller
 
     private void ProgressService() => Container.Bind<IProgressService>().To<ProgressService>().AsSingle();
 
-    private void BindAudioServiceLoader() => Container.Bind<IAudioService>().To<AudioService>().AsSingle();
+    private void BindAudioService() => Container.Bind<IAudioService>().To<AudioService>().AsSingle();
+
+    private void BindVibrationService() => Container.Bind<IVibrationService>().To<VibrationService>().AsSingle();
 
     private void BindAssetProvider() => Container.Bind<IAssetProvider>().To<AssetProvider>().AsSingle();
 

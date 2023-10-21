@@ -6,5 +6,6 @@
     Click,
     Drop,
     PickUp,
-    Wrong
+    Wrong,
+    None
 }

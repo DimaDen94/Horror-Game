@@ -8,18 +8,21 @@ public class DeadState : IState
     private IAudioService _audioService;
     private IUIFactory _uiFactory;
     private ICoroutineRunner _coroutineRunner;
+    private IVibrationService _vibrationService;
 
-    public DeadState(StateMachine stateMachine, IAudioService audioService, IUIFactory uiFactory, ICoroutineRunner coroutineRunner)
+    public DeadState(StateMachine stateMachine, IAudioService audioService, IUIFactory uiFactory, ICoroutineRunner coroutineRunner, IVibrationService vibrationService)
     {
         _stateMachine = stateMachine;
         _audioService = audioService;
         _uiFactory = uiFactory;
         _coroutineRunner = coroutineRunner;
+        _vibrationService = vibrationService;
     }
 
     public void Enter()
     {
         _coroutineRunner.StartCoroutine(RestartGame());
+        _vibrationService.TryVibration();
     }
 
     public void Exit()

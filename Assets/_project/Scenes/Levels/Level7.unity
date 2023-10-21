@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731713, g: 0.13414736, b: 0.121078536, a: 1}
+  m_IndirectSpecularColor: {r: 0.12733805, g: 0.13418624, b: 0.12118639, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -102690,14 +102690,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1740313014}
-  m_LocalRotation: {x: 0, y: -0.9650165, z: 0, w: 0.26218915}
-  m_LocalPosition: {x: 16.5, y: 1.5, z: 6}
+  m_LocalRotation: {x: 0, y: -0.98884755, z: 0, w: 0.14893135}
+  m_LocalPosition: {x: 16.4, y: 1.5, z: 7.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: -149.6, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -162.87, z: 0}
 --- !u!1 &1742836801 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 411475a4c20fb334f9c51ba8605afc61,
@@ -107793,11 +107793,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1814988959}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51c1fc60874c349ebacac49b661c8e5e, type: 3}
+  m_Script: {fileID: 11500000, guid: 827295ad5539d4184b3c50e4a1f12eea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _heroStartPosition: {x: 16.5, y: 0, z: 6}
-  _heroStartRotation: {x: 0, y: 200, z: 0}
+  _heroStartRotation: {x: 0, y: -160, z: 0}
   _nextLevel: 8
   _exitDoor: {fileID: 2049807461}
   _startCamera: {fileID: 1740313014}

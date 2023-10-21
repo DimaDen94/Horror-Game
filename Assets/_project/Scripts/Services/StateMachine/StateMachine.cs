@@ -8,16 +8,19 @@ public class StateMachine
     private ICoroutineRunner _coroutineRunner;
 
 
-    public void Construct(ISceenLoader sceneLoader, IUIFactory uiFactory, IAudioService audioService, ICoroutineRunner coroutineRunner, IProgressService progressService)
+    public void Construct(ISceenLoader sceneLoader, IUIFactory uiFactory, IAudioService audioService, ICoroutineRunner coroutineRunner, IProgressService progressService, IVibrationService vibrationService)
     {
         _coroutineRunner = coroutineRunner;
         _states = new Dictionary<Type, IExitableState>()
         {
             [typeof(BootstrapState)] = new BootstrapState(this, sceneLoader),
-            [typeof(MainMenuState)] = new MainMenuState(this, sceneLoader, uiFactory, audioService, progressService),
+            [typeof(MainMenuState)] = new MainMenuState(this, sceneLoader, uiFactory, audioService, progressService,coroutineRunner),
+            [typeof(SettingState)] = new SettingState(this, sceneLoader, uiFactory, audioService, coroutineRunner,vibrationService),
+            [typeof(PauseState)] = new PauseState(this, sceneLoader, uiFactory, audioService, coroutineRunner,vibrationService),
             [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader, audioService, uiFactory),
-            [typeof(DeadState)] = new DeadState(this, audioService, uiFactory, _coroutineRunner),
+            [typeof(DeadState)] = new DeadState(this, audioService, uiFactory, _coroutineRunner, vibrationService),
             [typeof(GameCompletedState)] = new GameCompletedState(this, audioService, uiFactory, _coroutineRunner),
+            [typeof(GameLoopState)] = new GameLoopState(this)
         };
     }
 

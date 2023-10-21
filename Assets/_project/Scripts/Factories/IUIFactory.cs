@@ -9,4 +9,6 @@ public interface IUIFactory
     BlackoutMediator CreateFinishBlackout();
     Hud CreateGameHud();
     MainMenuMediator CreateMainMenuHud();
+    SettingMenuMediator CreateSettingMenuHud();
+    PauseMenuMediator CreatePauseMenu();
 }

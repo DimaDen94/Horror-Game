@@ -16,6 +16,8 @@ public class SceenLoader : MonoBehaviour, ISceenLoader
             Load(scene.ToString(), onLoad);
         else
             onLoad?.Invoke();
+
+        _lastScene = scene;
     }
 
     public void Load(string name, Action onLoad = null)

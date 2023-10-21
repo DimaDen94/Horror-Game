@@ -44,9 +44,9 @@ AudioMixerController:
   m_EnableSuspend: 1
   m_UpdateMode: 0
   m_ExposedParameters:
-  - guid: 86c680f027a9049a5ac042338e7e919d
+  - guid: 182342b5c0b824f608c6226c17b39495
     name: Music
-  - guid: 48a2a27d1e4c549fba8dfe80c5757840
+  - guid: bcd983e1a15d846968e5603d99bb1f2d
     name: Sound
   m_AudioMixerGroupViews:
   - guids:
