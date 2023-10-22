@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Floor
+  - Wall
+  - OuterCorner
+  - Room
+  - Tile
+  - Obstacle
   layers:
   - Default
   - TransparentFX
@@ -11,11 +17,11 @@ TagManager:
   - 
   - Water
   - UI
-  - Ground
-  - Character
-  - Wall
-  - Invisable
-  - CharacterModel
+  - Roof
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
