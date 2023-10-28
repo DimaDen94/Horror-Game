@@ -7,4 +7,5 @@
     public const string HeroPath = "Hero/Hero";
     public const string SettingMenuHudPath = "UI/SettingMenuHud";
     public const string PauseMenuHudPath = "UI/PauseMenuHud";
+    public const string StoryBlackoutPath = "UI/StoryBlackout";
 }

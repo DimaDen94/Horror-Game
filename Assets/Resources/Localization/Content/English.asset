@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50d1a0d28c65246e6b76d5233c2897fa, type: 3}
+  m_Name: English
+  m_EditorClassIdentifier: 
+  _translatableStrings:
+  - key: 0
+    value: Continue
+  - key: 1
+    value: New game
+  - key: 2
+    value: Settings
+  - key: 3
+    value: Show Advertisement
+  - key: 4
+    value: Sound
+  - key: 5
+    value: Music
+  - key: 6
+    value: Vibration
+  - key: 7
+    value: Menu
+  - key: 8
+    value: These walls... why do they seem so familiar?
+  - key: 9
+    value: What have I lost, that's so precious, that's hidden in the depths?
+  - key: 10
+    value: Whose shadows dance in the smoke of my memories?
+  - key: 11
+    value: Who follows me along these forgotten paths?
+  - key: 12
+    value: What did I give in return for what I was so desperate to keep?
+  - key: 13
+    value: How much have I hurt myself trying to avoid more pain?
+  - key: 14
+    value: What mask did I wear, trying to escape from myself?
+  - key: 15
+    value: Why have I locked this so far away in my memory?
+  - key: 16
+    value: What lights my way out of this consuming darkness?
+  - key: 17
+    value: Is it me finally breaking free, or just an illusion yearning for freedom?

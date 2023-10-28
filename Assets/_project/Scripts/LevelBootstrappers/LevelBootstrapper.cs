@@ -15,17 +15,15 @@ public class LevelBootstrapper : MonoBehaviour
     protected Hero _hero;
     private IInputService _inputService;
     private IUIFactory _uiFactory;
-    private IProgressService _progressService;
     private IGameFactory _gameFactory;
 
     [Inject]
     private void Construct(IInputService inputService, IUIFactory uiFactory, IAudioService audioService,
-        StateMachine stateMachine, IProgressService progressService, IGameFactory gameFactory) {
+        StateMachine stateMachine,IGameFactory gameFactory) {
         _inputService = inputService;
         _uiFactory = uiFactory;
         _audioService = audioService;
         _stateMachine = stateMachine;
-        _progressService = progressService;
         _gameFactory = gameFactory;
     }
 
@@ -39,15 +37,12 @@ public class LevelBootstrapper : MonoBehaviour
 
     private void OnExitDoorOpened()
     {
-        _uiFactory.CreateBlackout();
-        StartCoroutine(LoadNextLevelAfterDelay(0.5f));
+        LoadNextLevel();
     }
 
-    private IEnumerator LoadNextLevelAfterDelay(float delay)
+    private void LoadNextLevel()
     {
-        yield return new WaitForSeconds(delay);
-        _progressService.SetNewCurrentLevel(_nextLevel);
-        _stateMachine.Enter<LoadLevelState, string>(_nextLevel.ToString());
+        _stateMachine.Enter<LevelCompletedState, LevelEnum>(_nextLevel);
     }
 
     private void InitHero()
@@ -55,7 +50,7 @@ public class LevelBootstrapper : MonoBehaviour
         Hud hud = _uiFactory.CreateGameHud();
         hud.Construct(_stateMachine,_audioService);
         _hero = _gameFactory.CreateHero(_heroStartPosition, Quaternion.Euler(_heroStartRotation));
-        _hero.Construct(hud, _inputService, _audioService,_stateMachine, _heroStartPosition, _heroStartRotation);
+        _hero.Construct(hud, _inputService, _audioService,_stateMachine);
     }
 
     private void OnDestroy()

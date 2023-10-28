@@ -3,12 +3,14 @@
 public class UIFactory : IUIFactory
 {
     private IAssetProvider _assetProvider;
+    private ILocalizationService _localizationService;
 
     private Hud _hud;
     private BlackoutMediator _blackout;
 
-    public UIFactory(IAssetProvider assetProvider) {
+    public UIFactory(IAssetProvider assetProvider, ILocalizationService localizationService) {
         _assetProvider = assetProvider;
+        _localizationService = localizationService;
     }
 
     public GameObject Hud => _hud.gameObject;
@@ -26,4 +28,10 @@ public class UIFactory : IUIFactory
     public SettingMenuMediator CreateSettingMenuHud() => _assetProvider.Instantiate(AsserPath.SettingMenuHudPath).GetComponent<SettingMenuMediator>();
 
     public PauseMenuMediator CreatePauseMenu() => _assetProvider.Instantiate(AsserPath.PauseMenuHudPath).GetComponent<PauseMenuMediator>();
+
+    public StoryBlackoutMediator CreateStoryBlackout()
+    {
+        _blackout = _assetProvider.Instantiate(AsserPath.StoryBlackoutPath).GetComponent<BlackoutMediator>();
+        return _blackout.GetComponent<StoryBlackoutMediator>();
+    }
 }

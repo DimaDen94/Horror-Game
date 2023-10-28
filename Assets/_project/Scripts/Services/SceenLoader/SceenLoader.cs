@@ -5,23 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class SceenLoader : MonoBehaviour, ISceenLoader
 {
-    private SceneEnum _lastScene = SceneEnum.None;
+    private string _lastScene = string.Empty;
 
     private void Awake() =>
         DontDestroyOnLoad(this);
 
     public void Load(SceneEnum scene, Action onLoad = null)
     {
-        if (_lastScene != scene)
+        if (!_lastScene.Equals(scene.ToString()))
             Load(scene.ToString(), onLoad);
         else
             onLoad?.Invoke();
 
-        _lastScene = scene;
+        _lastScene = scene.ToString();
     }
 
     public void Load(string name, Action onLoad = null)
     {
+        _lastScene = name;
         StartCoroutine(LoadSceene(name, onLoad));
     }
 

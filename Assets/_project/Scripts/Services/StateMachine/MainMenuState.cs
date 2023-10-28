@@ -3,17 +3,17 @@ using UnityEngine;
 
 public class MainMenuState : IState
 {
-    private const float DestroyDelay = 1;
-
     private StateMachine _stateMachine;
     private ISceenLoader _sceneLoader;
     private IUIFactory _uiFactory;
     private IAudioService _audioService;
     private IProgressService _progressService;
     private ICoroutineRunner _coroutineRunner;
+    private ILocalizationService _localizationService;
     private MainMenuMediator _hud;
 
-    public MainMenuState(StateMachine stateMachine, ISceenLoader sceneLoader, IUIFactory uiFactory, IAudioService audioService, IProgressService progressService, ICoroutineRunner coroutineRunner)
+    public MainMenuState(StateMachine stateMachine, ISceenLoader sceneLoader, IUIFactory uiFactory, IAudioService audioService, IProgressService progressService,
+        ICoroutineRunner coroutineRunner, ILocalizationService localizationService)
     {
         _stateMachine = stateMachine;
         _sceneLoader = sceneLoader;
@@ -21,11 +21,11 @@ public class MainMenuState : IState
         _audioService = audioService;
         _progressService = progressService;
         _coroutineRunner = coroutineRunner;
+        _localizationService = localizationService;
     }
 
     public void Enter()
     {
-        Debug.Log("MainMenuState Enter");
         _sceneLoader.Load(SceneEnum.MainMenu, OnLoad);
     }
 
@@ -33,7 +33,7 @@ public class MainMenuState : IState
     {
         _audioService.PlayBackMusic(SoundEnum.MenuLoopMusic);
         _hud = _uiFactory.CreateMainMenuHud();
-        _hud.Construct(_stateMachine, _audioService,_progressService, _coroutineRunner);
+        _hud.Construct(_stateMachine, _audioService,_progressService, _coroutineRunner, _localizationService);
     }
 
     public void Exit()

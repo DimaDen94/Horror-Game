@@ -40,6 +40,7 @@ public class PauseState : IState
     private IEnumerator DestroyPanel()
     {
         yield return new WaitForSeconds(DestroyDelay);
-        _hud.DestroyPanel();
+        if(_hud!=null)
+            _hud.DestroyPanel();
     }
 }

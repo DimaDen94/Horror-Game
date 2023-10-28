@@ -48,4 +48,15 @@ public class ProgressService : IProgressService
         string progressString = _jsonConvertor.SerializeObject(_userProgress);
         _playerPrefsService.SaveProgress(progressString);
     }
+
+    public bool IsLanguageInstalled()
+    {
+         return _userProgress.IsLanguageInstalled;
+    }
+
+    public void SetLanguageInstalled()
+    {
+        _userProgress.SetLanguageInstalled();
+        SaveProgress();
+    }
 }

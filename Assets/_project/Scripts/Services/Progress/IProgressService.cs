@@ -6,4 +6,6 @@ public interface IProgressService
     void LoadProgress();
     void ResetProgress();
     void SetNewCurrentLevel(LevelEnum level);
+    bool IsLanguageInstalled();
+    void SetLanguageInstalled();
 }

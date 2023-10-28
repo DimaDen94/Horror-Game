@@ -21,6 +21,6 @@ public class BlackoutMediator : MonoBehaviour
 
     public void DestroyBlackout()
     {
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 }

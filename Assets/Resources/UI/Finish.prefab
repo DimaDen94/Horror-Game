@@ -69,8 +69,7 @@ MonoBehaviour:
   m_text: thanks for playing
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fb93e5a802ce3482f9535d106e5e533f, type: 2}
-  m_sharedMaterial: {fileID: -3459543058588243576, guid: fb93e5a802ce3482f9535d106e5e533f,
-    type: 2}
+  m_sharedMaterial: {fileID: -3459543058588243576, guid: fb93e5a802ce3482f9535d106e5e533f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -329,7 +328,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 247
+    m_Bits: 119
 --- !u!114 &6474078657198911676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -432,8 +431,7 @@ MonoBehaviour:
   m_text: to be continued...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fb93e5a802ce3482f9535d106e5e533f, type: 2}
-  m_sharedMaterial: {fileID: -3459543058588243576, guid: fb93e5a802ce3482f9535d106e5e533f,
-    type: 2}
+  m_sharedMaterial: {fileID: -3459543058588243576, guid: fb93e5a802ce3482f9535d106e5e533f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

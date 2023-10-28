@@ -2696,7 +2696,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _heroStartPosition: {x: 0, y: 0, z: -3}
   _heroStartRotation: {x: 0, y: 0, z: 0}
-  _nextLevel: 0
+  _nextLevel: 3
   _exitDoor: {fileID: 346938424100320219}
   _startCamera: {fileID: 925196571}
   _wallWithHidingPlace: {fileID: 4232981867202867337}

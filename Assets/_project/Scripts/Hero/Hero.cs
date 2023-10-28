@@ -1,6 +1,5 @@
 using UnityEngine;
 using DG.Tweening;
-using System;
 
 public class Hero : MonoBehaviour, IHitable
 {
@@ -16,10 +15,8 @@ public class Hero : MonoBehaviour, IHitable
     private IInputService _inputService;
     private IAudioService _audioService;
     private StateMachine _stateMachine;
-    private Vector3 _startPosition;
-    private Vector3 _startRotation;
 
-    public void Construct(Hud hud, IInputService inputService, IAudioService audioService, StateMachine stateMachine, Vector3 startPosition, Vector3 startRotation)
+    public void Construct(Hud hud, IInputService inputService, IAudioService audioService, StateMachine stateMachine)
     {
         _hud = hud;
         _centerPosition = new Vector3(Screen.width / 2, Screen.height / 2, 0);

@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,15 +15,19 @@ public class MainMenuMediator : MonoBehaviour
     [SerializeField] private Button _newGame;
     [SerializeField] private Button _setting;
     [SerializeField] private Button _adOff;
+    [SerializeField] private List<TextMeshProTranslator> _translators;
 
     private StateMachine _stateMachine;
     private IProgressService _progressService;
     private ICoroutineRunner _coroutineRunner;
+    private ILocalizationService _localizationService;
 
-    public void Construct(StateMachine stateMachine, IAudioService audioService, IProgressService progressService, ICoroutineRunner coroutineRunner) {
+    public void Construct(StateMachine stateMachine, IAudioService audioService, IProgressService progressService, ICoroutineRunner coroutineRunner, ILocalizationService localizationService) {
         _stateMachine = stateMachine;
         _progressService = progressService;
         _coroutineRunner = coroutineRunner;
+        _localizationService = localizationService;
+
         _continue.GetComponent<ButtonClickPlayer>().Construct(audioService);
         _newGame.GetComponent<ButtonClickPlayer>().Construct(audioService);
         _setting.GetComponent<ButtonClickPlayer>().Construct(audioService);
@@ -31,6 +36,13 @@ public class MainMenuMediator : MonoBehaviour
         _continue.onClick.AddListener(Continue);
         _newGame.onClick.AddListener(NewGame);
         _setting.onClick.AddListener(Setting);
+
+        UpdateLocalization();
+    }
+
+    private void UpdateLocalization() {
+        foreach (var item in _translators)
+            item.Construct(_localizationService);
     }
 
     public void Hide() => _animator?.Play(HideStateName);
@@ -38,12 +50,12 @@ public class MainMenuMediator : MonoBehaviour
     private void NewGame()
     {
         _progressService.ResetProgress();
-        _stateMachine.Enter<LoadLevelState, string>(_progressService.GetCurrentLevel().ToString());
+        _stateMachine.Enter<LoadLevelState, LevelEnum>(_progressService.GetCurrentLevel());
     }
 
     private void Continue()
     {
-        _stateMachine.Enter<LoadLevelState, string>(_progressService.GetCurrentLevel().ToString());
+        _stateMachine.Enter<LoadLevelState, LevelEnum>(_progressService.GetCurrentLevel());
     }
 
     private void Setting()

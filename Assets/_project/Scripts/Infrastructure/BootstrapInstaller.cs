@@ -11,7 +11,9 @@ public class BootstrapInstaller : MonoInstaller
     {
         BindPlayerPrefsService();
         BindJsonConvertor();
+        BindImageLoader();
         ProgressService();
+        BindLocalizationLoader();
         BindSceenLoader();
         BindAudioService();
         BindVibrationService();
@@ -27,7 +29,11 @@ public class BootstrapInstaller : MonoInstaller
 
     private void BindJsonConvertor() => Container.Bind<IJsonConvertor>().To<JsonConvertor>().AsSingle();
 
+    private void BindImageLoader() => Container.Bind<IImageLoader>().To<ImageLoader>().AsSingle();
+
     private void ProgressService() => Container.Bind<IProgressService>().To<ProgressService>().AsSingle();
+
+    private void BindLocalizationLoader() => Container.Bind<ILocalizationService>().To<LocalizationService>().AsSingle();
 
     private void BindAudioService() => Container.Bind<IAudioService>().To<AudioService>().AsSingle();
 

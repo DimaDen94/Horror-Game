@@ -750,7 +750,7 @@ CharacterController:
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
+  m_MinMoveDistance: 0.0001
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &1385339881200480906
 MonoBehaviour:
@@ -781,7 +781,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _characterController: {fileID: 1385339881200480907}
   _animator: {fileID: 1385339881228111170}
-  SpeedChangeRate: 10
+  SpeedChangeRate: 100
 --- !u!136 &1385339881200480905
 CapsuleCollider:
   m_ObjectHideFlags: 0

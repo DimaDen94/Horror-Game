@@ -52,7 +52,11 @@ public class SettingMenuMediator : MonoBehaviour
 
     public void Hide() => _animator?.Play(HideStateName);
 
-    public void DestroyPanel() => Destroy(gameObject);
+    public void DestroyPanel()
+    {
+        if(gameObject!=null)
+            Destroy(gameObject);
+    }
 
     private void CloseDialog() => _stateMachine.Enter<MainMenuState>();
 
