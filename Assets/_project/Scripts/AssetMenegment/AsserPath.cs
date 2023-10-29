@@ -8,4 +8,5 @@
     public const string SettingMenuHudPath = "UI/SettingMenuHud";
     public const string PauseMenuHudPath = "UI/PauseMenuHud";
     public const string StoryBlackoutPath = "UI/StoryBlackout";
+    public const string HintMenuHudPath = "UI/HintMenuHud";
 }

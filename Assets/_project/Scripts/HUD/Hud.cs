@@ -27,6 +27,7 @@ public class Hud : MonoBehaviour
     private void Start()
     {
         _menu.onClick.AddListener(OpenPauseMenu);
+        _hint.onClick.AddListener(OpenHintMenu);
         _menu.GetComponent<ButtonClickPlayer>().Construct(_audioService);
         _hint.GetComponent<ButtonClickPlayer>().Construct(_audioService);
     }
@@ -34,5 +35,10 @@ public class Hud : MonoBehaviour
     private void OpenPauseMenu()
     {
         _stateMachine.Enter<PauseState>();
+    }
+
+    private void OpenHintMenu()
+    {
+        _stateMachine.Enter<HintMenuState>();
     }
 }

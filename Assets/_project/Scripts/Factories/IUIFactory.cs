@@ -12,4 +12,5 @@ public interface IUIFactory
     SettingMenuMediator CreateSettingMenuHud();
     PauseMenuMediator CreatePauseMenu();
     StoryBlackoutMediator CreateStoryBlackout();
+    HintMenuMediator CreateHintMenu();
 }

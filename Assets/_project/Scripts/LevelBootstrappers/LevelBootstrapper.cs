@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 using Zenject;
 
@@ -18,8 +17,7 @@ public class LevelBootstrapper : MonoBehaviour
     private IGameFactory _gameFactory;
 
     [Inject]
-    private void Construct(IInputService inputService, IUIFactory uiFactory, IAudioService audioService,
-        StateMachine stateMachine,IGameFactory gameFactory) {
+    private void Construct(IInputService inputService, IUIFactory uiFactory, IAudioService audioService, StateMachine stateMachine, IGameFactory gameFactory) {
         _inputService = inputService;
         _uiFactory = uiFactory;
         _audioService = audioService;

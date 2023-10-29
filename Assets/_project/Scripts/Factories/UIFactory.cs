@@ -29,6 +29,8 @@ public class UIFactory : IUIFactory
 
     public PauseMenuMediator CreatePauseMenu() => _assetProvider.Instantiate(AsserPath.PauseMenuHudPath).GetComponent<PauseMenuMediator>();
 
+    public HintMenuMediator CreateHintMenu() => _assetProvider.Instantiate(AsserPath.HintMenuHudPath).GetComponent<HintMenuMediator>();
+
     public StoryBlackoutMediator CreateStoryBlackout()
     {
         _blackout = _assetProvider.Instantiate(AsserPath.StoryBlackoutPath).GetComponent<BlackoutMediator>();

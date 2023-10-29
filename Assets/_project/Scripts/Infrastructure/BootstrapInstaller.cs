@@ -11,6 +11,8 @@ public class BootstrapInstaller : MonoInstaller
     {
         BindPlayerPrefsService();
         BindJsonConvertor();
+        BindAssetProvider();
+        BingLevelConfigService();
         BindImageLoader();
         ProgressService();
         BindLocalizationLoader();
@@ -19,15 +21,19 @@ public class BootstrapInstaller : MonoInstaller
         BindVibrationService();
         BindInputService();
         BindStateMachine();
-        BindAssetProvider();
         BindUIFactory();
         BindGameFactory();
         BindGameBootstrapper();
     }
 
+
     private void BindPlayerPrefsService() => Container.Bind<IPlayerPrefsService>().To<PlayerPrefsService>().AsSingle();
 
     private void BindJsonConvertor() => Container.Bind<IJsonConvertor>().To<JsonConvertor>().AsSingle();
+
+    private void BindAssetProvider() => Container.Bind<IAssetProvider>().To<AssetProvider>().AsSingle();
+
+    private void BingLevelConfigService() => Container.Bind<ILevelConfigHolder>().To<LevelConfigService>().AsSingle();
 
     private void BindImageLoader() => Container.Bind<IImageLoader>().To<ImageLoader>().AsSingle();
 
@@ -39,7 +45,6 @@ public class BootstrapInstaller : MonoInstaller
 
     private void BindVibrationService() => Container.Bind<IVibrationService>().To<VibrationService>().AsSingle();
 
-    private void BindAssetProvider() => Container.Bind<IAssetProvider>().To<AssetProvider>().AsSingle();
 
     private void BindUIFactory() => Container.Bind<IUIFactory>().To<UIFactory>().AsSingle();
 

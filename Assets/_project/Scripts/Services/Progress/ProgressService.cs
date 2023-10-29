@@ -5,13 +5,15 @@ public class ProgressService : IProgressService
     private UserProgress _userProgress;
     private IJsonConvertor _jsonConvertor;
     private IPlayerPrefsService _playerPrefsService;
+    private ILevelConfigHolder _levelConfigHolder;
 
     public event Action LevelIncremented;
 
-    public ProgressService(IJsonConvertor jsonConvertor, IPlayerPrefsService playerPrefsService)
+    public ProgressService(IJsonConvertor jsonConvertor, IPlayerPrefsService playerPrefsService, ILevelConfigHolder levelConfigService)
     {
         _jsonConvertor = jsonConvertor;
         _playerPrefsService = playerPrefsService;
+        _levelConfigHolder = levelConfigService;
         LoadProgress();
     }
 
@@ -27,7 +29,7 @@ public class ProgressService : IProgressService
         _userProgress = _jsonConvertor.DeserializeObject<UserProgress>(progressString);
     }
 
-    private UserProgress GenerateStartProgress() => new UserProgress() { CurrentLevel = LevelEnum.Level1 };
+    private UserProgress GenerateStartProgress() => new UserProgress(LevelEnum.Level1, _levelConfigHolder.Configs);
 
     public void SetNewCurrentLevel(LevelEnum level)
     {
