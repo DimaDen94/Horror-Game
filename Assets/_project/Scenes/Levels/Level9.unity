@@ -79710,6 +79710,10 @@ MonoBehaviour:
   _nextLevel: 10
   _exitDoor: {fileID: 2049807461}
   _startCamera: {fileID: 1879013746}
+  _liftedThings:
+  - {fileID: 396538045}
+  - {fileID: 973668344}
+  - {fileID: 4011989468970682451}
   _barrier: {fileID: 1996130489}
   _enemy: {fileID: 2034867872}
   _torch: {fileID: 396538045}
@@ -80878,6 +80882,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 878471346}
+  _agent: {fileID: 2034867874}
 --- !u!195 &2034867874
 NavMeshAgent:
   m_ObjectHideFlags: 0

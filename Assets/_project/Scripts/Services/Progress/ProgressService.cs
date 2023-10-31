@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 
 public class ProgressService : IProgressService
 {
+    public event Action HintStateChanged;
+
     private UserProgress _userProgress;
     private IJsonConvertor _jsonConvertor;
     private IPlayerPrefsService _playerPrefsService;
@@ -29,7 +32,10 @@ public class ProgressService : IProgressService
         _userProgress = _jsonConvertor.DeserializeObject<UserProgress>(progressString);
     }
 
-    private UserProgress GenerateStartProgress() => new UserProgress(LevelEnum.Level1, _levelConfigHolder.Configs);
+    private UserProgress GenerateStartProgress()
+    {
+        return new UserProgress(LevelEnum.Level1, _levelConfigHolder.Configs);
+    }
 
     public void SetNewCurrentLevel(LevelEnum level)
     {
@@ -60,5 +66,26 @@ public class ProgressService : IProgressService
     {
         _userProgress.SetLanguageInstalled();
         SaveProgress();
+    }
+
+    public bool GetHintStates(LevelEnum level, HintEnum hint)
+    {
+        var _hints = _userProgress.LevelHintStates;
+        LevelHintState levelStates = _hints.Find(l => l.level == level);
+        HintState state = levelStates.hintStates.Find(h => h.hint == hint);
+        if (state != null)
+            return state.enable;
+        else
+            return false;
+    }
+
+    public void SetHintActive(LevelEnum level, HintEnum hint)
+    {
+        List<LevelHintState> _hints = _userProgress.LevelHintStates;
+        LevelHintState levelStates = _hints.Find(l => l.level == level);
+        HintState state = levelStates.hintStates.Find(h => h.hint == hint);
+        state.enable = true;
+        SaveProgress();
+        HintStateChanged?.Invoke();
     }
 }

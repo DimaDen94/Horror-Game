@@ -10,12 +10,12 @@ public class TrapForClownLevelBootstrapper : LevelBootstrapper
     [SerializeField] private Gate _firstGate;
     [SerializeField] private Gate _secondGate;
 
-    [SerializeField] private Enemy _clown;
+    [SerializeField] private Enemy _enemy;
 
     private new void Start()
     {
         base.Start();
-        _clown.GetComponent<EnemyStateMachine>().SetTarget(_hero.transform);
+        _enemy.GetComponent<EnemyStateMachine>().SetTarget(_hero.transform);
 
         _clownLeverMechanism.MechanismActivated += TryOpenClownGate;
         _firstLeverMechanism.MechanismActivated += TryOpenFirstGate;
@@ -25,9 +25,14 @@ public class TrapForClownLevelBootstrapper : LevelBootstrapper
 
     }
 
+    protected override void EnemySlowDown()
+    {
+        _enemy.SlowDown();
+    }
+
     private void FollowClown()
     {
-        _clown.GetComponent<FollowTargetTransition>().Follow();
+        _enemy.GetComponent<FollowTargetTransition>().Follow();
     }
 
     private void TryOpenClownGate()
@@ -52,5 +57,15 @@ public class TrapForClownLevelBootstrapper : LevelBootstrapper
             _secondGate.OpenGate();
         else
             _secondGate.CloseGate();
+    }
+    private new void OnDestroy()
+    {
+        base.OnDestroy();
+
+        _clownLeverMechanism.MechanismActivated -= TryOpenClownGate;
+        _firstLeverMechanism.MechanismActivated -= TryOpenFirstGate;
+        _secondLeverMechanism.MechanismActivated -= TryOpenSecondGate;
+
+        _clownGate.GateOpened -= FollowClown;
     }
 }

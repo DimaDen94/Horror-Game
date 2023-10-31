@@ -16,6 +16,11 @@ public class ClownLevelBootstrupper : LevelBootstrapper
         _enemy.GetComponent<EnemyStateMachine>().SetTarget(_hero.transform);
     }
 
+    protected override void EnemySlowDown()
+    {
+        _enemy.SlowDown();
+    }
+
     private void SwitchGates()
     {
         if (_leverMechanism.IsActivated)

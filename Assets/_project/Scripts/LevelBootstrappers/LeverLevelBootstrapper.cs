@@ -22,8 +22,9 @@ public class LeverLevelBootstrapper : LevelBootstrapper
             _wallWithHidingPlace.CloseDamper();
     }
 
-    private void OnDestroy()
+    private new void OnDestroy()
     {
+        base.OnDestroy();
         _leverMechanism.MechanismActivated -= TryOpenDamper;
     }
 }

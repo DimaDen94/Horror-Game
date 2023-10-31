@@ -10464,6 +10464,14 @@ MonoBehaviour:
   _nextLevel: 7
   _exitDoor: {fileID: 2049807461}
   _startCamera: {fileID: 1335243859}
+  _liftedThings:
+  - {fileID: 823072064}
+  - {fileID: 9176920600023737954}
+  - {fileID: 9176920600109536572}
+  - {fileID: 9176920600893370005}
+  - {fileID: 9176920600908425675}
+  - {fileID: 9176920601688410715}
+  - {fileID: 9176920601731325612}
   _movingStairs: {fileID: 869071775}
   _platforms:
   - {fileID: 1951051119}

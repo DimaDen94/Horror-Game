@@ -12,19 +12,16 @@ public class UserProgress
         _levelHintStates = new List<LevelHintState>();
 
         foreach (LevelConfig item in levelConfigs)
-        {
             _levelHintStates.Add(new LevelHintState(item.level, item.hints));
-        }
     }
 
-    public UserProgress() {
-    }
+    public UserProgress() {}
 
     public LevelEnum CurrentLevel { get => _currentLevel; set => _currentLevel = value; }
 
     public bool IsLanguageInstalled => _isLanguageInstalled;
 
-    public List<LevelHintState> LevelHintStates => _levelHintStates;
+    public List<LevelHintState> LevelHintStates { get => _levelHintStates; set => _levelHintStates = value; }
 
     public void SetLanguageInstalled() => _isLanguageInstalled = true;
 }

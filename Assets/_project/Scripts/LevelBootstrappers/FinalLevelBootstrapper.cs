@@ -27,6 +27,11 @@ public class FinalLevelBootstrapper : LevelBootstrapper
         _finishGate.PlayerOnFinish += OnPlayerOnFinish;
     }
 
+    protected override void EnemySlowDown()
+    {
+        _enemy.SlowDown();
+    }
+
     private void OnPlayerOnFinish()
     {
         _stateMachine.Enter<GameCompletedState>();
@@ -53,8 +58,9 @@ public class FinalLevelBootstrapper : LevelBootstrapper
         _startGate.OpenGate();
     }
 
-    private void OnDestroy()
+    private new void OnDestroy()
     {
+        base.OnDestroy();
         _startLevelar.MechanismActivated -= OnStartLevelar;
         _bridgeLevelar.MechanismActivated -= MoveBridge;
     }

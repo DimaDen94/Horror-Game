@@ -9659,6 +9659,11 @@ MonoBehaviour:
   _nextLevel: 5
   _exitDoor: {fileID: 2049807461}
   _startCamera: {fileID: 171737302}
+  _liftedThings:
+  - {fileID: 4029161438472794508}
+  - {fileID: 1942551423}
+  - {fileID: 973668344}
+  - {fileID: 377389865}
 --- !u!4 &1814988961
 Transform:
   m_ObjectHideFlags: 0

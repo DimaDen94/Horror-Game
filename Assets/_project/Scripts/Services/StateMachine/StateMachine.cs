@@ -18,7 +18,7 @@ public class StateMachine
             [typeof(MainMenuState)] = new MainMenuState(this, sceneLoader, uiFactory, audioService, progressService,coroutineRunner, localizationService),
             [typeof(SettingState)] = new SettingState(this, sceneLoader, uiFactory, audioService, coroutineRunner,vibrationService),
             [typeof(PauseState)] = new PauseState(this, sceneLoader, uiFactory, audioService, coroutineRunner,vibrationService),
-            [typeof(HintMenuState)] = new HintMenuState(this, sceneLoader, uiFactory, audioService, coroutineRunner, progressService, configHolder),
+            [typeof(HintMenuState)] = new HintMenuState(this, uiFactory, audioService, coroutineRunner, progressService, configHolder, localizationService),
             [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader, audioService, uiFactory, coroutineRunner),
             [typeof(LevelCompletedState)] = new LevelCompletedState(this, sceneLoader, audioService, uiFactory, coroutineRunner, imageLoader, localizationService, progressService),
             [typeof(DeadState)] = new DeadState(this, audioService, vibrationService, progressService),

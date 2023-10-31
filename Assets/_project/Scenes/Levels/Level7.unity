@@ -79578,6 +79578,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 6788965410929217134}
+  _agent: {fileID: 1259267032}
 --- !u!114 &1259267037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108128,6 +108129,8 @@ MonoBehaviour:
   _nextLevel: 8
   _exitDoor: {fileID: 2049807461}
   _startCamera: {fileID: 1740313014}
+  _liftedThings:
+  - {fileID: 973668344}
   _clownGate: {fileID: 8347762596577640728}
   _lvlGate: {fileID: 8347762596076611741}
   _enemy: {fileID: 1259267036}

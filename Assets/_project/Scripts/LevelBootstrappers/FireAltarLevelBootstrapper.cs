@@ -17,6 +17,11 @@ public class FireAltarLevelBootstrapper : LevelBootstrapper
         _barrier.BarrierDestroyed += FollowHero;
     }
 
+    protected override void EnemySlowDown()
+    {
+        _enemy.SlowDown();
+    }
+
     private void FollowHero()
     {
         _enemy.GetComponent<EnemyStateMachine>().SetTarget(_hero.transform);
@@ -28,5 +33,10 @@ public class FireAltarLevelBootstrapper : LevelBootstrapper
         _enemy.GetComponent<FollowTargetTransition>().Follow();
         _audioService.PlayBackMusic(SoundEnum.HorrorLoopMusic);
 
+    }
+    private new void OnDestroy()
+    {
+        base.OnDestroy();
+        _barrier.BarrierDestroyed -= FollowHero;
     }
 }

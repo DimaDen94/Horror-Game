@@ -6,6 +6,7 @@ public class LiftedThing : InteractionObject
     [SerializeField] private Collider _collider;
     [SerializeField] private Rigidbody _rigidbody;
     [SerializeField] private Vector3 _slotRotation;
+    private GameObject _light;
 
     public Vector3 SlotRotation => _slotRotation;
 
@@ -17,6 +18,8 @@ public class LiftedThing : InteractionObject
         _rigidbody.Sleep();
 
         Lifted?.Invoke();
+
+        _light?.SetActive(false);
     }
 
     public void EnablePhysics()
@@ -24,5 +27,12 @@ public class LiftedThing : InteractionObject
         _collider.isTrigger = false;
         _rigidbody.useGravity = true;
         _rigidbody.WakeUp();
+
+        _light?.SetActive(true);
+    }
+
+    public void SetLight(GameObject light)
+    {
+        _light = light;
     }
 }

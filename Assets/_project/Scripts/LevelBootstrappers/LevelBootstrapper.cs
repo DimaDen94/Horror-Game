@@ -1,3 +1,7 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using Zenject;
 
@@ -15,14 +19,18 @@ public class LevelBootstrapper : MonoBehaviour
     private IInputService _inputService;
     private IUIFactory _uiFactory;
     private IGameFactory _gameFactory;
+    private IProgressService _progressService;
+
+    [SerializeField] private List<LiftedThing> _liftedThings;
 
     [Inject]
-    private void Construct(IInputService inputService, IUIFactory uiFactory, IAudioService audioService, StateMachine stateMachine, IGameFactory gameFactory) {
+    private void Construct(IInputService inputService, IUIFactory uiFactory, IAudioService audioService, StateMachine stateMachine, IGameFactory gameFactory, IProgressService progressService) {
         _inputService = inputService;
         _uiFactory = uiFactory;
         _audioService = audioService;
         _stateMachine = stateMachine;
         _gameFactory = gameFactory;
+        _progressService = progressService;
     }
 
     protected void Start()
@@ -31,6 +39,32 @@ public class LevelBootstrapper : MonoBehaviour
         InitHero();
         if (_exitDoor != null)
             _exitDoor.ExitDoorOpened += OnExitDoorOpened;
+
+        if (_progressService.GetHintStates(_progressService.GetCurrentLevel(), HintEnum.HintHighlight))
+            TryShowHint();
+
+        _progressService.HintStateChanged += TryShowHint;
+    }
+
+    private void TryShowHint()
+    {
+        if (_progressService.GetHintStates(_progressService.GetCurrentLevel(), HintEnum.HintHighlight))
+            ShowHighlight();
+        if (_progressService.GetHintStates(_progressService.GetCurrentLevel(), HintEnum.EnemySlowDown))
+            EnemySlowDown();
+    }
+
+    protected virtual void EnemySlowDown() {
+
+    }
+
+    private void ShowHighlight()
+    {
+        foreach (var liftedThing in _liftedThings)
+        {
+            var light = _gameFactory.CreateLight(liftedThing.transform);
+            liftedThing.SetLight(light);
+        }
     }
 
     private void OnExitDoorOpened()
@@ -51,9 +85,16 @@ public class LevelBootstrapper : MonoBehaviour
         _hero.Construct(hud, _inputService, _audioService,_stateMachine);
     }
 
-    private void OnDestroy()
+    protected void OnDestroy()
     {
+        _progressService.HintStateChanged -= TryShowHint;
+
         if (_exitDoor != null)
             _exitDoor.ExitDoorOpened -= OnExitDoorOpened;
+    }
+
+    [Button]
+    private void CollectLiftedObjects() {
+        _liftedThings = GameObject.FindObjectsOfType<LiftedThing>().ToList();
     }
 }

@@ -19,7 +19,5 @@ public class LevelHintState
                 hintStates.Add(new HintState(item, false));
         }
     }
-    public LevelHintState() {
-
-    }
+    public LevelHintState() { }
 }

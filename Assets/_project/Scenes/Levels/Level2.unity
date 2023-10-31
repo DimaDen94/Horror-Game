@@ -2699,6 +2699,10 @@ MonoBehaviour:
   _nextLevel: 3
   _exitDoor: {fileID: 346938424100320219}
   _startCamera: {fileID: 925196571}
+  _liftedThings:
+  - {fileID: 4029161438472794508}
+  - {fileID: 9078037237114920763}
+  - {fileID: 1015303294}
   _wallWithHidingPlace: {fileID: 4232981867202867337}
   _leverMechanism: {fileID: 2575938327738852596}
 --- !u!1 &1823478656 stripped
