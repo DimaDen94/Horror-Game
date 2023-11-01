@@ -61,8 +61,10 @@ public class Hero : MonoBehaviour, IHitable
     public void Death(Transform killer)
     {
         _mover.Lock();
-        transform.DOLookAt(killer.position, 1);
-        _stateMachine.Enter<DeadState>();
+        transform.DOLookAt(killer.position, 1).OnComplete(()=>{
+            _stateMachine.Enter<DeadState>();
+        }) ;
+        
     }
 
     void OnDrawGizmosSelected()
