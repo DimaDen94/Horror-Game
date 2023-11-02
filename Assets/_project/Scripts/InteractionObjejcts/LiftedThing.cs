@@ -35,4 +35,6 @@ public class LiftedThing : InteractionObject
     {
         _light = light;
     }
+
+    public virtual void Animate(){}
 }

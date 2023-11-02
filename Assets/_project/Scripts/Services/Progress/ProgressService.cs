@@ -47,7 +47,7 @@ public class ProgressService : IProgressService
 
     public void ResetProgress()
     {
-        _userProgress.CurrentLevel = LevelEnum.Level10;
+        _userProgress.CurrentLevel = LevelEnum.Level2;
         SaveProgress();
     }
 
@@ -72,11 +72,14 @@ public class ProgressService : IProgressService
     {
         var _hints = _userProgress.LevelHintStates;
         LevelHintState levelStates = _hints.Find(l => l.level == level);
-        HintState state = levelStates.hintStates.Find(h => h.hint == hint);
-        if (state != null)
-            return state.enable;
-        else
+        if (levelStates == null)
             return false;
+
+        HintState state = levelStates.hintStates.Find(h => h.hint == hint);
+        if (state == null)
+            return false;
+
+        return state.enable;
     }
 
     public void SetHintActive(LevelEnum level, HintEnum hint)

@@ -40,8 +40,9 @@ public class ClownLevelBootstrupper : LevelBootstrapper
 
     }
 
-    private void OnDestroy()
+    private new void OnDestroy()
     {
+        base.OnDestroy();
         _leverMechanism.MechanismActivated -= SwitchGates;
         _clownGate.GateOpened -= StartHorrorStep;
     }

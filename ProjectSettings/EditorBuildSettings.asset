@@ -41,4 +41,5 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_project/Scenes/Levels/Level10.unity
     guid: e5ae22e5429244db2a51ad3d1400521c
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 47c218c2ae9074cc689c768550d17b00, type: 2}

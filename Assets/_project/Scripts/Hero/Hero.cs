@@ -46,6 +46,9 @@ public class Hero : MonoBehaviour, IHitable
             else if (_currentInteractionObject is InteractionObject)
             {
                 bool wasUsed = _currentInteractionObject.TryUse(_slot);
+                if (wasUsed && _slot.Thing != null && _slot.Thing.CanUse) {
+                    _slot.Thing.Animate();
+                }
                 if (!wasUsed){
                     _audioService.PlayAudio(SoundEnum.Wrong);
                 }

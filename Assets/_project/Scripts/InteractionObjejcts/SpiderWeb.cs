@@ -34,6 +34,7 @@ public class SpiderWeb : InteractionObject
         {
             FadeWeb();
             _fire.SetActive(true);
+            return true;
         }
         return false;
     }

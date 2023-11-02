@@ -54,6 +54,7 @@ public class LeverMechanism : InteractionObject
     {
         lever.GetComponent<Collider>().enabled = false;
         lever.transform.parent = _leverContainer;
+        lever.MeshUp();
         lever.transform.DOMove(_leverContainer.position, MovementDuration);
         lever.transform.DOLocalRotate(_leverStartRotation, MovementDuration).OnComplete(()=> {
             _audioSourcePut.Play();

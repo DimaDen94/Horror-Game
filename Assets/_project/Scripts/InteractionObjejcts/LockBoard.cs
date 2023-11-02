@@ -8,8 +8,11 @@ public class LockBoard : InteractionObject
 
     public override bool TryUse(HeroSlot slot)
     {
-        if (slot.Thing is Hammer) 
+        if (slot.Thing is Hammer)
+        {
             Hit();
+            return true;
+        }
 
         return false;
     }
