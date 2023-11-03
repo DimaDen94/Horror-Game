@@ -30,12 +30,12 @@ public class LevelCompletedState : IPayloadState<LevelEnum>
     public void Enter(LevelEnum nextLevel)
     {
         LevelEnum currentLevel = _progressService.GetCurrentLevel();
+        StoryBlackoutMediator storyBlackout = _uiFactory.CreateStoryBlackout();
 
-        StoryBlackoutMediator storyBlackotu = _uiFactory.CreateStoryBlackout();
-        storyBlackotu.SetText(_localizationService.GetTranslateByKey(currentLevel.ToString()));
-        storyBlackotu.SetSprite(_imageLoader.LoadFromResource(StoryImagesPath + currentLevel.ToString()));
+        storyBlackout.SetText(_localizationService.GetTranslateByKey(currentLevel.ToString()));
+        storyBlackout.SetSprite(_imageLoader.LoadFromResource(StoryImagesPath + currentLevel.ToString()));
 
-        _sceneLoader.Load(nextLevel.ToString());
+        //_sceneLoader.Load(nextLevel.ToString());
         _audioService.PlayBackMusic(SoundEnum.RegularLoopMusic);
         _progressService.SetNewCurrentLevel(nextLevel);
 
@@ -44,12 +44,20 @@ public class LevelCompletedState : IPayloadState<LevelEnum>
 
     public void Exit()
     {
-        
+
     }
 
     private IEnumerator DaybreakWithDelay(LevelEnum nextLevel)
     {
         yield return new WaitForSeconds(3);
-        _stateMachine.Enter<LoadLevelState, LevelEnum>(nextLevel);
+        if (nextLevel != LevelEnum.Final)
+        {
+            _stateMachine.Enter<LoadLevelState, LevelEnum>(nextLevel);
+        }
+        else
+        {
+            _uiFactory.Blackout.DestroyBlackout();
+            _stateMachine.Enter<GameCompletedState>();
+        }
     }
 }

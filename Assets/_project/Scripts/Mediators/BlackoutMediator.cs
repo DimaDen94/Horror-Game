@@ -3,6 +3,7 @@ using UnityEngine;
 public class BlackoutMediator : MonoBehaviour
 {
     private const string BlackoutAnimationKey = "Blackout";
+
     [SerializeField] private Animator _animator;
 
     private void Awake() => DontDestroyOnLoad(this);
@@ -15,7 +16,6 @@ public class BlackoutMediator : MonoBehaviour
 
     public void Daybreak()
     {
-        gameObject.SetActive(true);
         _animator.SetBool(BlackoutAnimationKey, false);
     }
 

@@ -22,7 +22,7 @@ public class StateMachine
             [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader, audioService, uiFactory, coroutineRunner),
             [typeof(LevelCompletedState)] = new LevelCompletedState(this, sceneLoader, audioService, uiFactory, coroutineRunner, imageLoader, localizationService, progressService),
             [typeof(DeadState)] = new DeadState(this, audioService, vibrationService, progressService),
-            [typeof(GameCompletedState)] = new GameCompletedState(this, audioService, uiFactory, _coroutineRunner),
+            [typeof(GameCompletedState)] = new GameCompletedState(this, audioService, uiFactory, _coroutineRunner, progressService, localizationService),
             [typeof(GameLoopState)] = new GameLoopState(this)
         };
     }

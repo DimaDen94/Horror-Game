@@ -27,30 +27,15 @@ public class FinalLevelBootstrapper : LevelBootstrapper
         _finishGate.PlayerOnFinish += OnPlayerOnFinish;
     }
 
-    protected override void EnemySlowDown()
-    {
-        _enemy.SlowDown();
-    }
+    protected override void EnemySlowDown() => _enemy.SlowDown();
 
-    private void OnPlayerOnFinish()
-    {
-        _stateMachine.Enter<GameCompletedState>();
-    }
+    private void OnPlayerOnFinish() => _stateMachine.Enter<LevelCompletedState, LevelEnum>(_nextLevel);
 
-    private void OnFinishLevelar()
-    {
-        _lastGate.CloseGate();
-    }
+    private void OnFinishLevelar() => _lastGate.CloseGate();
 
-    private void OnBridgeCompleted()
-    {
-        _surface.BuildNavMesh();
-    }
+    private void OnBridgeCompleted() => _surface.BuildNavMesh();
 
-    private void MoveBridge()
-    {
-        _bridge.LiftUp();
-    }
+    private void MoveBridge() => _bridge.LiftUp();
 
     private void OnStartLevelar()
     {
@@ -64,6 +49,4 @@ public class FinalLevelBootstrapper : LevelBootstrapper
         _startLevelar.MechanismActivated -= OnStartLevelar;
         _bridgeLevelar.MechanismActivated -= MoveBridge;
     }
-
- 
 }

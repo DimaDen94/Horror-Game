@@ -7,5 +7,6 @@
     Drop,
     PickUp,
     Wrong,
-    None
+    None,
+    FinalMusic,
 }

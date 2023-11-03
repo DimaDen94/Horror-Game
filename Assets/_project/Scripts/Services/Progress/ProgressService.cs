@@ -47,7 +47,7 @@ public class ProgressService : IProgressService
 
     public void ResetProgress()
     {
-        _userProgress.CurrentLevel = LevelEnum.Level2;
+        _userProgress.CurrentLevel = LevelEnum.Level10;
         SaveProgress();
     }
 

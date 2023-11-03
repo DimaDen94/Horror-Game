@@ -6,7 +6,7 @@ public interface IUIFactory
     BlackoutMediator Blackout { get; }
 
     BlackoutMediator CreateBlackout();
-    BlackoutMediator CreateFinishBlackout();
+    FinalBlackoutMediator CreateFinishBlackout();
     Hud CreateGameHud();
     MainMenuMediator CreateMainMenuHud();
     SettingMenuMediator CreateSettingMenuHud();
