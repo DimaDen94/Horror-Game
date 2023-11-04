@@ -69,11 +69,18 @@ public class LevelBootstrapper : MonoBehaviour
 
     private void OnExitDoorOpened()
     {
+        StopLevel();
         LoadNextLevel();
+    }
+
+    protected virtual void StopLevel()
+    {
+        
     }
 
     private void LoadNextLevel()
     {
+        
         _stateMachine.Enter<LevelCompletedState, LevelEnum>(_nextLevel);
     }
 

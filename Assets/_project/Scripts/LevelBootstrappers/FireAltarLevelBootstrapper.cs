@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FireAltarLevelBootstrapper : LevelBootstrapper
@@ -34,6 +31,13 @@ public class FireAltarLevelBootstrapper : LevelBootstrapper
         _audioService.PlayBackMusic(SoundEnum.HorrorLoopMusic);
 
     }
+
+    protected override void StopLevel()
+    {
+        base.StopLevel();
+        Destroy(_enemy.gameObject);
+    }
+
     private new void OnDestroy()
     {
         base.OnDestroy();

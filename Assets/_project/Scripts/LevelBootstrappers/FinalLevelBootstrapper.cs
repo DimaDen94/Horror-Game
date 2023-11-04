@@ -43,6 +43,12 @@ public class FinalLevelBootstrapper : LevelBootstrapper
         _startGate.OpenGate();
     }
 
+    protected override void StopLevel()
+    {
+        base.StopLevel();
+        Destroy(_enemy.gameObject);
+    }
+
     private new void OnDestroy()
     {
         base.OnDestroy();

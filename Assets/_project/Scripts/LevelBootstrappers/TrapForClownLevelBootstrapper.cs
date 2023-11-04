@@ -21,7 +21,7 @@ public class TrapForClownLevelBootstrapper : LevelBootstrapper
         _firstLeverMechanism.MechanismActivated += TryOpenFirstGate;
         _secondLeverMechanism.MechanismActivated += TryOpenSecondGate;
 
-        _clownGate.GateOpened += FollowClown;
+        _clownGate.GateOpened += FollowEnemy;
 
     }
 
@@ -30,8 +30,9 @@ public class TrapForClownLevelBootstrapper : LevelBootstrapper
         _enemy.SlowDown();
     }
 
-    private void FollowClown()
+    private void FollowEnemy()
     {
+        _audioService.PlayBackMusic(SoundEnum.HorrorLoopMusic);
         _enemy.GetComponent<FollowTargetTransition>().Follow();
     }
 
@@ -66,6 +67,6 @@ public class TrapForClownLevelBootstrapper : LevelBootstrapper
         _firstLeverMechanism.MechanismActivated -= TryOpenFirstGate;
         _secondLeverMechanism.MechanismActivated -= TryOpenSecondGate;
 
-        _clownGate.GateOpened -= FollowClown;
+        _clownGate.GateOpened -= FollowEnemy;
     }
 }

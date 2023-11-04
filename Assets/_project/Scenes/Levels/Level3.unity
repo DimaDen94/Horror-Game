@@ -10825,7 +10825,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _collider: {fileID: 4029161438472794506}
   _rigidbody: {fileID: 4029161438472794507}
-  _slotRotation: {x: -120, y: 0, z: 0}
+  _slotRotation: {x: 124, y: -128, z: 43}
 --- !u!1001 &4108273664552046371
 PrefabInstance:
   m_ObjectHideFlags: 0

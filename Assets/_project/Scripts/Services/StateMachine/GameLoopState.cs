@@ -1,4 +1,6 @@
-﻿public class GameLoopState : IState
+﻿using UnityEngine;
+
+public class GameLoopState : IState
 {
     private StateMachine _stateMachine;
 
@@ -9,7 +11,7 @@
 
     public void Enter()
     {
-        
+
     }
 
     public void Exit()

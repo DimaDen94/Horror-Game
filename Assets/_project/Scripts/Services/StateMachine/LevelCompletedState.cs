@@ -34,7 +34,7 @@ public class LevelCompletedState : IPayloadState<LevelEnum>
 
         storyBlackout.SetText(_localizationService.GetTranslateByKey(currentLevel.ToString()));
         storyBlackout.SetSprite(_imageLoader.LoadFromResource(StoryImagesPath + currentLevel.ToString()));
-
+        _audioService.PlaySpeech(currentLevel);
         //_sceneLoader.Load(nextLevel.ToString());
         _audioService.PlayBackMusic(SoundEnum.RegularLoopMusic);
         _progressService.SetNewCurrentLevel(nextLevel);
@@ -56,6 +56,7 @@ public class LevelCompletedState : IPayloadState<LevelEnum>
         }
         else
         {
+            yield return new WaitForSeconds(2);
             _uiFactory.Blackout.DestroyBlackout();
             _stateMachine.Enter<GameCompletedState>();
         }

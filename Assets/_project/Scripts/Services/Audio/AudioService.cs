@@ -17,6 +17,7 @@ public class AudioService : IAudioService
     public string AudioContainerPath = "Audio/AudioContainer";
 
     private SoundEnum _curentMusic = SoundEnum.None;
+    private AudioSource _voiceSource;
 
     public AudioService() {
         _totalSounds = Resources.Load<TotalAudio>(TotalSoundsPath);
@@ -42,15 +43,19 @@ public class AudioService : IAudioService
     {
         foreach (AudioData sound in audio)
         {
-            sound.source = _audioContainer.gameObject.AddComponent<AudioSource>();
-            sound.source.clip = sound.clip;
-            sound.source.volume = sound.valume;
-            sound.source.pitch = sound.pitch;
-            sound.source.loop = sound.loop;
-            sound.source.outputAudioMixerGroup = group;
+            CreateAudio(group, sound);
         }
     }
 
+    private void CreateAudio(AudioMixerGroup group, AudioData sound)
+    {
+        sound.source = _audioContainer.gameObject.AddComponent<AudioSource>();
+        sound.source.clip = sound.clip;
+        sound.source.volume = sound.valume;
+        sound.source.pitch = sound.pitch;
+        sound.source.loop = sound.loop;
+        sound.source.outputAudioMixerGroup = group;
+    }
 
     public void PlayBackMusic(SoundEnum soundEnum)
     {
@@ -134,4 +139,26 @@ public class AudioService : IAudioService
 
     public bool IsMusicEnable() => PlayerPrefs.GetString(AudioEnum.Music.ToString(), true.ToString()).Equals("True");
 
+    public void PlaySpeech(LevelEnum currentLevel)
+    {
+        if (_voiceSource != null)
+        {
+            Object.Destroy(_voiceSource);
+            _voiceSource = null;
+        }
+
+        CreateVoiceSource(currentLevel);
+
+        _voiceSource.Play();
+    }
+
+    private void CreateVoiceSource(LevelEnum currentLevel)
+    {
+        _voiceSource = _audioContainer.gameObject.AddComponent<AudioSource>();
+        _voiceSource.clip = Resources.Load<AudioClip>("StoryVoices/" + currentLevel.ToString());
+        _voiceSource.volume = 1;
+        _voiceSource.pitch = 1;
+        _voiceSource.loop = false;
+        _voiceSource.outputAudioMixerGroup = _musicGroup;
+    }
 }

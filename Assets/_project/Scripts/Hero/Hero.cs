@@ -35,7 +35,8 @@ public class Hero : MonoBehaviour, IHitable
 
     private void DoAction()
     {
-        if (_inputService.IsActionButton()) {
+        if (_inputService.IsActionButton())
+        {
             if (_currentInteractionObject is LiftedThing)
             {
                 _audioService.PlayAudio(SoundEnum.PickUp);
@@ -47,7 +48,8 @@ public class Hero : MonoBehaviour, IHitable
             {
                 bool wasUsed = _currentInteractionObject.TryUse(_slot);
 
-                if (!wasUsed){
+                if (!wasUsed)
+                {
                     _audioService.PlayAudio(SoundEnum.Wrong);
                 }
 
@@ -57,7 +59,8 @@ public class Hero : MonoBehaviour, IHitable
                 }
             }
         }
-        if (_inputService.IsDropButton()) { 
+        if (_inputService.IsDropButton())
+        {
             _audioService.PlayAudio(SoundEnum.Drop);
             _slot.Drop();
 
@@ -67,10 +70,11 @@ public class Hero : MonoBehaviour, IHitable
     public void Death(Transform killer)
     {
         _mover.Lock();
-        transform.DOLookAt(killer.position, 1).OnComplete(()=>{
+        transform.DOLookAt(killer.position, 1).OnComplete(() =>
+        {
             _stateMachine.Enter<DeadState>();
-        }) ;
-        
+        });
+
     }
 
     void OnDrawGizmosSelected()
@@ -87,9 +91,9 @@ public class Hero : MonoBehaviour, IHitable
     {
         Ray ray = _camera.ScreenPointToRay(_centerPosition);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit) && hit.distance < HeroParameters.InteractionDistance)
-            if (hit.transform.GetComponent<InteractionObject>() != _slot.Thing)
-                _currentInteractionObject = hit.transform.GetComponent<InteractionObject>();
+
+        if (Physics.Raycast(ray, out hit) && hit.distance < HeroParameters.InteractionDistance && hit.transform.GetComponent<InteractionObject>() != _slot.Thing)
+            _currentInteractionObject = hit.transform.GetComponent<InteractionObject>();
         else
             _currentInteractionObject = null;
     }

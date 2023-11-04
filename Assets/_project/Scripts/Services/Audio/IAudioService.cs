@@ -11,4 +11,5 @@
     void SoundEnable(bool enable);
     void StopAudio(SoundEnum name);
     void SwitchVolume(AudioEnum _audioType, bool enable);
+    void PlaySpeech(LevelEnum currentLevel);
 }

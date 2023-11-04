@@ -16,7 +16,7 @@ public class BlackoutMediator : MonoBehaviour
 
     public void Daybreak()
     {
-        _animator.SetBool(BlackoutAnimationKey, false);
+        _animator?.SetBool(BlackoutAnimationKey, false);
     }
 
     public void DestroyBlackout()
