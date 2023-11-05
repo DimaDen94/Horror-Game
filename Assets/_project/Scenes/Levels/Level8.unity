@@ -9883,6 +9883,7 @@ MonoBehaviour:
   _clownLeverMechanism: {fileID: 1119996838}
   _firstLeverMechanism: {fileID: 1392479335}
   _secondLeverMechanism: {fileID: 479100927}
+  _brokenLeverMechanism: {fileID: 2090247389}
   _clownGate: {fileID: 861738617}
   _firstGate: {fileID: 1675406622}
   _secondGate: {fileID: 513425890}

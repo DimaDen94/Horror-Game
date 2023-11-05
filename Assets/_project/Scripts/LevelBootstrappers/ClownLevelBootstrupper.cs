@@ -14,6 +14,7 @@ public class ClownLevelBootstrupper : LevelBootstrapper
         _leverMechanism.MechanismActivated += SwitchGates;
         _clownGate.GateOpened += StartHorrorStep;
         _enemy.GetComponent<EnemyStateMachine>().SetTarget(_hero.transform);
+        _leverMechanism.Construct(_toastService);
     }
 
     protected override void EnemySlowDown()

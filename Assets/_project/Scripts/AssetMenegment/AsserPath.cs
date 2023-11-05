@@ -10,4 +10,5 @@
     public const string StoryBlackoutPath = "UI/StoryBlackout";
     public const string HintMenuHudPath = "UI/HintMenuHud";
     public const string LightPath = "Hint/LightBall";
+    public const string ToastPath = "UI/ToastView";
 }

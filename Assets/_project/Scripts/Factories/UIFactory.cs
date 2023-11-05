@@ -38,4 +38,9 @@ public class UIFactory : IUIFactory
         _blackout = _assetProvider.Instantiate(AsserPath.StoryBlackoutPath).GetComponent<BlackoutMediator>();
         return _blackout.GetComponent<StoryBlackoutMediator>();
     }
+
+    public ToastView CreateToast()
+    {
+       return  _assetProvider.Instantiate(AsserPath.ToastPath).GetComponent<ToastView>();
+    }
 }

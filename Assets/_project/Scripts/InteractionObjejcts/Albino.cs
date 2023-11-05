@@ -13,14 +13,12 @@ public class Albino : InteractionObject
     [SerializeField] private AudioSource _audioSourceAttack;
     [SerializeField] private AudioSource _audioSourceDied;
 
-    private StateMachine _stateMachine;
-    private IUIFactory _uiFactory;
+    private IToastService _toastService;
 
-    [Inject]
-    private void Construct(StateMachine stateMachine, IUIFactory uiFactory)
+
+    public void Construct(IToastService toastService)
     {
-        _stateMachine = stateMachine;
-        _uiFactory = uiFactory;
+        _toastService = toastService;
     }
 
     public override bool TryUse(HeroSlot slot)
@@ -30,6 +28,7 @@ public class Albino : InteractionObject
             ((Bottle)slot.Thing).Throw(this);
             return true;
         }
+        _toastService.ShowToast(TranslatableKey.INeedToNeutralizeTheMonster);
         return false;
     }
 

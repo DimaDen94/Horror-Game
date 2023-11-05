@@ -2873,6 +2873,7 @@ MonoBehaviour:
   - {fileID: 1015303294}
   _wallWithHidingPlace: {fileID: 4232981867202867337}
   _leverMechanism: {fileID: 2575938327738852596}
+  _chest: {fileID: 90933885426884660}
 --- !u!1 &1823478656 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 986119350, guid: 5c9c4124d72f4794da50c15ca40dd2ac, type: 3}
@@ -3361,7 +3362,7 @@ GameObject:
   - component: {fileID: 90933885426884660}
   - component: {fileID: 90933885426884662}
   m_Layer: 0
-  m_Name: Chest_03
+  m_Name: Chest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

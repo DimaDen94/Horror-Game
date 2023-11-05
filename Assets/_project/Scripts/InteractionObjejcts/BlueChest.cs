@@ -10,6 +10,14 @@ public class BlueChest : InteractionObject
 
     private bool _isOpen = false;
 
+    private IToastService _toastService;
+
+
+    public void Construct(IToastService toastService)
+    {
+        _toastService = toastService;
+    }
+
     public override bool TryUse(HeroSlot slot)
     {
         if (slot.Thing is BlueChestKye && !_isOpen)
@@ -19,6 +27,7 @@ public class BlueChest : InteractionObject
             _isOpen = true;
             return true;
         }
+        _toastService.ShowToast(TranslatableKey.NeedTheRightKey);
         return false;
     }
 

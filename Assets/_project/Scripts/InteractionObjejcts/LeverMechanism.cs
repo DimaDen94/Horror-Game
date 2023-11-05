@@ -16,11 +16,18 @@ public class LeverMechanism : InteractionObject
     private bool _lock = false;
     private const int MovementDuration = 3;
     private bool _isActivated = false;
-
+    private IToastService _toastService;
 
     public event Action MechanismActivated;
     
     public bool IsActivated => _isActivated;
+
+
+    public void Construct(IToastService toastService)
+    {
+        _toastService = toastService;
+    }
+
 
     public override bool TryUse(HeroSlot slot)
     {
@@ -47,6 +54,7 @@ public class LeverMechanism : InteractionObject
             MechanismActivated?.Invoke();
             return true;
         }
+        _toastService.ShowToast(TranslatableKey.ThisMechanismIsBroken);
         return false;
     }
 

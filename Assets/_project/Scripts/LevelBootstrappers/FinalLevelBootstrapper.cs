@@ -18,6 +18,10 @@ public class FinalLevelBootstrapper : LevelBootstrapper
     private new void Start()
     {
         base.Start();
+        _startLevelar.Construct(_toastService);
+        _bridgeLevelar.Construct(_toastService);
+        _lastLevelar.Construct(_toastService);
+
         _startLevelar.MechanismActivated += OnStartLevelar;
         _bridgeLevelar.MechanismActivated += MoveBridge;
         _enemy.GetComponent<EnemyStateMachine>().SetTarget(_hero.transform);

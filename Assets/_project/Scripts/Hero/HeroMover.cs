@@ -67,15 +67,13 @@ public class HeroMover : MonoBehaviour
             _speed = Mathf.Lerp(currentHorizontalSpeed, targetSpeed * inputMagnitude, Time.deltaTime * SpeedChangeRate);
 
             _speed = Mathf.Round(_speed * 1000f) / 1000f;
-            if(_speed > 0)
-             Debug.Log("1speed - " + _speed);
+
         }
         else
         {
             _speed = targetSpeed;
             _animator.SetFloat(AnimationKey, _speed);
-            if (_speed > 0)
-                Debug.Log("2speed - " + _speed);
+
         }
     }
 

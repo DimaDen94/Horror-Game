@@ -5,6 +5,7 @@ public class TrapForClownLevelBootstrapper : LevelBootstrapper
     [SerializeField] private LeverMechanism _clownLeverMechanism;
     [SerializeField] private LeverMechanism _firstLeverMechanism;
     [SerializeField] private LeverMechanism _secondLeverMechanism;
+    [SerializeField] private LeverMechanism _brokenLeverMechanism;
 
     [SerializeField] private Gate _clownGate;
     [SerializeField] private Gate _firstGate;
@@ -16,6 +17,11 @@ public class TrapForClownLevelBootstrapper : LevelBootstrapper
     {
         base.Start();
         _enemy.GetComponent<EnemyStateMachine>().SetTarget(_hero.transform);
+
+        _clownLeverMechanism.Construct(_toastService);
+        _firstLeverMechanism.Construct(_toastService);
+        _secondLeverMechanism.Construct(_toastService);
+        _brokenLeverMechanism.Construct(_toastService);
 
         _clownLeverMechanism.MechanismActivated += TryOpenClownGate;
         _firstLeverMechanism.MechanismActivated += TryOpenFirstGate;

@@ -32,6 +32,7 @@ public class Pot : InteractionObject
             ChurnPotion((Bottle)slot.Thing, slot);
             return true;
         }
+
         return false;
     }
 

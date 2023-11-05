@@ -14,23 +14,25 @@ public class LevelBootstrapper : MonoBehaviour
     [SerializeField] protected GameObject _startCamera;
 
     protected IAudioService _audioService;
+    protected IToastService _toastService;
     protected StateMachine _stateMachine;
     protected Hero _hero;
     private IInputService _inputService;
     private IUIFactory _uiFactory;
     private IGameFactory _gameFactory;
     private IProgressService _progressService;
-
     [SerializeField] private List<LiftedThing> _liftedThings;
 
     [Inject]
-    private void Construct(IInputService inputService, IUIFactory uiFactory, IAudioService audioService, StateMachine stateMachine, IGameFactory gameFactory, IProgressService progressService) {
+    private void Construct(IInputService inputService, IUIFactory uiFactory, IAudioService audioService, StateMachine stateMachine, IGameFactory gameFactory,
+        IProgressService progressService, IToastService toastService) {
         _inputService = inputService;
         _uiFactory = uiFactory;
         _audioService = audioService;
         _stateMachine = stateMachine;
         _gameFactory = gameFactory;
         _progressService = progressService;
+        _toastService = toastService;
     }
 
     protected void Start()
@@ -38,11 +40,14 @@ public class LevelBootstrapper : MonoBehaviour
         _startCamera.SetActive(false);
         InitHero();
         if (_exitDoor != null)
+        {
+            _exitDoor.Construct(_toastService);
             _exitDoor.ExitDoorOpened += OnExitDoorOpened;
+        }
 
         if (_progressService.GetHintStates(_progressService.GetCurrentLevel(), HintEnum.HintHighlight))
             TryShowHint();
-
+        
         _progressService.HintStateChanged += TryShowHint;
     }
 
@@ -73,10 +78,7 @@ public class LevelBootstrapper : MonoBehaviour
         LoadNextLevel();
     }
 
-    protected virtual void StopLevel()
-    {
-        
-    }
+    protected virtual void StopLevel() {}
 
     private void LoadNextLevel()
     {

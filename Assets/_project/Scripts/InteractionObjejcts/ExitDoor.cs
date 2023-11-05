@@ -1,18 +1,18 @@
 using System;
 using UnityEngine;
-using Zenject;
 
 public class ExitDoor : InteractionObject
 {
     [SerializeField]private AudioSource _audioSource;
-    private IUIFactory _uiFactory;
 
     public event Action ExitDoorOpened;
 
-    [Inject]
-    private void Constract(IUIFactory uiFactory)
+    private IToastService _toastService;
+
+
+    public void Construct(IToastService toastService)
     {
-        _uiFactory = uiFactory;
+        _toastService = toastService;
     }
 
     public override bool TryUse(HeroSlot slot)
@@ -21,10 +21,11 @@ public class ExitDoor : InteractionObject
         {
             _audioSource.Play();
 
-            Invoke("NextLevel", 0.5f);
+            NextLevel();
             return true;
 
         }
+        _toastService.ShowToast(TranslatableKey.NeedTheRightKey);
         return false;
     }
 

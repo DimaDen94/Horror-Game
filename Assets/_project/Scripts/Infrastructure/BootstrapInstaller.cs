@@ -22,6 +22,7 @@ public class BootstrapInstaller : MonoInstaller
         BindInputService();
         BindStateMachine();
         BindUIFactory();
+        BindToastService();
         BindGameFactory();
         BindGameBootstrapper();
     }
@@ -45,8 +46,9 @@ public class BootstrapInstaller : MonoInstaller
 
     private void BindVibrationService() => Container.Bind<IVibrationService>().To<VibrationService>().AsSingle();
 
-
     private void BindUIFactory() => Container.Bind<IUIFactory>().To<UIFactory>().AsSingle();
+
+    private void BindToastService() => Container.Bind<IToastService>().To<ToastService>().AsSingle();
 
     private void BindGameFactory() => Container.Bind<IGameFactory>().To<GameFactory>().AsSingle();
 
