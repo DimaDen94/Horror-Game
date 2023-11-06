@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 public class ProgressService : IProgressService
 {
     public event Action HintStateChanged;
+    public event Action MemoryStateChanged;
 
     private UserProgress _userProgress;
     private IJsonConvertor _jsonConvertor;
@@ -91,4 +93,15 @@ public class ProgressService : IProgressService
         SaveProgress();
         HintStateChanged?.Invoke();
     }
+
+    public void SetMemoryActive(LevelEnum level)
+    {
+        List<LevelMemoryState> _memoryStates = _userProgress.LevelMemoryStates;
+        LevelMemoryState levelStates = _memoryStates.Find(l => l.level == level);
+        levelStates.enable = true;
+        SaveProgress();
+        MemoryStateChanged?.Invoke();
+    }
+
+    public int GetMemoryProgress() => (_userProgress.LevelMemoryStates.Where(item => item.enable)).Count();
 }

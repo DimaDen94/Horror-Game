@@ -21,6 +21,7 @@ public class StateMachine
             [typeof(HintMenuState)] = new HintMenuState(this, uiFactory, audioService, coroutineRunner, progressService, configHolder, localizationService),
             [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader, audioService, uiFactory, coroutineRunner),
             [typeof(LevelCompletedState)] = new LevelCompletedState(this, sceneLoader, audioService, uiFactory, coroutineRunner, imageLoader, localizationService, progressService),
+            [typeof(MemoryState)] = new MemoryState(this,  audioService, uiFactory, coroutineRunner, imageLoader, localizationService, progressService, configHolder),
             [typeof(DeadState)] = new DeadState(this, audioService, vibrationService, progressService),
             [typeof(GameCompletedState)] = new GameCompletedState(this, audioService, uiFactory, _coroutineRunner, progressService, localizationService),
             [typeof(GameLoopState)] = new GameLoopState(this)

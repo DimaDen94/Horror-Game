@@ -3,6 +3,7 @@
 public interface IProgressService
 {
     event Action HintStateChanged;
+    event Action MemoryStateChanged;
 
     LevelEnum GetCurrentLevel();
     void LoadProgress();
@@ -12,4 +13,6 @@ public interface IProgressService
     void SetLanguageInstalled();
     bool GetHintStates(LevelEnum level, HintEnum hint);
     void SetHintActive(LevelEnum level, HintEnum hint);
+    void SetMemoryActive(LevelEnum level);
+    int GetMemoryProgress();
 }

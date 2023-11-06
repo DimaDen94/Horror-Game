@@ -1,7 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using Sirenix.OdinInspector;
 using UnityEngine;
 using Zenject;
 
@@ -12,16 +10,21 @@ public class LevelBootstrapper : MonoBehaviour
     [SerializeField] protected LevelEnum _nextLevel;
     [SerializeField] protected ExitDoor _exitDoor;
     [SerializeField] protected GameObject _startCamera;
+    [SerializeField] protected CollectionItem _collectionMemoryItem;
 
+    protected Hero _hero;
+
+    protected StateMachine _stateMachine;
     protected IAudioService _audioService;
     protected IToastService _toastService;
-    protected StateMachine _stateMachine;
-    protected Hero _hero;
+
+    [SerializeField] private List<LiftedThing> _liftedThings;
+
     private IInputService _inputService;
     private IUIFactory _uiFactory;
     private IGameFactory _gameFactory;
     private IProgressService _progressService;
-    [SerializeField] private List<LiftedThing> _liftedThings;
+
 
     [Inject]
     private void Construct(IInputService inputService, IUIFactory uiFactory, IAudioService audioService, StateMachine stateMachine, IGameFactory gameFactory,
@@ -49,7 +52,10 @@ public class LevelBootstrapper : MonoBehaviour
             TryShowHint();
         
         _progressService.HintStateChanged += TryShowHint;
+
+        _collectionMemoryItem.ItemCollected += OnCollectedMemory;
     }
+
 
     private void TryShowHint()
     {
@@ -59,9 +65,7 @@ public class LevelBootstrapper : MonoBehaviour
             EnemySlowDown();
     }
 
-    protected virtual void EnemySlowDown() {
-
-    }
+    protected virtual void EnemySlowDown() {}
 
     private void ShowHighlight()
     {
@@ -80,11 +84,9 @@ public class LevelBootstrapper : MonoBehaviour
 
     protected virtual void StopLevel() {}
 
-    private void LoadNextLevel()
-    {
-        
-        _stateMachine.Enter<LevelCompletedState, LevelEnum>(_nextLevel);
-    }
+    private void OnCollectedMemory() => _stateMachine.Enter<MemoryState>();
+
+    private void LoadNextLevel() => _stateMachine.Enter<LevelCompletedState, LevelEnum>(_nextLevel);
 
     private void InitHero()
     {
@@ -102,8 +104,4 @@ public class LevelBootstrapper : MonoBehaviour
             _exitDoor.ExitDoorOpened -= OnExitDoorOpened;
     }
 
-    [Button]
-    private void CollectLiftedObjects() {
-        _liftedThings = GameObject.FindObjectsOfType<LiftedThing>().ToList();
-    }
 }

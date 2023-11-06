@@ -15,31 +15,41 @@ MonoBehaviour:
   _levelConfigs:
   - level: 1
     TextHintKey: 18
+    TextMemoryKey: 41
     hints: 0000000001000000
   - level: 2
     TextHintKey: 19
+    TextMemoryKey: 42
     hints: 0000000001000000
   - level: 3
     TextHintKey: 20
+    TextMemoryKey: 43
     hints: 0000000001000000
   - level: 4
     TextHintKey: 21
+    TextMemoryKey: 44
     hints: 0000000001000000
   - level: 5
     TextHintKey: 22
+    TextMemoryKey: 45
     hints: 0000000001000000
   - level: 6
     TextHintKey: 23
+    TextMemoryKey: 46
     hints: 0000000001000000
   - level: 7
     TextHintKey: 24
+    TextMemoryKey: 47
     hints: 000000000100000002000000
   - level: 8
     TextHintKey: 25
+    TextMemoryKey: 48
     hints: 000000000100000002000000
   - level: 9
     TextHintKey: 26
+    TextMemoryKey: 49
     hints: 000000000100000002000000
   - level: 10
     TextHintKey: 27
+    TextMemoryKey: 50
     hints: 0000000002000000

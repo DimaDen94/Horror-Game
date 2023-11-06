@@ -39,8 +39,7 @@ public class UIFactory : IUIFactory
         return _blackout.GetComponent<StoryBlackoutMediator>();
     }
 
-    public ToastView CreateToast()
-    {
-       return  _assetProvider.Instantiate(AsserPath.ToastPath).GetComponent<ToastView>();
-    }
+    public ToastView CreateToast() => _assetProvider.Instantiate(AsserPath.ToastPath).GetComponent<ToastView>();
+
+    public MemoryMenu CreateMemoryMenu() => _assetProvider.Instantiate(AsserPath.MemoryMenuPath).GetComponent<MemoryMenu>();
 }

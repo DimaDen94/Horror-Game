@@ -14,4 +14,5 @@ public interface IUIFactory
     StoryBlackoutMediator CreateStoryBlackout();
     HintMenuMediator CreateHintMenu();
     ToastView CreateToast();
+    MemoryMenu CreateMemoryMenu();
 }

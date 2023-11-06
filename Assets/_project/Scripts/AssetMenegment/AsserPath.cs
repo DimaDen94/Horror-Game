@@ -11,4 +11,5 @@
     public const string HintMenuHudPath = "UI/HintMenuHud";
     public const string LightPath = "Hint/LightBall";
     public const string ToastPath = "UI/ToastView";
+    public const string MemoryMenuPath = "UI/MemoryMenu";
 }
