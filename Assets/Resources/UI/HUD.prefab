@@ -408,7 +408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b21d6a5e3ff9649a39d3831eaed1f8ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sound: 3
+  _sound: 10
 --- !u!1 &8293006048336030586
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,7 +543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b21d6a5e3ff9649a39d3831eaed1f8ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sound: 3
+  _sound: 10
 --- !u!1001 &3305031619928082424
 PrefabInstance:
   m_ObjectHideFlags: 0

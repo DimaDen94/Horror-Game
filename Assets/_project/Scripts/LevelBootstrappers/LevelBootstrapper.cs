@@ -17,11 +17,11 @@ public class LevelBootstrapper : MonoBehaviour
     protected StateMachine _stateMachine;
     protected IAudioService _audioService;
     protected IToastService _toastService;
+    protected IUIFactory _uiFactory;
 
     [SerializeField] private List<LiftedThing> _liftedThings;
 
     private IInputService _inputService;
-    private IUIFactory _uiFactory;
     private IGameFactory _gameFactory;
     private IProgressService _progressService;
 

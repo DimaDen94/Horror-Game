@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class HeroMover : MonoBehaviour
@@ -78,6 +79,8 @@ public class HeroMover : MonoBehaviour
     }
 
     public void Lock() => _lock = true;
+
+    public void Unlock() => _lock = false;
 
     private void CameraRotation()
     {

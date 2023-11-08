@@ -1,8 +1,11 @@
+using System;
 using DG.Tweening;
 using UnityEngine;
 
 public class RedChest : InteractionObject
 {
+    public event Action ChestOpened;
+
     [SerializeField] private Transform _chestCover;
     [SerializeField] private GameObject _loot;
     [SerializeField] private AudioSource _audioSource;
@@ -10,14 +13,9 @@ public class RedChest : InteractionObject
 
     private bool _isOpen = false;
 
-
     private IToastService _toastService;
 
-
-    public void Construct(IToastService toastService)
-    {
-        _toastService = toastService;
-    }
+    public void Construct(IToastService toastService) => _toastService = toastService;
 
     public override bool TryUse(HeroSlot slot)
     {
@@ -26,6 +24,7 @@ public class RedChest : InteractionObject
             OpenChest();
             _audioSource.Play();
             _isOpen = true;
+            ChestOpened?.Invoke();
             return true;
         }
         _toastService.ShowToast(TranslatableKey.NeedTheRightKey);

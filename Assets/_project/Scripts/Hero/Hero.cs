@@ -67,6 +67,14 @@ public class Hero : MonoBehaviour, IHitable
         }
     }
 
+    public void LookAt(Transform subject) {
+        _mover.Lock();
+        transform.DOLookAt(subject.position, 1).OnComplete(() =>
+        {
+            _mover.Unlock();
+        });
+    }
+
     public void Death(Transform killer)
     {
         _mover.Lock();
