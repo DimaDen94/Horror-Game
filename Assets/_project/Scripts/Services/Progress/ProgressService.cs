@@ -49,7 +49,7 @@ public class ProgressService : IProgressService
 
     public void ResetProgress()
     {
-        _userProgress.CurrentLevel = LevelEnum.Level4;
+        _userProgress.CurrentLevel = LevelEnum.Level1;
         SaveProgress();
     }
 
@@ -61,7 +61,7 @@ public class ProgressService : IProgressService
 
     public bool IsLanguageInstalled()
     {
-         return _userProgress.IsLanguageInstalled;
+        return _userProgress.IsLanguageInstalled;
     }
 
     public void SetLanguageInstalled()
@@ -101,6 +101,15 @@ public class ProgressService : IProgressService
         levelStates.enable = true;
         SaveProgress();
         MemoryStateChanged?.Invoke();
+    }
+
+    public bool GetMemoryActive(LevelEnum level)
+    {
+        List<LevelMemoryState> _memoryStates = _userProgress.LevelMemoryStates;
+        LevelMemoryState levelStates = _memoryStates.Find(l => l.level == level);
+        if (levelStates != null)
+            return levelStates.enable;
+        return false;
     }
 
     public int GetMemoryProgress() => (_userProgress.LevelMemoryStates.Where(item => item.enable)).Count();

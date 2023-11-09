@@ -27,7 +27,8 @@ public class BlueChest : InteractionObject
             ChestOpened?.Invoke();
             return true;
         }
-        _toastService.ShowToast(TranslatableKey.NeedTheRightKey);
+        if (!_isOpen)
+            _toastService.ShowToast(TranslatableKey.NeedTheRightKey);
         return false;
     }
 

@@ -15,4 +15,5 @@ public interface IProgressService
     void SetHintActive(LevelEnum level, HintEnum hint);
     void SetMemoryActive(LevelEnum level);
     int GetMemoryProgress();
+    bool GetMemoryActive(LevelEnum level);
 }

@@ -7,7 +7,7 @@ public class ChestKey : LiftedThing
 
     public override void Animate()
     {
-        var rotate = new Vector3(183.55f, -84.34799f, 65.628f);
+        var rotate = new Vector3(160, 100, -55);
         transform.DOLocalRotate(rotate, AnimateDuration).SetLoops(2, LoopType.Yoyo);
     }
 }

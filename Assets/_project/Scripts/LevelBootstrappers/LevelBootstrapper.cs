@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
@@ -41,23 +40,42 @@ public class LevelBootstrapper : MonoBehaviour
     protected void Start()
     {
         _startCamera.SetActive(false);
+
         InitHero();
+        InitExitDoor();
+
+        if (CanShowHint())
+            ShowHint();
+        _progressService.HintStateChanged += ShowHint;
+
+        InitCollectedItem();
+    }
+
+
+    private void InitExitDoor()
+    {
         if (_exitDoor != null)
         {
             _exitDoor.Construct(_toastService);
             _exitDoor.ExitDoorOpened += OnExitDoorOpened;
         }
-
-        if (_progressService.GetHintStates(_progressService.GetCurrentLevel(), HintEnum.HintHighlight))
-            TryShowHint();
-        
-        _progressService.HintStateChanged += TryShowHint;
-
-        _collectionMemoryItem.ItemCollected += OnCollectedMemory;
     }
 
 
-    private void TryShowHint()
+    private bool CanShowHint()
+    {
+        return _progressService.GetHintStates(_progressService.GetCurrentLevel(), HintEnum.HintHighlight);
+    }
+
+    private void InitCollectedItem()
+    {
+        if (_progressService.GetMemoryActive(_progressService.GetCurrentLevel()))
+            _collectionMemoryItem.gameObject.SetActive(false);
+        else
+            _collectionMemoryItem.ItemCollected += OnCollectedMemory;
+    }
+
+    private void ShowHint()
     {
         if (_progressService.GetHintStates(_progressService.GetCurrentLevel(), HintEnum.HintHighlight))
             ShowHighlight();
@@ -98,7 +116,7 @@ public class LevelBootstrapper : MonoBehaviour
 
     protected void OnDestroy()
     {
-        _progressService.HintStateChanged -= TryShowHint;
+        _progressService.HintStateChanged -= ShowHint;
 
         if (_exitDoor != null)
             _exitDoor.ExitDoorOpened -= OnExitDoorOpened;
