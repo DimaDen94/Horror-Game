@@ -2,16 +2,26 @@
 
 public class GameLoopState : IState
 {
-    private StateMachine _stateMachine;
+    private IAdvertisementService _advertisementService;
+    private IProgressService _progressService;
 
-    public GameLoopState(StateMachine stateMachine)
+    public GameLoopState(IAdvertisementService advertisementService, IProgressService progressService)
     {
-       _stateMachine = stateMachine;
+        _advertisementService = advertisementService;
+        _progressService = progressService;
     }
 
     public void Enter()
     {
+        Time.timeScale = 1;
+        if (_progressService.CanShowAd())
+        {
+            _advertisementService.LoadInterstitialAd();
 
+            if(!_advertisementService.CanShowRewardedAd())
+                _advertisementService.LoadRewardedAd();
+        }
+       
     }
 
     public void Exit()

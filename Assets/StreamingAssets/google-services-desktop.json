@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "629981100158",
+    "project_id": "dungeons-and-fear",
+    "storage_bucket": "dungeons-and-fear.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:629981100158:android:112c7d8442c82d995d002f",
+        "android_client_info": {
+          "package_name": "com.LifeIsGame.DungeonsAndFear"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOFLST0Xs_Uv7b-NqlOSyBQjy8AeLw_Dc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

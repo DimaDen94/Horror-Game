@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
-
-public class MainMenuState : IState
+﻿public class MainMenuState : IState
 {
     private StateMachine _stateMachine;
     private ISceenLoader _sceneLoader;
@@ -10,10 +7,11 @@ public class MainMenuState : IState
     private IProgressService _progressService;
     private ICoroutineRunner _coroutineRunner;
     private ILocalizationService _localizationService;
+    private IAccessLayer _accessLayer;
     private MainMenuMediator _hud;
 
     public MainMenuState(StateMachine stateMachine, ISceenLoader sceneLoader, IUIFactory uiFactory, IAudioService audioService, IProgressService progressService,
-        ICoroutineRunner coroutineRunner, ILocalizationService localizationService)
+        ICoroutineRunner coroutineRunner, ILocalizationService localizationService, IAccessLayer accessLayer)
     {
         _stateMachine = stateMachine;
         _sceneLoader = sceneLoader;
@@ -22,6 +20,7 @@ public class MainMenuState : IState
         _progressService = progressService;
         _coroutineRunner = coroutineRunner;
         _localizationService = localizationService;
+        _accessLayer = accessLayer;
     }
 
     public void Enter()
@@ -33,7 +32,7 @@ public class MainMenuState : IState
     {
         _audioService.PlayBackMusic(SoundEnum.MenuLoopMusic);
         _hud = _uiFactory.CreateMainMenuHud();
-        _hud.Construct(_stateMachine, _audioService,_progressService, _coroutineRunner, _localizationService);
+        _hud.Construct(_stateMachine, _audioService,_progressService, _coroutineRunner, _localizationService, _accessLayer);
     }
 
     public void Exit()

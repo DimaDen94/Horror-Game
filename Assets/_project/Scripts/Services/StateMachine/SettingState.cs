@@ -11,10 +11,13 @@ public class SettingState : IState
     private IAudioService _audioService;
     private ICoroutineRunner _coroutineRunner;
     private IVibrationService _vibrationService;
+    private IProgressService _progressService;
+    private ILocalizationService _localizationService;
+    private IAccessLayer _accessLayer;
     private SettingMenuMediator _hud;
 
     public SettingState(StateMachine stateMachine, ISceenLoader sceneLoader, IUIFactory uiFactory, IAudioService audioService,
-        ICoroutineRunner coroutineRunner, IVibrationService vibrationService)
+        ICoroutineRunner coroutineRunner, IVibrationService vibrationService, IProgressService progressService, ILocalizationService localizationService, IAccessLayer accessLayer)
     {
         _stateMachine = stateMachine;
         _sceneLoader = sceneLoader;
@@ -22,6 +25,9 @@ public class SettingState : IState
         _audioService = audioService;
         _coroutineRunner = coroutineRunner;
         _vibrationService = vibrationService;
+        _progressService = progressService;
+        _localizationService = localizationService;
+        _accessLayer = accessLayer;
     }
 
     public void Enter()
@@ -33,7 +39,7 @@ public class SettingState : IState
     private void OnLoad()
     {
         _hud = _uiFactory.CreateSettingMenuHud();
-        _hud.Construct(_stateMachine, _audioService,_vibrationService);
+        _hud.Construct(_stateMachine, _audioService,_vibrationService,_localizationService,_accessLayer, _progressService);
     }
 
     public void Exit()

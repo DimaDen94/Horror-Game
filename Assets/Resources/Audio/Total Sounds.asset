@@ -43,6 +43,12 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - soundName: 14
+    clip: {fileID: 8300000, guid: 7c4ae6395213b416caec0d8feb7f1695, type: 3}
+    valume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   _music:
   - soundName: 1
     clip: {fileID: 8300000, guid: 19977d9c24ff14d43b683583ff2c025c, type: 3}

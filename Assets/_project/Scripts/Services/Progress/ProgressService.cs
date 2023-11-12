@@ -4,15 +4,16 @@ using System.Linq;
 
 public class ProgressService : IProgressService
 {
+    public event Action LevelIncremented;
     public event Action HintStateChanged;
     public event Action MemoryStateChanged;
+    public event Action ShowAdStateChanged;
 
     private UserProgress _userProgress;
     private IJsonConvertor _jsonConvertor;
     private IPlayerPrefsService _playerPrefsService;
     private ILevelConfigHolder _levelConfigHolder;
 
-    public event Action LevelIncremented;
 
     public ProgressService(IJsonConvertor jsonConvertor, IPlayerPrefsService playerPrefsService, ILevelConfigHolder levelConfigService)
     {
@@ -113,4 +114,13 @@ public class ProgressService : IProgressService
     }
 
     public int GetMemoryProgress() => (_userProgress.LevelMemoryStates.Where(item => item.enable)).Count();
+
+    public void PurchaseProduct(string producId)
+    {
+        _userProgress.DisableAd();
+        SaveProgress();
+        ShowAdStateChanged?.Invoke();
+    }
+
+    public bool CanShowAd() => _userProgress.CanShowAd;
 }

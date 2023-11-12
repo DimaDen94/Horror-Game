@@ -10,4 +10,5 @@
     PickUp = 12,
     Wrong = 12,
     Screamer1 = 13,
+    Paper = 14,
 }

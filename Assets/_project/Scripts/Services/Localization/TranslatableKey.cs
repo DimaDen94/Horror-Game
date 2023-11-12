@@ -10,4 +10,5 @@
 
     MemoryHintLevel1 = 41, MemoryHintLevel2 = 42, MemoryHintLevel3 = 43, MemoryHintLevel4 = 44, MemoryHintLevel5 = 45,
     MemoryHintLevel6 = 46, MemoryHintLevel7 = 47, MemoryHintLevel8 = 48, MemoryHintLevel9 = 49, MemoryHintLevel10 = 50,
+    AdvertisingIsNotReady = 51,
 }

@@ -11,13 +11,14 @@ public class MemoryState : IState
     private ILocalizationService _localizationService;
     private IProgressService _progressService;
     private ILevelConfigHolder _levelConfigHolder;
+    private IAnalyticService _analyticService;
 
     private MemoryMenu _memoryMenu;
     private const string MemoryImagesPath = "MemoriesImages/";
     private float DestroyDelay = 1;
 
     public MemoryState(StateMachine stateMachine, IAudioService audioService, IUIFactory uiFactory, ICoroutineRunner coroutineRunner,
-    IImageLoader imageLoader, ILocalizationService localizationService, IProgressService progressService, ILevelConfigHolder levelConfigHolder)
+    IImageLoader imageLoader, ILocalizationService localizationService, IProgressService progressService, ILevelConfigHolder levelConfigHolder, IAnalyticService analyticService)
     {
         _stateMachine = stateMachine;
         _audioService = audioService;
@@ -27,7 +28,7 @@ public class MemoryState : IState
         _localizationService = localizationService;
         _progressService = progressService;
         _levelConfigHolder = levelConfigHolder;
-       
+        _analyticService = analyticService;
     }
 
     public void Enter()
@@ -35,12 +36,17 @@ public class MemoryState : IState
         LevelEnum currentLevel = _progressService.GetCurrentLevel();
         _progressService.SetMemoryActive(currentLevel);
 
+        _audioService.PlayAudio(SoundEnum.Paper);
+
         LevelConfig levelConfig = _levelConfigHolder.GetLevelConfig(currentLevel);
+
         _memoryMenu = _uiFactory.CreateMemoryMenu();
         _memoryMenu.Construct(_audioService, _stateMachine);
         _memoryMenu.SetText(_localizationService.GetTranslateByKey(levelConfig.TextMemoryKey));
         _memoryMenu.SetSprite(_imageLoader.LoadFromResource(MemoryImagesPath + currentLevel.ToString()));
         _memoryMenu.SetMemoryProgress(_progressService.GetMemoryProgress(), _levelConfigHolder.Configs.Count);
+
+        _analyticService.MemoryUnlock(currentLevel);
 
         Time.timeScale = 0;
     }

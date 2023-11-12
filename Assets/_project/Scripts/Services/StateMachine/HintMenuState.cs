@@ -12,10 +12,11 @@ public class HintMenuState : IState
     private IProgressService _progressService;
     private ILevelConfigHolder _configHolder;
     private ILocalizationService _localizationService;
+    private IAccessLayer _accessLayer;
     private HintMenuMediator _hud;
 
     public HintMenuState(StateMachine stateMachine,  IUIFactory uiFactory, IAudioService audioService, ICoroutineRunner coroutineRunner,
-        IProgressService progressService, ILevelConfigHolder configHolder, ILocalizationService localizationService)
+        IProgressService progressService, ILevelConfigHolder configHolder, ILocalizationService localizationService, IAccessLayer accessLayer)
     {
         _stateMachine = stateMachine;
         _uiFactory = uiFactory;
@@ -24,13 +25,14 @@ public class HintMenuState : IState
         _progressService = progressService;
         _configHolder = configHolder;
         _localizationService = localizationService;
+        _accessLayer = accessLayer;
     }
 
     public void Enter()
     {
         Time.timeScale = 0;
         _hud = _uiFactory.CreateHintMenu();
-        _hud.Construct(_stateMachine, _audioService, _progressService, _configHolder, _localizationService);
+        _hud.Construct(_stateMachine, _audioService, _progressService, _configHolder, _localizationService, _accessLayer);
     }
 
     public void Exit()

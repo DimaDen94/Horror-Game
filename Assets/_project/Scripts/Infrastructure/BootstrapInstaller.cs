@@ -10,12 +10,17 @@ public class BootstrapInstaller : MonoInstaller
     public override void InstallBindings()
     {
         BindPlayerPrefsService();
+        BindAnalyticService();
+        BindAdvertisementService();
+        BindIAPProvider();
         BindJsonConvertor();
         BindAssetProvider();
         BingLevelConfigService();
         BindImageLoader();
-        ProgressService();
-        BindLocalizationLoader();
+        BindProgressService();
+        BindIAPService();
+        BindLocalizationService();
+        BindAccessLayer();
         BindSceenLoader();
         BindAudioService();
         BindVibrationService();
@@ -30,6 +35,12 @@ public class BootstrapInstaller : MonoInstaller
 
     private void BindPlayerPrefsService() => Container.Bind<IPlayerPrefsService>().To<PlayerPrefsService>().AsSingle();
 
+    private void BindAnalyticService() => Container.Bind<IAnalyticService>().To<FirebaseAnalyticService>().AsSingle();
+
+    private void BindAdvertisementService() => Container.Bind<IAdvertisementService>().To<AdMobAdvertisementService>().AsSingle();
+
+    private void BindIAPProvider() => Container.Bind<IAPProvider>().To<IAPProvider>().AsSingle();
+
     private void BindJsonConvertor() => Container.Bind<IJsonConvertor>().To<JsonConvertor>().AsSingle();
 
     private void BindAssetProvider() => Container.Bind<IAssetProvider>().To<AssetProvider>().AsSingle();
@@ -38,9 +49,13 @@ public class BootstrapInstaller : MonoInstaller
 
     private void BindImageLoader() => Container.Bind<IImageLoader>().To<ImageLoader>().AsSingle();
 
-    private void ProgressService() => Container.Bind<IProgressService>().To<ProgressService>().AsSingle();
+    private void BindProgressService() => Container.Bind<IProgressService>().To<ProgressService>().AsSingle();
 
-    private void BindLocalizationLoader() => Container.Bind<ILocalizationService>().To<LocalizationService>().AsSingle();
+    private void BindIAPService() => Container.Bind<IIAPService>().To<IAPService>().AsSingle();
+
+    private void BindLocalizationService() => Container.Bind<ILocalizationService>().To<LocalizationService>().AsSingle();
+
+    private void BindAccessLayer() => Container.Bind<IAccessLayer>().To<AccessLayer>().AsSingle();
 
     private void BindAudioService() => Container.Bind<IAudioService>().To<AudioService>().AsSingle();
 

@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,28 +13,44 @@ public class MainMenuMediator : MonoBehaviour
     [SerializeField] private Button _continue;
     [SerializeField] private Button _newGame;
     [SerializeField] private Button _setting;
-    [SerializeField] private Button _adOff;
+    [SerializeField] private Button _adButton;
+    [SerializeField] private GameObject _checkmark;
+
     [SerializeField] private List<TextMeshProTranslator> _translators;
 
     private StateMachine _stateMachine;
     private IProgressService _progressService;
     private ICoroutineRunner _coroutineRunner;
     private ILocalizationService _localizationService;
+    private IAudioService _audioService;
+    private IAccessLayer _accessLayer;
 
-    public void Construct(StateMachine stateMachine, IAudioService audioService, IProgressService progressService, ICoroutineRunner coroutineRunner, ILocalizationService localizationService) {
+    public void Construct(StateMachine stateMachine, IAudioService audioService, IProgressService progressService, ICoroutineRunner coroutineRunner,
+        ILocalizationService localizationService, IAccessLayer accessLayer) {
         _stateMachine = stateMachine;
         _progressService = progressService;
         _coroutineRunner = coroutineRunner;
         _localizationService = localizationService;
+        _audioService = audioService;
+        _accessLayer = accessLayer;
+    }
 
-        _continue.GetComponent<ButtonClickPlayer>().Construct(audioService);
-        _newGame.GetComponent<ButtonClickPlayer>().Construct(audioService);
-        _setting.GetComponent<ButtonClickPlayer>().Construct(audioService);
-        _adOff.GetComponent<ButtonClickPlayer>().Construct(audioService);
+    private void Start()
+    {
+        _continue.GetComponent<ButtonClickPlayer>().Construct(_audioService);
+        _newGame.GetComponent<ButtonClickPlayer>().Construct(_audioService);
+        _setting.GetComponent<ButtonClickPlayer>().Construct(_audioService);
+        _adButton.GetComponent<ButtonClickPlayer>().Construct(_audioService);
 
         _continue.onClick.AddListener(Continue);
         _newGame.onClick.AddListener(NewGame);
         _setting.onClick.AddListener(Setting);
+        _adButton.onClick.AddListener(_accessLayer.OnAdCheckboxClick);
+
+        if (!_progressService.CanShowAd())
+            HideCheckmark();
+
+        _progressService.ShowAdStateChanged += HideCheckmark;
 
         UpdateLocalization();
     }
@@ -44,6 +59,8 @@ public class MainMenuMediator : MonoBehaviour
         foreach (var item in _translators)
             item.Construct(_localizationService);
     }
+
+    private void HideCheckmark() => _checkmark.SetActive(false);
 
     public void Hide() => _animator?.Play(HideStateName);
 
@@ -69,5 +86,10 @@ public class MainMenuMediator : MonoBehaviour
     {
         yield return new WaitForSeconds(DestroyPanelDelay);
         Destroy(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        _progressService.ShowAdStateChanged -= HideCheckmark;
     }
 }

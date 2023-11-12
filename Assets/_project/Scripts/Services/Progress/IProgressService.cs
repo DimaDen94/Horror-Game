@@ -4,6 +4,7 @@ public interface IProgressService
 {
     event Action HintStateChanged;
     event Action MemoryStateChanged;
+    event Action ShowAdStateChanged;
 
     LevelEnum GetCurrentLevel();
     void LoadProgress();
@@ -16,4 +17,6 @@ public interface IProgressService
     void SetMemoryActive(LevelEnum level);
     int GetMemoryProgress();
     bool GetMemoryActive(LevelEnum level);
+    void PurchaseProduct(string producId);
+    bool CanShowAd();
 }

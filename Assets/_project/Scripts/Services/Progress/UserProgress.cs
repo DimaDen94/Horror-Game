@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 public class UserProgress
 {
@@ -6,6 +7,7 @@ public class UserProgress
     private List<LevelHintState> _levelHintStates;
     private List<LevelMemoryState> _levelMemoryStates;
     private bool _isLanguageInstalled = false;
+    private bool _canShowAd = true;
 
     public UserProgress(LevelEnum currentLevel, List<LevelConfig> levelConfigs)
     {
@@ -29,5 +31,9 @@ public class UserProgress
     public List<LevelHintState> LevelHintStates { get => _levelHintStates; set => _levelHintStates = value; }
     public List<LevelMemoryState> LevelMemoryStates { get => _levelMemoryStates; set => _levelMemoryStates = value; }
 
+    public bool CanShowAd => _canShowAd;
+
     public void SetLanguageInstalled() => _isLanguageInstalled = true;
+
+    public void DisableAd() => _canShowAd = false;
 }

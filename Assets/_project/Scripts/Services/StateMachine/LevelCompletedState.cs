@@ -6,7 +6,6 @@ public class LevelCompletedState : IPayloadState<LevelEnum>
     private const string StoryImagesPath = "StoryImages/";
 
     private StateMachine _stateMachine;
-    private ISceenLoader _sceneLoader;
     private IAudioService _audioService;
     private IUIFactory _uiFactory;
     private ICoroutineRunner _coroutineRunner;
@@ -14,11 +13,10 @@ public class LevelCompletedState : IPayloadState<LevelEnum>
     private ILocalizationService _localizationService;
     private IProgressService _progressService;
 
-    public LevelCompletedState(StateMachine stateMachine, ISceenLoader sceneLoader, IAudioService audioService, IUIFactory uiFactory, ICoroutineRunner coroutineRunner,
+    public LevelCompletedState(StateMachine stateMachine,IAudioService audioService, IUIFactory uiFactory, ICoroutineRunner coroutineRunner,
         IImageLoader imageLoader, ILocalizationService localizationService, IProgressService progressService)
     {
         _stateMachine = stateMachine;
-        _sceneLoader = sceneLoader;
         _audioService = audioService;
         _uiFactory = uiFactory;
         _coroutineRunner = coroutineRunner;
@@ -35,7 +33,6 @@ public class LevelCompletedState : IPayloadState<LevelEnum>
         storyBlackout.SetText(_localizationService.GetTranslateByKey(currentLevel.ToString()));
         storyBlackout.SetSprite(_imageLoader.LoadFromResource(StoryImagesPath + currentLevel.ToString()));
         _audioService.PlaySpeech(currentLevel);
-        //_sceneLoader.Load(nextLevel.ToString());
         _audioService.PlayBackMusic(SoundEnum.RegularLoopMusic);
         _progressService.SetNewCurrentLevel(nextLevel);
 
