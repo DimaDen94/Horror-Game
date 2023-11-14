@@ -13,11 +13,11 @@ public class GameBootstrapper : MonoBehaviour, ICoroutineRunner
     [Inject]
     private void Construct(StateMachine stateMachine, IUIFactory uiFactory, IAudioService audioService, ISceenLoader sceenLoader,IProgressService progressService,
         IVibrationService vibrationService, IImageLoader imageLoader, ILocalizationService localizationService, ILevelConfigHolder levelConfigHolder,
-        IAdvertisementService advertisementService, IAnalyticService analyticService, IAccessLayer accessLayer)
+        IAdvertisementService advertisementService, IAnalyticService analyticService, IAccessLayer accessLayer, IInAppReviewService inAppReviewService)
     {
         _stateMachine = stateMachine;
         _stateMachine.Construct(sceenLoader, uiFactory,audioService, this, progressService, vibrationService, imageLoader, localizationService,
-            levelConfigHolder, advertisementService, analyticService, accessLayer);
+            levelConfigHolder, advertisementService, analyticService, accessLayer, inAppReviewService);
     }
 
     private void Start()

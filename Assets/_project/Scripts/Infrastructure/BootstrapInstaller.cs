@@ -11,6 +11,7 @@ public class BootstrapInstaller : MonoInstaller
     {
         BindPlayerPrefsService();
         BindAnalyticService();
+        BindInAppReviewService();
         BindAdvertisementService();
         BindIAPProvider();
         BindJsonConvertor();
@@ -36,6 +37,8 @@ public class BootstrapInstaller : MonoInstaller
     private void BindPlayerPrefsService() => Container.Bind<IPlayerPrefsService>().To<PlayerPrefsService>().AsSingle();
 
     private void BindAnalyticService() => Container.Bind<IAnalyticService>().To<FirebaseAnalyticService>().AsSingle();
+
+    private void BindInAppReviewService() => Container.Bind<IInAppReviewService>().To<AndroidInAppReviewService>().AsSingle();
 
     private void BindAdvertisementService() => Container.Bind<IAdvertisementService>().To<AdMobAdvertisementService>().AsSingle();
 

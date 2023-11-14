@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class FinalBlackoutMediator : BlackoutMediator
 {
     private const int FadeDuration = 2;
-    private const string GooglePlayStoreURL = "https://play.google.com/store/apps/details?id=com.life_is_game.dangeon_of_fear"; 
+    private const string GooglePlayStoreURL = "https://play.google.com/store/apps/details?id=com.LifeIsGame.DungeonsAndFear"; 
 
     [SerializeField] private TextMeshProUGUI _toBeContinueText;
     [SerializeField] private TextMeshProUGUI _authorsText;

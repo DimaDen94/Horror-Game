@@ -10,4 +10,5 @@ public interface IIAPService
     void Initialize();
     void StartPurchase(string productId);
     bool HasPurchase(PurchaseItemType fullAccess);
+    void StartPurchase(PurchaseItemType purchase);
 }

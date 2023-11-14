@@ -1,11 +1,12 @@
-using System.Collections;
+using System;
 using UnityEngine;
-using Zenject;
 
 public class Albino : InteractionObject
 {
     private const string DieAnimationKey = "Die";
     private const string AttackAnimationKey = "Attack";
+
+    public event Action Dead;
 
     [SerializeField] private Animator _animator;
     [SerializeField] private GameObject _loot;
@@ -49,6 +50,7 @@ public class Albino : InteractionObject
         _audioSourceDied.Play();
         GetComponent<Collider>().enabled = false;
         _loot.GetComponent<Collider>().enabled = true;
+        Dead?.Invoke();
     }
 
 

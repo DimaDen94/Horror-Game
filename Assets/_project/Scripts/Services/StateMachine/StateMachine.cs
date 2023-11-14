@@ -10,12 +10,12 @@ public class StateMachine
 
     public void Construct(ISceenLoader sceneLoader, IUIFactory uiFactory, IAudioService audioService, ICoroutineRunner coroutineRunner, IProgressService progressService,
         IVibrationService vibrationService, IImageLoader imageLoader, ILocalizationService localizationService, ILevelConfigHolder configHolder,
-        IAdvertisementService advertisementService, IAnalyticService analyticService, IAccessLayer accessLayer)
+        IAdvertisementService advertisementService, IAnalyticService analyticService, IAccessLayer accessLayer, IInAppReviewService inAppReviewService)
     {
         _coroutineRunner = coroutineRunner;
         _states = new Dictionary<Type, IExitableState>()
         {
-            [typeof(BootstrapState)] = new BootstrapState(this, sceneLoader),
+            [typeof(BootstrapState)] = new BootstrapState(this, sceneLoader, inAppReviewService, coroutineRunner),
             [typeof(MainMenuState)] = new MainMenuState(this, sceneLoader, uiFactory, audioService, progressService,coroutineRunner, localizationService, accessLayer),
             [typeof(SettingState)] = new SettingState(this, sceneLoader, uiFactory, audioService, coroutineRunner,vibrationService, progressService,localizationService,accessLayer),
             [typeof(PauseState)] = new PauseState(this, uiFactory, audioService, coroutineRunner,vibrationService, localizationService, accessLayer, progressService),

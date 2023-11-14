@@ -24,6 +24,9 @@ public class IAPService : IIAPService
         _provider.Initialized += () => Initialized?.Invoke();
     }
 
+    public void StartPurchase(PurchaseItemType purchase) =>
+        StartPurchase(_provider.GetProductByType(purchase).definition.id);
+
     public void StartPurchase(string productId) =>
         _provider.StartPurchase(productId);
 

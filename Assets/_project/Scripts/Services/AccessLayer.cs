@@ -23,7 +23,7 @@ public class AccessLayer : IAccessLayer
         if (!_progressService.CanShowAd())
             return;
 
-        _iapService.StartPurchase(PurchaseItemType.DisableAdvertising.ToString());
+        _iapService.StartPurchase(PurchaseItemType.DisableAdvertising);
     }
 
     public void OnHintClick(HintEnum hintType)
