@@ -27002,10 +27002,10 @@ Transform:
   - {fileID: 6603488553757889905}
   - {fileID: 1088546942}
   - {fileID: 300999456}
-  - {fileID: 799476218}
   - {fileID: 482394673}
-  - {fileID: 1478000890}
+  - {fileID: 799476218}
   - {fileID: 35437913}
+  - {fileID: 1478000890}
   - {fileID: 1334883569}
   - {fileID: 1808525922}
   - {fileID: 1837558530}
@@ -79580,7 +79580,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 1259267037}
-  _transitionRange: 2
+  _transitionRange: 0.75
 --- !u!114 &1259267039
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -8783,6 +8783,7 @@ MonoBehaviour:
   - {fileID: 8153702419274088595}
   _chest: {fileID: 90933885426884660}
   _enemy: {fileID: 1441903610}
+  _pot: {fileID: 7590168461429488579}
 --- !u!1001 &1835832910
 PrefabInstance:
   m_ObjectHideFlags: 0

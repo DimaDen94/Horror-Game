@@ -15,17 +15,20 @@ public class LocalizationService : ILocalizationService
 
     private List<SystemLanguage> _supportedLanguages = new List<SystemLanguage>() {
         SystemLanguage.English,
-        //SystemLanguage.Spanish,
-        //SystemLanguage.Italian,
-        //SystemLanguage.Russian,
-        //SystemLanguage.French,
-        //SystemLanguage.German,
-        //SystemLanguage.Ukrainian,
-        //SystemLanguage.Polish
+        SystemLanguage.Spanish,
+        SystemLanguage.Italian,
+        SystemLanguage.Russian,
+        SystemLanguage.French,
+        SystemLanguage.German,
+        SystemLanguage.Ukrainian,
+        SystemLanguage.Polish,
+        SystemLanguage.Portuguese,
     };
 
     private LanguageContent _languageContent;
     private List<SystemLanguage> _systemLanguages;
+
+    public List<SystemLanguage> SupportedLanguages => _supportedLanguages;
 
     public LocalizationService(IProgressService progressService, IAssetProvider assetProvider, IImageLoader imageLoader)
     {
@@ -69,11 +72,11 @@ public class LocalizationService : ILocalizationService
         return _systemLanguages[index];
     }
 
-    public Sprite GetCurrentLanguageIcon()
-    {
-        SystemLanguage lang = GetCurrentLanguage();
-        return _imageLoader.LoadFromResource(IconsPath + lang.ToString());
-    }
+    public Sprite GetCurrentLanguageIcon() => GetLanguageIcon(GetCurrentLanguage());
+
+    public Sprite GetLanguageIcon(SystemLanguage language) => _imageLoader.LoadFromResource(IconsPath + language.ToString());
+
+
     public SystemLanguage GetCurrentLanguageType()
     {
         return GetCurrentLanguage();

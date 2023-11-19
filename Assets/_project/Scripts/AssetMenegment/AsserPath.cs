@@ -12,4 +12,6 @@
     public const string LightPath = "Hint/LightBall";
     public const string ToastPath = "UI/ToastView";
     public const string MemoryMenuPath = "UI/MemoryMenu";
+    public const string LanguageItemPath = "Localization/LanguageItem";
+    public const string LanguageMenuPath = "UI/LanguageMenuHud";
 }

@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public interface ILocalizationService
 {
+    List<SystemLanguage> SupportedLanguages { get; }
+
     Sprite GetCurrentLanguageIcon();
     SystemLanguage GetCurrentLanguageType();
     string GetTranslateByKey(TranslatableKey key);
@@ -10,4 +13,5 @@ public interface ILocalizationService
     event Action<SystemLanguage> LanguageChanged;
 
     string GetTranslateByKey(string stringKey);
+    Sprite GetLanguageIcon(SystemLanguage language);
 }

@@ -15,4 +15,6 @@ public interface IUIFactory
     HintMenuMediator CreateHintMenu();
     ToastView CreateToast();
     MemoryMenu CreateMemoryMenu();
+    LanguageSelectionMediator CreateLanguageMenu();
+    LanguageItemView CreateLanguageItemView(Transform parent);
 }

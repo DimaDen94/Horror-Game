@@ -42,4 +42,8 @@ public class UIFactory : IUIFactory
     public ToastView CreateToast() => _assetProvider.Instantiate(AsserPath.ToastPath).GetComponent<ToastView>();
 
     public MemoryMenu CreateMemoryMenu() => _assetProvider.Instantiate(AsserPath.MemoryMenuPath).GetComponent<MemoryMenu>();
+
+    public LanguageSelectionMediator CreateLanguageMenu() => _assetProvider.Instantiate(AsserPath.LanguageMenuPath).GetComponent<LanguageSelectionMediator>();
+
+    public LanguageItemView CreateLanguageItemView(Transform parent) => _assetProvider.Instantiate(AsserPath.LanguageItemPath, parent).GetComponent<LanguageItemView>();
 }

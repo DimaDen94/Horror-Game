@@ -36,15 +36,18 @@ public class LeverMechanism : InteractionObject
             PutInSlot((Lever)slot.Thing);
             slot.RemoveThing();
             return true;
-        }else if (_lever != null && !IsActivated && !_lock) {
+        }
+        else if (_lever != null && !IsActivated && !_lock)
+        {
             _lock = true;
-            _lever.transform.DOLocalRotate(_leverFinishRotation, MovementDuration).OnComplete(()=> { _lock = false; });
+            _lever.transform.DOLocalRotate(_leverFinishRotation, MovementDuration).OnComplete(() => { _lock = false; });
 
             _audioSourceSwitch.Play();
             _isActivated = true;
             MechanismActivated?.Invoke();
             return true;
-        }else if (_lever != null && IsActivated && !_lock)
+        }
+        else if (_lever != null && IsActivated && !_lock)
         {
             _lock = true;
             _lever.transform.DOLocalRotate(_leverStartRotation, MovementDuration).OnComplete(() => { _lock = false; }); ;
@@ -54,7 +57,11 @@ public class LeverMechanism : InteractionObject
             MechanismActivated?.Invoke();
             return true;
         }
-        _toastService.ShowToast(TranslatableKey.ThisMechanismIsBroken);
+        else if (_lever == null)
+        {
+            _toastService.ShowToast(TranslatableKey.ThisMechanismIsBroken);
+        }
+
         return false;
     }
 

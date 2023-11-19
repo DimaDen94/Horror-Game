@@ -1,0 +1,117 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50d1a0d28c65246e6b76d5233c2897fa, type: 3}
+  m_Name: Spanish
+  m_EditorClassIdentifier: 
+  _translatableStrings:
+  - key: 0
+    value: Continuar
+  - key: 1
+    value: Nueva partida
+  - key: 2
+    value: "Configuraci\xF3n"
+  - key: 3
+    value: Mostrar publicidad
+  - key: 4
+    value: Sonido
+  - key: 5
+    value: "M\xFAsica"
+  - key: 6
+    value: "Vibraci\xF3n"
+  - key: 7
+    value: "Men\xFA"
+  - key: 8
+    value: "Ojal\xE1 pudiera borrar esto de mi memoria."
+  - key: 9
+    value: "Alma rota. Ahora es parte de m\xED!"
+  - key: 10
+    value: "\xBFDe qui\xE9nes son esas sombras que bailan en el humo de mis recuerdos?"
+  - key: 11
+    value: "\xBFQui\xE9n me sigue por estos caminos olvidados?"
+  - key: 12
+    value: "\xBFCu\xE1nto me he lastimado tratando de evitar m\xE1s dolor?"
+  - key: 13
+    value: "\xBFQu\xE9 di en cambio de lo que quer\xEDa conservar desesperadamente?"
+  - key: 14
+    value: "\xBFQu\xE9 m\xE1scara llevaba puesta, tratando de escapar de m\xED mismo?"
+  - key: 15
+    value: "\xBFPor qu\xE9 he encerrado esto tan lejos en mi memoria?"
+  - key: 16
+    value: "\xBFQu\xE9 ilumina mi camino fuera de esta oscuridad devoradora?"
+  - key: 17
+    value: "\xBFSoy yo finalmente liber\xE1ndome, o solo una ilusi\xF3n anhelando
+      la libertad?"
+  - key: 18
+    value: Toma la llave y abre las puertas.
+  - key: 19
+    value: Usa la llave para abrir el cofre y recuperar el mecanismo para abrir la
+      abertura en la ventana.
+  - key: 20
+    value: "Re\xFAne los tres hongos dispersos por la habitaci\xF3n para preparar
+      una poci\xF3n explosiva."
+  - key: 21
+    value: "Encuentra los tres cofres ocultos en el laberinto y \xE1brelos uno por
+      uno."
+  - key: 22
+    value: Evita las trampas de fuego en el suelo y mantente alejado de las puntas
+      que sobresalen del techo.
+  - key: 23
+    value: "Recoge las placas met\xE1licas para a\xF1adir peso a las pesas que levantan
+      la escalera."
+  - key: 24
+    value: "Corre hacia la salida, encontrar\xE1s la llave en la estanter\xEDa de
+      libros."
+  - key: 25
+    value: "Cierra tu miedo en una habitaci\xF3n separada."
+  - key: 26
+    value: "Enciende la antorcha usando el altar para quemar la telara\xF1a."
+  - key: 27
+    value: "Da el \xFAltimo paso hacia la libertad."
+  - key: 28
+    value: Gracias por jugar
+  - key: 29
+    value: "Continuar\xE1..."
+  - key: 30
+    value: "Dise\xF1ador del juego: Dmitry Denezhko\\n Tester: Igor Mostovoy\\n Programador:
+      Dmitry Denezhko\\n Escritor de la historia: Dmitry Denezhko"
+  - key: 31
+    value: Escribir un comentario
+  - key: 32
+    value: Necesito la llave correcta
+  - key: 33
+    value: Debo neutralizar al monstruo
+  - key: 34
+    value: "Este mecanismo est\xE1 roto"
+  - key: 41
+    value: "\xBFCu\xE1nto tiempo ha pasado? Todav\xEDa los extra\xF1o."
+  - key: 42
+    value: El orfanato nunca pudo arreglarme.
+  - key: 43
+    value: "\xBFPude liberarme de esta adicci\xF3n?"
+  - key: 44
+    value: "\xA1Tantas opciones! \xBFC\xF3mo no perderme a m\xED mismo?"
+  - key: 45
+    value: "\xBFCu\xE1nto durar\xE1 este dolor?"
+  - key: 46
+    value: "\xBFPude encontrar un equilibrio entre el pasado y el futuro?"
+  - key: 47
+    value: "\xBFOtra m\xE1scara? \xBFO es esta mi esencia?"
+  - key: 48
+    value: "\xBFEs sabio ocultar mis miedos?"
+  - key: 49
+    value: "Ella es mi luz. \xBFPuedo salvarla?"
+  - key: 50
+    value: "\xA1Ella es todo lo que necesito!"
+  - key: 51
+    value: "La publicidad no est\xE1 lista"
+  - key: 0
+    value: "La poci\xF3n no est\xE1 lista"

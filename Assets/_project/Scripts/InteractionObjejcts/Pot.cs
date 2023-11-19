@@ -13,6 +13,12 @@ public class Pot : InteractionObject
     private const int FoolCount = 3;
 
     private List<Mushroom> _mushrooms = new List<Mushroom>();
+    private IToastService _toastService;
+
+    public void Construct(IToastService toastService)
+    {
+        _toastService = toastService;
+    }
 
     public override bool TryUse(HeroSlot slot)
     {
@@ -31,6 +37,9 @@ public class Pot : InteractionObject
         {
             ChurnPotion((Bottle)slot.Thing, slot);
             return true;
+        }
+        else if (slot.Thing is Bottle) {
+            _toastService.ShowToast(TranslatableKey.ThePotionIsNotReady);
         }
 
         return false;

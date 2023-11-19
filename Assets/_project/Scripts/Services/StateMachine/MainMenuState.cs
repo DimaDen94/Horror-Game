@@ -1,4 +1,7 @@
-﻿public class MainMenuState : IState
+﻿using System.Collections;
+using UnityEngine;
+
+public class MainMenuState : IState
 {
     private StateMachine _stateMachine;
     private ISceenLoader _sceneLoader;
@@ -9,6 +12,8 @@
     private ILocalizationService _localizationService;
     private IAccessLayer _accessLayer;
     private MainMenuMediator _hud;
+
+    public float DestroyDelay = 1;
 
     public MainMenuState(StateMachine stateMachine, ISceenLoader sceneLoader, IUIFactory uiFactory, IAudioService audioService, IProgressService progressService,
         ICoroutineRunner coroutineRunner, ILocalizationService localizationService, IAccessLayer accessLayer)
@@ -38,6 +43,13 @@
     public void Exit()
     {
         _hud.Hide();
+        _coroutineRunner.StartCoroutine(DestroyPanel());
     }
 
+    private IEnumerator DestroyPanel()
+    {
+        yield return new WaitForSeconds(DestroyDelay);
+        if(_hud != null)
+            _hud.DestroyPanel();
+    }
 }

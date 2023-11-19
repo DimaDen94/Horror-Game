@@ -14,10 +14,12 @@ public class DestroyedBarrierForEnemy : MonoBehaviour, IHitable
     {
         if (_boards.Count > 0)
         {
-            _boards[0].Hit();
-            _boards.Remove(_boards[0]);
-            if (_boards.Count == 0)
+            LockBoard notDestroyedBoard = _boards.Find(board => !board.ISDestroy);
+            if (notDestroyedBoard == null)
                 BarrierDestroyed?.Invoke();
+            else
+                notDestroyedBoard.Hit();
+
         }
     }
 }

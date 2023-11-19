@@ -18,6 +18,7 @@ public class StateMachine
             [typeof(BootstrapState)] = new BootstrapState(this, sceneLoader, inAppReviewService, coroutineRunner),
             [typeof(MainMenuState)] = new MainMenuState(this, sceneLoader, uiFactory, audioService, progressService,coroutineRunner, localizationService, accessLayer),
             [typeof(SettingState)] = new SettingState(this, sceneLoader, uiFactory, audioService, coroutineRunner,vibrationService, progressService,localizationService,accessLayer),
+            [typeof(LanguageSelectionState)] = new LanguageSelectionState(this, uiFactory, audioService, coroutineRunner, localizationService),
             [typeof(PauseState)] = new PauseState(this, uiFactory, audioService, coroutineRunner,vibrationService, localizationService, accessLayer, progressService),
             [typeof(HintMenuState)] = new HintMenuState(this, uiFactory, audioService, coroutineRunner, progressService, configHolder, localizationService, accessLayer),
             [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader, audioService, uiFactory, coroutineRunner, advertisementService, progressService, analyticService),

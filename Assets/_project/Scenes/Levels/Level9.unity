@@ -79460,7 +79460,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 2034867866}
-  _transitionRange: 1.5
+  _transitionRange: 1.25
 --- !u!114 &2034867868
 MonoBehaviour:
   m_ObjectHideFlags: 0
