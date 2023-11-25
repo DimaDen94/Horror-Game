@@ -23,18 +23,18 @@ public class Bottle : LiftedThing
     {
         _audioSourceBlow.Play();
         Instantiate(_particleSystem,transform.position,Quaternion.identity);
-        Destroy(this);
+        Destroy(gameObject);
     }
 
-    public void Throw(Albino albino)
+    public void Throw(Nightmare dragon)
     {
         _audioSourceThrow.Play();
-        albino.GetComponent<Collider>().enabled = false;
-        transform.parent = albino.transform;
-        transform.DOJump(albino.transform.position, 1, 1, 1).OnComplete(
+        dragon.GetComponent<Collider>().enabled = false;
+        transform.parent = dragon.transform;
+        transform.DOJump(dragon.transform.position, 1, 1, 1).OnComplete(
             () => {
                 Blow();
-                albino.Die();
+                dragon.Die();
             });
     }
 }

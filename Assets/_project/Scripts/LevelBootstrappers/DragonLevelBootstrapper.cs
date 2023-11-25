@@ -3,7 +3,7 @@ using UnityEngine;
 public class DragonLevelBootstrapper : LevelBootstrapper
 {
     [SerializeField] private Chest _chest;
-    [SerializeField] private Albino _enemy;
+    [SerializeField] private Nightmare _enemy;
     [SerializeField] private Pot _pot;
 
     private new void Start()
