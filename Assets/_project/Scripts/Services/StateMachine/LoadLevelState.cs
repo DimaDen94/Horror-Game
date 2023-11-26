@@ -27,19 +27,21 @@ public class LoadLevelState : IPayloadState<LevelEnum>
 
     public void Enter(LevelEnum level)
     {
-        _analyticService.LevelStart(level);
         _audioService.PlayBackMusic(SoundEnum.RegularLoopMusic);
 
         if (_uiFactory.Blackout == null)
             _uiFactory.CreateBlackout();
 
         _coroutineRunner.StartCoroutine(DaybreakWithDelay(level.ToString()));
+
+        _analyticService.LevelStart(level);
     }
 
     private IEnumerator DaybreakWithDelay(string level)
     {
         yield return new WaitForSeconds(0.5f);
         _sceneLoader.Load(level);
+
         yield return new WaitForSeconds(0.5f);
         _uiFactory.Blackout?.Daybreak();
         _stateMachine.Enter<GameLoopState>();

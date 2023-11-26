@@ -23,7 +23,7 @@ public class Bottle : LiftedThing
     {
         _audioSourceBlow.Play();
         Instantiate(_particleSystem,transform.position,Quaternion.identity);
-        Destroy(gameObject);
+        Destroy(_meshFilter);
     }
 
     public void Throw(Nightmare dragon)
