@@ -1794,9 +1794,6 @@ GameObject:
   - component: {fileID: 580653982}
   - component: {fileID: 580653987}
   - component: {fileID: 580653986}
-  - component: {fileID: 580653985}
-  - component: {fileID: 580653984}
-  - component: {fileID: 580653983}
   m_Layer: 0
   m_Name: Mushroom mesh
   m_TagString: Untagged
@@ -1819,50 +1816,6 @@ Transform:
   m_Father: {fileID: 1662443548}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &580653983
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 580653981}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd26be655248f4fd380ee785297b3651, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _collider: {fileID: 580653984}
-  _rigidbody: {fileID: 580653985}
-  _slotRotation: {x: 0, y: 0, z: 0}
---- !u!65 &580653984
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 580653981}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.31501132, y: 0.43513417, z: 0.31501132}
-  m_Center: {x: 0.000000022351742, y: 0.21756709, z: -0.000000037252903}
---- !u!54 &580653985
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 580653981}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!23 &580653986
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7004,7 +6957,7 @@ GameObject:
   - component: {fileID: 1662443550}
   - component: {fileID: 1662443549}
   m_Layer: 0
-  m_Name: Mushroom
+  m_Name: Mushroom Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7349,8 +7302,8 @@ MonoBehaviour:
   - {fileID: 1458142213}
   - {fileID: 4029161438472794508}
   - {fileID: 6415128078115911511}
-  - {fileID: 8149142905589341364}
-  - {fileID: 0}
+  - {fileID: 1662443549}
+  - {fileID: 1662443549}
   - {fileID: 8153702419274088595}
   _chest: {fileID: 90933885426884660}
   _enemy: {fileID: 1441903610}
@@ -12423,7 +12376,7 @@ GameObject:
   - component: {fileID: 6415128078115911513}
   - component: {fileID: 6415128078115911511}
   m_Layer: 0
-  m_Name: Mushroom
+  m_Name: Mushroom Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13811,7 +13764,7 @@ GameObject:
   - component: {fileID: 8149142905589341366}
   - component: {fileID: 8149142905589341364}
   m_Layer: 0
-  m_Name: Mushroom
+  m_Name: Mushroom Chest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

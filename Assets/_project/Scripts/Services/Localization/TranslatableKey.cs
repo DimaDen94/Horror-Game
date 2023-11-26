@@ -12,4 +12,6 @@
     MemoryHintLevel6 = 46, MemoryHintLevel7 = 47, MemoryHintLevel8 = 48, MemoryHintLevel9 = 49, MemoryHintLevel10 = 50,
     AdvertisingIsNotReady = 51,
     ThePotionIsNotReady = 52,
+    ComeBackToTheGame = 53,
+    IfYoureNotAfraid = 54,
 }

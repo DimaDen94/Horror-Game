@@ -11,7 +11,7 @@ public class DragonLevelBootstrapper : LevelBootstrapper
         base.Start();
         _chest.Construct(_toastService);
         _enemy.Construct(_toastService);
-        _pot.Construct(_toastService);
+        _pot.Construct(_toastService, _analyticService);
         _enemy.Dead += OnDragonDead;
     }
 

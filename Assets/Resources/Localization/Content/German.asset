@@ -113,43 +113,7 @@ MonoBehaviour:
     value: Die Werbung ist noch nicht bereit
   - key: 52
     value: Der Trank ist noch nicht bereit
-  _parceJson: "[   {\"key\":0,\"value\":\"Weiter\"},{\"key\":1,\"value\":\"Neues
-    Spiel\"},{\"key\":2,\"value\":\"Einstellungen\"},{\"key\":3,\"value\":\"Werbung
-    anzeigen\"},{\"key\":4,\"value\":\"Ton\"},{\"key\":5,\"value\":\"Musik\"},{\"key\":6,\"value\":\"Vibration\"},{\"key\":7,\"value\":\"Men\xFC\"},{\"key\":8,\"value\":\"Ich
-    w\xFCnschte, ich k\xF6nnte das aus meinem Ged\xE4chtnis l\xF6schen.\"},{\"key\":9,\"value\":\"Gebrochene
-    Seele. Jetzt ist es ein Teil von mir!\"},{\"key\":10,\"value\":\"Wessen Schatten
-    tanzen im Rauch meiner Erinnerungen?\"},{\"key\":11,\"value\":\"Wer folgt mir
-    entlang dieser vergessenen Pfade?\"},{\"key\":12,\"value\":\"Wie sehr habe ich
-    mich selbst verletzt, um mehr Schmerz zu vermeiden?\"},{\"key\":13,\"value\":\"Was
-    habe ich im Austausch f\xFCr das gegeben, was ich so verzweifelt behalten wollte?\"},{\"key\":14,\"value\":\"Welke
-    Maske habe ich getragen, um vor mir selbst zu fliehen?\"},{\"key\":15,\"value\":\"Warum
-    habe ich das so weit in meiner Erinnerung verschlossen?\"},{\"key\":16,\"value\":\"Was
-    erleuchtet meinen Weg aus dieser verschlingenden Dunkelheit?\"},{\"key\":17,\"value\":\"Bin
-    ich es, der endlich frei wird, oder nur eine Illusion, die nach Freiheit verlangt?\"},{\"key\":18,\"value\":\"Nimm
-    den Schl\xFCssel und \xF6ffne die T\xFCren.\"},{\"key\":19,\"value\":\"Verwende
-    den Schl\xFCssel, um die Truhe zu \xF6ffnen und den Mechanismus zur \xD6ffnung
-    der Nische am Fenster zu erhalten.\"},{\"key\":20,\"value\":\"Sammle die drei
-    Pilze im Raum, um einen explosiven Trank zu brauen.\"},{\"key\":21,\"value\":\"Finde
-    alle drei Truhen im Labyrinth und \xF6ffne sie nacheinander.\"},{\"key\":22,\"value\":\"Vermeide
-    die Feuerfallen auf dem Boden und halte dich von den aus der Decke ragenden Stacheln
-    fern.\"},{\"key\":23,\"value\":\"Sammle die Metallplatten, um Gewicht auf die
-    Gewichte zu legen, die die Leiter anheben.\"},{\"key\":24,\"value\":\"Laufe zum
-    Ausgang, du findest den Schl\xFCssel im B\xFCcherregal.\"},{\"key\":25,\"value\":\"Verschlie\xDFe
-    deine Angst in einem separaten Raum.\"},{\"key\":26,\"value\":\"Entz\xFCnde die
-    Fackel am Altar, um das Spinnennetz zu verbrennen.\"},{\"key\":27,\"value\":\"Mache
-    den letzten Schritt in die Freiheit.\"},{\"key\":28,\"value\":\"Danke f\xFCrs
-    Spielen\"},{\"key\":29,\"value\":\"Fortsetzung folgt...\"},{\"key\":30,\"value\":\"Spieldesigner:
-    Dmitry Denezhko\\\\n Tester: Igor Mostovoy\\\\n Programmierer: Dmitry Denezhko\\\\n
-    Geschichtenschreiber: Dmitry Denezhko\"},{\"key\":31,\"value\":\"Kommentar schreiben\"},{\"key\":32,\"value\":\"Ben\xF6tige
-    den richtigen Schl\xFCssel\"},{\"key\":33,\"value\":\"Ich muss das Monster neutralisieren\"},{\"key\":34,\"value\":\"Dieser
-    Mechanismus ist kaputt\"},{\"key\":41,\"value\":\"Wie lange ist das her? Ich
-    vermisse sie immer noch.\"},{\"key\":42,\"value\":\"Das Waisenhaus konnte mich
-    nie reparieren.\"},{\"key\":43,\"value\":\"Konnte ich diese Abh\xE4ngigkeit loswerden?\"},{\"key\":44,\"value\":\"So
-    viele M\xF6glichkeiten! Wie verliere ich mich nicht?\"},{\"key\":45,\"value\":\"Wie
-    lange wird dieser Schmerz dauern?\"},{\"key\":46,\"value\":\"Konnte ich ein Gleichgewicht
-    zwischen Vergangenheit und Zukunft finden?\"},{\"key\":47,\"value\":\"Eine weitere
-    Maske? Oder ist das meine Essenz?\"},{\"key\":48,\"value\":\"Ist es klug, meine
-    \xC4ngste zu verbergen?\"},{\"key\":49,\"value\":\"Sie ist mein Licht. Kann ich
-    es retten?\"},{\"key\":50,\"value\":\"Sie ist alles, was ich brauche!\"},{\"key\":51,\"value\":\"Die
-    Werbung ist noch nicht bereit\"},{\"key\":0,\"value\":\"Der Trank ist noch nicht
-    bereit\"} ] "
+  - key: 53
+    value: "Komm zur\xFCck ins Spiel."
+  - key: 54
+    value: Wenn du keine Angst hast!

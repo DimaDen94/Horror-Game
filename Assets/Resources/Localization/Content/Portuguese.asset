@@ -114,42 +114,7 @@ MonoBehaviour:
     value: "A publicidade n\xE3o est\xE1 pronta"
   - key: 52
     value: "A po\xE7\xE3o ainda n\xE3o est\xE1 pronta"
-  _parceJson: "[   {\"key\":0,\"value\":\"Continuar\"},{\"key\":1,\"value\":\"Novo
-    jogo\"},{\"key\":2,\"value\":\"Configura\xE7\xF5es\"},{\"key\":3,\"value\":\"Mostrar
-    Publicidade\"},{\"key\":4,\"value\":\"Som\"},{\"key\":5,\"value\":\"M\xFAsica\"},{\"key\":6,\"value\":\"Vibra\xE7\xE3o\"},{\"key\":7,\"value\":\"Menu\"},{\"key\":8,\"value\":\"Gostaria
-    de apagar isso da minha mem\xF3ria.\"},{\"key\":9,\"value\":\"Alma quebrada.
-    Agora faz parte de mim!\"},{\"key\":10,\"value\":\"De quem s\xE3o essas sombras
-    dan\xE7ando na fuma\xE7a das minhas lembran\xE7as?\"},{\"key\":11,\"value\":\"Quem
-    me segue por esses caminhos esquecidos?\"},{\"key\":12,\"value\":\"Quanto me
-    machuquei tentando evitar mais dor?\"},{\"key\":13,\"value\":\"O que dei em troca
-    do que desejava desesperadamente manter?\"},{\"key\":14,\"value\":\"Que m\xE1scara
-    eu usava, tentando escapar de mim mesmo?\"},{\"key\":15,\"value\":\"Por que tranquei
-    isso t\xE3o longe na minha mem\xF3ria?\"},{\"key\":16,\"value\":\"O que ilumina
-    meu caminho para fora dessa escurid\xE3o devoradora?\"},{\"key\":17,\"value\":\"Sou
-    eu finalmente me libertando, ou apenas uma ilus\xE3o ansiando pela liberdade?\"},{\"key\":18,\"value\":\"Pegue
-    a chave e abra as portas.\"},{\"key\":19,\"value\":\"Use a chave para abrir o
-    ba\xFA e pegar o mecanismo para abrir a fenda na janela.\"},{\"key\":20,\"value\":\"Recolha
-    os tr\xEAs cogumelos espalhados pela sala para fazer uma po\xE7\xE3o explosiva.\"},{\"key\":21,\"value\":\"Encontre
-    os tr\xEAs ba\xFAs escondidos no labirinto e abra-os um por um.\"},{\"key\":22,\"value\":\"Evite
-    as armadilhas de fogo no ch\xE3o e mantenha-se longe dos espinhos que se projetam
-    do teto.\"},{\"key\":23,\"value\":\"Colete as placas met\xE1licas para adicionar
-    peso \xE0s pesas que levantam a escada.\"},{\"key\":24,\"value\":\"Corra para
-    a sa\xEDda, voc\xEA encontrar\xE1 a chave na estante de livros.\"},{\"key\":25,\"value\":\"Tranque
-    seu medo em um quarto separado.\"},{\"key\":26,\"value\":\"Acenda a tocha usando
-    o altar para queimar a teia de aranha.\"},{\"key\":27,\"value\":\"D\xEA o \xFAltimo
-    passo em dire\xE7\xE3o \xE0 liberdade.\"},{\"key\":28,\"value\":\"Obrigado por
-    jogar\"},{\"key\":29,\"value\":\"Continua...\"},{\"key\":30,\"value\":\"Designer
-    do jogo: Dmitry Denezhko\\\\n Testador: Igor Mostovoy\\\\n Programador: Dmitry
-    Denezhko\\\\n Escritor da hist\xF3ria: Dmitry Denezhko\"},{\"key\":31,\"value\":\"Escrever
-    um coment\xE1rio\"},{\"key\":32,\"value\":\"Preciso da chave certa\"},{\"key\":33,\"value\":\"Preciso
-    neutralizar o monstro\"},{\"key\":34,\"value\":\"Este mecanismo est\xE1 quebrado\"},{\"key\":41,\"value\":\"H\xE1
-    quanto tempo isso aconteceu? Ainda sinto falta deles.\"},{\"key\":42,\"value\":\"O
-    orfanato nunca conseguiu me consertar.\"},{\"key\":43,\"value\":\"Consegui me
-    livrar dessa depend\xEAncia?\"},{\"key\":44,\"value\":\"Tantas op\xE7\xF5es!
-    Como n\xE3o me perder?\"},{\"key\":45,\"value\":\"Quanto tempo essa dor vai durar?\"},{\"key\":46,\"value\":\"Consegui
-    encontrar um equil\xEDbrio entre o passado e o futuro?\"},{\"key\":47,\"value\":\"Outra
-    m\xE1scara? Ou \xE9 essa a minha ess\xEAncia?\"},{\"key\":48,\"value\":\"\xC9
-    s\xE1bio esconder meus medos?\"},{\"key\":49,\"value\":\"Ela \xE9 minha luz.
-    Posso salv\xE1-la?\"},{\"key\":50,\"value\":\"Ela \xE9 tudo o que eu preciso!\"},{\"key\":51,\"value\":\"A
-    publicidade n\xE3o est\xE1 pronta\"},{\"key\":0,\"value\":\"A po\xE7\xE3o ainda
-    n\xE3o est\xE1 pronta\"} ] "
+  - key: 53
+    value: Volte ao jogo.
+  - key: 54
+    value: "Se n\xE3o tens medo!"

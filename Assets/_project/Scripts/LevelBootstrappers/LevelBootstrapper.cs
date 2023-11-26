@@ -18,7 +18,7 @@ public class LevelBootstrapper : MonoBehaviour
     protected IToastService _toastService;
     protected IUIFactory _uiFactory;
     protected IInAppReviewService _inAppReviewService;
-
+    protected IAnalyticService _analyticService;
     [SerializeField] private List<LiftedThing> _liftedThings;
 
     private IInputService _inputService;
@@ -28,7 +28,7 @@ public class LevelBootstrapper : MonoBehaviour
 
     [Inject]
     private void Construct(IInputService inputService, IUIFactory uiFactory, IAudioService audioService, StateMachine stateMachine, IGameFactory gameFactory,
-        IProgressService progressService, IToastService toastService, IInAppReviewService inAppReviewService) {
+        IProgressService progressService, IToastService toastService, IInAppReviewService inAppReviewService, IAnalyticService analyticService) {
         _inputService = inputService;
         _uiFactory = uiFactory;
         _audioService = audioService;
@@ -37,6 +37,7 @@ public class LevelBootstrapper : MonoBehaviour
         _progressService = progressService;
         _toastService = toastService;
         _inAppReviewService = inAppReviewService;
+        _analyticService = analyticService;
     }
 
     protected void Start()

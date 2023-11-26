@@ -21,4 +21,14 @@
     {
         
     }
+
+    public void BottleInPot()
+    {
+        
+    }
+
+    public void MashroomInPot(int count)
+    {
+        
+    }
 }

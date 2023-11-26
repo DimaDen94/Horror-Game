@@ -118,44 +118,7 @@ MonoBehaviour:
     value: Reklama nie jest gotowa
   - key: 52
     value: Mikstura jeszcze nie gotowa
-  _parceJson: "[   {\"key\":0,\"value\":\"Kontynuuj\"},{\"key\":1,\"value\":\"Nowa
-    gra\"},{\"key\":2,\"value\":\"Ustawienia\"},{\"key\":3,\"value\":\"Poka\u017C
-    reklam\u0119\"},{\"key\":4,\"value\":\"D\u017Awi\u0119k\"},{\"key\":5,\"value\":\"Muzyka\"},{\"key\":6,\"value\":\"Wibracje\"},{\"key\":7,\"value\":\"Menu\"},{\"key\":8,\"value\":\"Chcia\u0142bym
-    to wymaza\u0107 z mojej pami\u0119ci.\"},{\"key\":9,\"value\":\"Z\u0142amana
-    dusza. Teraz to cz\u0119\u015B\u0107 mnie!\"},{\"key\":10,\"value\":\"Cienie,
-    kt\xF3rych taniec widz\u0119 w dymie moich wspomnie\u0144?\"},{\"key\":11,\"value\":\"Kto
-    pod\u0105\u017Ca za mn\u0105 tymi zapomnianymi \u015Bcie\u017Ckami?\"},{\"key\":12,\"value\":\"Ile
-    razy skaleczy\u0142em si\u0119, pr\xF3buj\u0105c unikn\u0105\u0107 wi\u0119cej
-    b\xF3lu?\"},{\"key\":13,\"value\":\"Co da\u0142em w zamian za to, co tak desperacko
-    chcia\u0142em zachowa\u0107?\"},{\"key\":14,\"value\":\"Jak\u0105 mask\u0119
-    nosi\u0142em, pr\xF3buj\u0105c uciec od samego siebie?\"},{\"key\":15,\"value\":\"Dlaczego
-    zamkn\u0105\u0142em to tak daleko w mojej pami\u0119ci?\"},{\"key\":16,\"value\":\"Co
-    o\u015Bwietla moj\u0105 drog\u0119 z tej poch\u0142aniaj\u0105cej ciemno\u015Bci?\"},{\"key\":17,\"value\":\"Czy
-    to ja wreszcie si\u0119 wyzwalam, czy tylko iluzja pragn\u0105ca wolno\u015Bci?\"},{\"key\":18,\"value\":\"We\u017A
-    klucz i otw\xF3rz drzwi.\"},{\"key\":19,\"value\":\"U\u017Cyj klucza, aby otworzy\u0107
-    skrzyni\u0119 i zdoby\u0107 mechanizm do otwierania okna.\"},{\"key\":20,\"value\":\"Zbierz
-    3 grzyby rozrzucone po pokoju, aby uwarzy\u0107 mikstur\u0119 wybuchow\u0105.\"},{\"key\":21,\"value\":\"Znajd\u017A
-    wszystkie trzy skrzynie ukryte w labiryncie i otw\xF3rz je po kolei.\"},{\"key\":22,\"value\":\"Unikaj
-    ognistych pu\u0142apek na pod\u0142odze i omijaj kolce wystaj\u0105ce z sufitu.\"},{\"key\":23,\"value\":\"Zbierz
-    metalowe p\u0142yty, aby obci\u0105\u017Cy\u0107 ci\u0119\u017Cary podnosz\u0105ce
-    drabiny.\"},{\"key\":24,\"value\":\"Biegnij do wyj\u015Bcia, klucz znajdziesz
-    na p\xF3\u0142ce z ksi\u0105\u017Ckami.\"},{\"key\":25,\"value\":\"Zamknij sw\xF3j
-    strach w osobnym pomieszczeniu.\"},{\"key\":26,\"value\":\"Zapal pochodni\u0119,
-    u\u017Cywaj\u0105c o\u0142tarza, aby spali\u0107 paj\u0119czyn\u0119.\"},{\"key\":27,\"value\":\"Zr\xF3b
-    ostatni krok ku wolno\u015Bci.\"},{\"key\":28,\"value\":\"Dzi\u0119kuj\u0119
-    za gr\u0119\"},{\"key\":29,\"value\":\"Ci\u0105g dalszy nast\u0105pi...\"},{\"key\":30,\"value\":\"Projektant
-    gry: Dmitry Denezhko\\\\n Tester: Igor Mostovoy\\\\n Programista: Dmitry Denezhko\\\\n
-    Autor historii: Dmitry Denezhko\"},{\"key\":31,\"value\":\"Napisz komentarz\"},{\"key\":32,\"value\":\"Potrzebny
-    odpowiedni klucz\"},{\"key\":33,\"value\":\"Musz\u0119 unieszkodliwi\u0107 potwora\"},{\"key\":34,\"value\":\"Ten
-    mechanizm jest zepsuty\"},{\"key\":41,\"value\":\"Ile czasu temu to si\u0119
-    sta\u0142o? Wci\u0105\u017C ich t\u0119skni\u0119.\"},{\"key\":42,\"value\":\"Dom
-    dziecka nigdy nie zdo\u0142a\u0142 mnie naprawi\u0107.\"},{\"key\":43,\"value\":\"Czy
-    uda\u0142o mi si\u0119 uwolni\u0107 od tej uzale\u017Cnienia?\"},{\"key\":44,\"value\":\"Tyle
-    opcji! Jak si\u0119 nie zgubi\u0107?\"},{\"key\":45,\"value\":\"Jak d\u0142ugo
-    potrwa ten b\xF3l?\"},{\"key\":46,\"value\":\"Czy uda\u0142o mi si\u0119 znale\u017A\u0107
-    r\xF3wnowag\u0119 mi\u0119dzy przesz\u0142o\u015Bci\u0105 a przysz\u0142o\u015Bci\u0105?\"},{\"key\":47,\"value\":\"Kolejna
-    maska? Czy to moja istota?\"},{\"key\":48,\"value\":\"Czy m\u0105dre jest ukrywanie
-    swoich l\u0119k\xF3w?\"},{\"key\":49,\"value\":\"Ona jest moim \u015Bwiat\u0142em.
-    Czy mog\u0119 j\u0105 uratowa\u0107?\"},{\"key\":50,\"value\":\"Ona jest wszystkim,
-    czego potrzebuj\u0119!\"},{\"key\":51,\"value\":\"Reklama nie jest gotowa\"},{\"key\":0,\"value\":\"Mikstura
-    jeszcze nie gotowa\"} ] "
+  - key: 53
+    value: "Wr\xF3\u0107 do gry."
+  - key: 54
+    value: "Je\u015Bli si\u0119 nie boisz!"

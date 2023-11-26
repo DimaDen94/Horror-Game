@@ -111,41 +111,7 @@ MonoBehaviour:
     value: "La pubblicit\xE0 non \xE8 pronta"
   - key: 52
     value: "La pozione non \xE8 pronta"
-  _parceJson: "[   {\"key\":0,\"value\":\"Continua\"},{\"key\":1,\"value\":\"Nuova
-    partita\"},{\"key\":2,\"value\":\"Impostazioni\"},{\"key\":3,\"value\":\"Mostra
-    pubblicit\xE0\"},{\"key\":4,\"value\":\"Suono\"},{\"key\":5,\"value\":\"Musica\"},{\"key\":6,\"value\":\"Vibrazione\"},{\"key\":7,\"value\":\"Menu\"},{\"key\":8,\"value\":\"Vorrei
-    cancellare questo dalla mia memoria.\"},{\"key\":9,\"value\":\"Anima spezzata.
-    Ora fa parte di me!\"},{\"key\":10,\"value\":\"Di chi sono queste ombre che ballano
-    nel fumo dei miei ricordi?\"},{\"key\":11,\"value\":\"Chi mi segue lungo questi
-    percorsi dimenticati?\"},{\"key\":12,\"value\":\"Quanto mi sono fatto male cercando
-    di evitare pi\xF9 dolore?\"},{\"key\":13,\"value\":\"Cosa ho dato in cambio di
-    ci\xF2 che volevo disperatamente conservare?\"},{\"key\":14,\"value\":\"Quella
-    maschera indossavo, cercando di scappare da me stesso?\"},{\"key\":15,\"value\":\"Perch\xE9
-    ho chiuso tutto cos\xEC lontano nella mia memoria?\"},{\"key\":16,\"value\":\"Cosa
-    illumina la mia strada fuori da questa oscurit\xE0 che divora?\"},{\"key\":17,\"value\":\"Sono
-    io che finalmente si libera, o solo un'illusione che brama la libert\xE0?\"},{\"key\":18,\"value\":\"Prendi
-    la chiave e apri le porte.\"},{\"key\":19,\"value\":\"Usa la chiave per aprire
-    il baule e recuperare il meccanismo per aprire la nicchia nella finestra.\"},{\"key\":20,\"value\":\"Raccogli
-    i tre funghi sparsi nella stanza per preparare una pozione esplosiva.\"},{\"key\":21,\"value\":\"Trova
-    tutti e tre i bauli nascosti nel labirinto e aprili uno per uno.\"},{\"key\":22,\"value\":\"Evita
-    le trappole infuocate sul pavimento e stai lontano dalle punte che sporgono dal
-    soffitto.\"},{\"key\":23,\"value\":\"Raccogli le piastre metalliche per aggiungere
-    peso ai pesi che sollevano la scala.\"},{\"key\":24,\"value\":\"Corri verso l'uscita,
-    troverai la chiave sulla mensola dei libri.\"},{\"key\":25,\"value\":\"Chiudi
-    la tua paura in una stanza separata.\"},{\"key\":26,\"value\":\"Accendi la torcia
-    usando l'altare per bruciare la ragnatela.\"},{\"key\":27,\"value\":\"Fai l'ultimo
-    passo verso la libert\xE0.\"},{\"key\":28,\"value\":\"Grazie per aver giocato\"},{\"key\":29,\"value\":\"Continua...\"},{\"key\":30,\"value\":\"Game
-    designer: Dmitry Denezhko\\\\n Tester: Igor Mostovoy\\\\n Programmatore: Dmitry
-    Denezhko\\\\n Scrittore della storia: Dmitry Denezhko\"},{\"key\":31,\"value\":\"Scrivi
-    un commento\"},{\"key\":32,\"value\":\"Ho bisogno della chiave giusta\"},{\"key\":33,\"value\":\"Devo
-    neutralizzare il mostro\"},{\"key\":34,\"value\":\"Questo meccanismo \xE8 rotto\"},{\"key\":41,\"value\":\"Quanto
-    tempo fa \xE8 successo? Mi mancano ancora.\"},{\"key\":42,\"value\":\"La casa
-    famiglia non \xE8 mai riuscita a sistemarmi.\"},{\"key\":43,\"value\":\"Sono
-    riuscito a liberarmi da questa dipendenza?\"},{\"key\":44,\"value\":\"Tante opzioni!
-    Come non perdere me stesso?\"},{\"key\":45,\"value\":\"Quanto durer\xE0 questo
-    dolore?\"},{\"key\":46,\"value\":\"Sono riuscito a trovare un equilibrio tra
-    passato e futuro?\"},{\"key\":47,\"value\":\"Un'altra maschera? O \xE8 questa
-    la mia essenza?\"},{\"key\":48,\"value\":\"\xC8 saggio nascondere le mie paure?\"},{\"key\":49,\"value\":\"Lei
-    \xE8 la mia luce. Posso salvarla?\"},{\"key\":50,\"value\":\"Lei \xE8 tutto ci\xF2
-    di cui ho bisogno!\"},{\"key\":51,\"value\":\"La pubblicit\xE0 non \xE8 pronta\"},{\"key\":0,\"value\":\"La
-    pozione non \xE8 pronta\"} ] "
+  - key: 53
+    value: Torna nel gioco.
+  - key: 54
+    value: Se non hai paura!

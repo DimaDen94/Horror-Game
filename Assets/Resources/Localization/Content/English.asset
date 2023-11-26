@@ -111,36 +111,7 @@ MonoBehaviour:
     value: Advertising is not ready
   - key: 52
     value: The potion is not ready
-  _parceJson: '[{"key":0,"value":"Continue"},{"key":1,"value":"New game"},{"key":2,"value":"Settings"},{"key":3,"value":"Show
-    Advertisement"},{"key":4,"value":"Sound"},{"key":5,"value":"Music"},{"key":6,"value":"Vibration"},{"key":7,"value":"Menu"},{"key":8,"value":"I
-    wish I could erase this from my memory."},{"key":9,"value":"Broken soul. Now
-    it''s part of me!"},{"key":10,"value":"Whose shadows dance in the smoke of my
-    memories?"},{"key":11,"value":"Who follows me along these forgotten paths?"},{"key":12,"value":"How
-    much have I hurt myself trying to avoid more pain?"},{"key":13,"value":"What
-    did I give in return for what I was so desperate to keep?"},{"key":14,"value":"What
-    mask did I wear, trying to escape from myself?"},{"key":15,"value":"Why have
-    I locked this so far away in my memory?"},{"key":16,"value":"What lights my way
-    out of this consuming darkness?"},{"key":17,"value":"Is it me finally breaking
-    free, or just an illusion yearning for freedom?"},{"key":18,"value":"Take the
-    key and open the doors."},{"key":19,"value":"Use the key to open the chest and
-    retrieve the mechanism for opening the niche in the window."},{"key":20,"value":"Gather
-    the three mushrooms scattered around the room to brew an explosive potion."},{"key":21,"value":"Find
-    all three chests hidden in the labyrinth and open them one by one."},{"key":22,"value":"Avoid
-    the fiery traps on the floor and steer clear of the spikes protruding from the
-    ceiling."},{"key":23,"value":"Collect the metal plates to add weight to the weights
-    that raise the ladder."},{"key":24,"value":"Run to the exit, you will find the
-    key on the bookshelf."},{"key":25,"value":"Lock your fear in a separate room."},{"key":26,"value":"Ignite
-    the torch using the altar to burn the spiderweb."},{"key":27,"value":"Take the
-    final step towards freedom."},{"key":28,"value":"thanks for playing"},{"key":29,"value":"to
-    be continued..."},{"key":30,"value":"Game designer: Dmitry Denezhko\\n Tester:
-    Igor Mostovoy\\n Programmer: Dmitry Denezhko\\n Story Writer: Dmitry Denezhko"},{"key":31,"value":"Write
-    a comment"},{"key":32,"value":"Need the right key"},{"key":33,"value":"I need
-    to neutralize the monster"},{"key":34,"value":"Thit mechanism is broken"},{"key":41,"value":"How
-    long ago did this happen? I still miss them."},{"key":42,"value":"The orphanage
-    was never able to fix me."},{"key":43,"value":"Was I able to get rid of this
-    addiction?"},{"key":44,"value":"So many ways! How not to lose myself?"},{"key":45,"value":"How
-    long will this pain last?"},{"key":46,"value":"Was I able to find a balance between
-    the past and the future?"},{"key":47,"value":"Another mask? Or is this my essence?"},{"key":48,"value":"Is
-    it wise to hide my fears?"},{"key":49,"value":"She is my light. Can I save it?"},{"key":50,"value":"She''s
-    all I need!"},{"key":51,"value":"Advertising is not ready"},{"key":0,"value":"The
-    potion is not ready"}]'
+  - key: 53
+    value: Come back to the game.
+  - key: 54
+    value: If you're not afraid!

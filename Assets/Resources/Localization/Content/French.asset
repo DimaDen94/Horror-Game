@@ -117,44 +117,7 @@ MonoBehaviour:
     value: "La publicit\xE9 n'est pas pr\xEAte"
   - key: 52
     value: "La potion n'est pas pr\xEAte"
-  _parceJson: "[   {\"key\":0,\"value\":\"Continuer\"},{\"key\":1,\"value\":\"Nouvelle
-    partie\"},{\"key\":2,\"value\":\"Param\xE8tres\"},{\"key\":3,\"value\":\"Afficher
-    la publicit\xE9\"},{\"key\":4,\"value\":\"Son\"},{\"key\":5,\"value\":\"Musique\"},{\"key\":6,\"value\":\"Vibration\"},{\"key\":7,\"value\":\"Menu\"},{\"key\":8,\"value\":\"Je
-    voudrais effacer cela de ma m\xE9moire.\"},{\"key\":9,\"value\":\"\xC2me bris\xE9e.
-    Maintenant, c'est une partie de moi!\"},{\"key\":10,\"value\":\"Les ombres de
-    qui dansent dans la fum\xE9e de mes souvenirs?\"},{\"key\":11,\"value\":\"Qui
-    me suit le long de ces chemins oubli\xE9s?\"},{\"key\":12,\"value\":\"Combien
-    me suis-je fait de mal en essayant d'\xE9viter plus de douleur?\"},{\"key\":13,\"value\":\"Qu'ai-je
-    donn\xE9 en \xE9change de ce que je voulais d\xE9sesp\xE9r\xE9ment garder?\"},{\"key\":14,\"value\":\"Quelle
-    masque ai-je port\xE9 en essayant de m'\xE9chapper de moi-m\xEAme?\"},{\"key\":15,\"value\":\"Pourquoi
-    ai-je enferm\xE9 cela si loin dans ma m\xE9moire?\"},{\"key\":16,\"value\":\"Qu'est-ce
-    qui \xE9claire mon chemin hors de cette obscurit\xE9 d\xE9vorante?\"},{\"key\":17,\"value\":\"Est-ce
-    moi qui me lib\xE8re enfin, ou juste une illusion aspirant \xE0 la libert\xE9?\"},{\"key\":18,\"value\":\"Prends
-    la cl\xE9 et ouvre les portes.\"},{\"key\":19,\"value\":\"Utilise la cl\xE9 pour
-    ouvrir le coffre et r\xE9cup\xE9rer le m\xE9canisme pour ouvrir la niche dans
-    la fen\xEAtre.\"},{\"key\":20,\"value\":\"Ramasse les trois champignons \xE9parpill\xE9s
-    dans la pi\xE8ce pour pr\xE9parer une potion explosive.\"},{\"key\":21,\"value\":\"Trouve
-    les trois coffres cach\xE9s dans le labyrinthe et ouvre-les un par un.\"},{\"key\":22,\"value\":\"\xC9vite
-    les pi\xE8ges de feu au sol et tiens-toi loin des pointes qui d\xE9passent du
-    plafond.\"},{\"key\":23,\"value\":\"Collecte les plaques m\xE9talliques pour
-    ajouter du poids aux poids qui soul\xE8vent l'\xE9chelle.\"},{\"key\":24,\"value\":\"Cours
-    vers la sortie, tu trouveras la cl\xE9 sur l'\xE9tag\xE8re \xE0 livres.\"},{\"key\":25,\"value\":\"Enferme
-    ta peur dans une pi\xE8ce s\xE9par\xE9e.\"},{\"key\":26,\"value\":\"Allume la
-    torche avec l'autel pour br\xFBler la toile d'araign\xE9e.\"},{\"key\":27,\"value\":\"Fais
-    le dernier pas vers la libert\xE9.\"},{\"key\":28,\"value\":\"Merci d'avoir jou\xE9\"},{\"key\":29,\"value\":\"\xC0
-    suivre...\"},{\"key\":30,\"value\":\"Concepteur de jeu : Dmitry Denezhko\\\\n
-    Testeur : Igor Mostovoy\\\\n Programmeur : Dmitry Denezhko\\\\n Sc\xE9nariste
-    : Dmitry Denezhko\"},{\"key\":31,\"value\":\"\xC9crire un commentaire\"},{\"key\":32,\"value\":\"Besoin
-    de la bonne cl\xE9\"},{\"key\":33,\"value\":\"Je dois neutraliser le monstre\"},{\"key\":34,\"value\":\"Ce
-    m\xE9canisme est cass\xE9\"},{\"key\":41,\"value\":\"Il y a combien de temps
-    cela s'est-il produit ? Ils me manquent toujours.\"},{\"key\":42,\"value\":\"L'orphelinat
-    n'a jamais pu me r\xE9parer.\"},{\"key\":43,\"value\":\"Ai-je r\xE9ussi \xE0
-    me d\xE9barrasser de cette d\xE9pendance?\"},{\"key\":44,\"value\":\"Tant de
-    choix ! Comment ne pas me perdre?\"},{\"key\":45,\"value\":\"Combien de temps
-    durera cette douleur?\"},{\"key\":46,\"value\":\"Ai-je r\xE9ussi \xE0 trouver
-    un \xE9quilibre entre le pass\xE9 et le futur?\"},{\"key\":47,\"value\":\"Un
-    autre masque ? Ou est-ce mon essence?\"},{\"key\":48,\"value\":\"Est-il sage
-    de cacher mes peurs?\"},{\"key\":49,\"value\":\"Elle est ma lumi\xE8re. Puis-je
-    la sauver?\"},{\"key\":50,\"value\":\"Elle est tout ce dont j'ai besoin !\"},{\"key\":51,\"value\":\"La
-    publicit\xE9 n'est pas pr\xEAte\"},{\"key\":0,\"value\":\"La potion n'est pas
-    pr\xEAte\"} ] "
+  - key: 53
+    value: Reviens dans le jeu.
+  - key: 54
+    value: Si tu n'as pas peur !

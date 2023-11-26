@@ -14,10 +14,12 @@ public class Pot : InteractionObject
 
     private List<Mushroom> _mushrooms = new List<Mushroom>();
     private IToastService _toastService;
+    private IAnalyticService _analyticService;
 
-    public void Construct(IToastService toastService)
+    public void Construct(IToastService toastService, IAnalyticService analyticService)
     {
         _toastService = toastService;
+        _analyticService = analyticService;
     }
 
     public override bool TryUse(HeroSlot slot)
@@ -31,11 +33,13 @@ public class Pot : InteractionObject
                 _dust.gameObject.SetActive(true);
                 _audioSourceChemistry.Play();
             }
+            _analyticService.MashroomInPot(_mushrooms.Count);
             return true;
         }
         else if (_mushrooms.Count == FoolCount && slot.Thing is Bottle)
         {
             ChurnPotion((Bottle)slot.Thing, slot);
+            _analyticService.BottleInPot();
             return true;
         }
         else if (slot.Thing is Bottle) {

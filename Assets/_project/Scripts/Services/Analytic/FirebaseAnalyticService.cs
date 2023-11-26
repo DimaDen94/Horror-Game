@@ -8,11 +8,11 @@ public class FirebaseAnalyticService : IAnalyticService
 {
     private const string HintUnlockEventKey = "HintUnlock";
     private const string HintTypeParameter = "HintType";
+    private const string MashroomInPotEventKey = "MashroomInPot";
+    private const string BottleInPotEventKey = "BottleInPot";
 
     private FirebaseApp app;
     private DependencyStatus dependencyStatus;
-
-
 
     public void Init(Action result)
     {
@@ -60,5 +60,20 @@ public class FirebaseAnalyticService : IAnalyticService
             new Parameter(FirebaseAnalytics.ParameterLevelName, currentLevel.ToString()),
             new Parameter(HintTypeParameter, hintType.ToString())
         );
+    }
+
+    public void MashroomInPot(int count)
+    {
+        FirebaseAnalytics.LogEvent(
+           MashroomInPotEventKey,
+           new Parameter("Mashroms", count.ToString())
+       );
+    }
+
+    public void BottleInPot()
+    {
+        FirebaseAnalytics.LogEvent(
+           BottleInPotEventKey
+       );
     }
 }

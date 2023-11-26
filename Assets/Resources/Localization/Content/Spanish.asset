@@ -113,5 +113,9 @@ MonoBehaviour:
     value: "\xA1Ella es todo lo que necesito!"
   - key: 51
     value: "La publicidad no est\xE1 lista"
-  - key: 0
+  - key: 52
     value: "La poci\xF3n no est\xE1 lista"
+  - key: 53
+    value: Vuelve al juego.
+  - key: 54
+    value: Si no tienes miedo.

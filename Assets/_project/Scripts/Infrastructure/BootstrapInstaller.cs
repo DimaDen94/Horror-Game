@@ -21,6 +21,7 @@ public class BootstrapInstaller : MonoInstaller
         BindProgressService();
         BindIAPService();
         BindLocalizationService();
+        BindNotificationService();
         BindAccessLayer();
         BindSceenLoader();
         BindAudioService();
@@ -32,7 +33,6 @@ public class BootstrapInstaller : MonoInstaller
         BindGameFactory();
         BindGameBootstrapper();
     }
-
 
     private void BindPlayerPrefsService() => Container.Bind<IPlayerPrefsService>().To<PlayerPrefsService>().AsSingle();
 
@@ -57,6 +57,8 @@ public class BootstrapInstaller : MonoInstaller
     private void BindIAPService() => Container.Bind<IIAPService>().To<IAPService>().AsSingle();
 
     private void BindLocalizationService() => Container.Bind<ILocalizationService>().To<LocalizationService>().AsSingle();
+
+    private void BindNotificationService() => Container.Bind<IPushNotificationService>().To<PushNotificationService>().AsSingle();
 
     private void BindAccessLayer() => Container.Bind<IAccessLayer>().To<AccessLayer>().AsSingle();
 
