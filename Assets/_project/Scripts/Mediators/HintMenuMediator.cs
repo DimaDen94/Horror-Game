@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,6 +20,8 @@ public class HintMenuMediator : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _enemySlowDownStateText;
 
     [SerializeField] private TextMeshProUGUI _hintText;
+
+    [SerializeField] private List<TextMeshProTranslator> _translators;
 
     private StateMachine _stateMachine;
     private IAudioService _audioService;
@@ -60,6 +63,8 @@ public class HintMenuMediator : MonoBehaviour
         _textHintButton.onClick.AddListener(TextHintActivate);
         _highlightButton.onClick.AddListener(HighlightActivate);
         _enemySlowDownButton.onClick.AddListener(EnemySlowDownActivate);
+
+        UpdateLocalization();
 
         _adButton.onClick.AddListener(_accessLayer.OnAdCheckboxClick);
         if (!_progressService.CanShowAd())
@@ -104,6 +109,12 @@ public class HintMenuMediator : MonoBehaviour
             }
 
         }
+    }
+
+    private void UpdateLocalization()
+    {
+        foreach (var item in _translators)
+            item.Construct(_localizationService);
     }
 
     private string HintText() => _localizationService.GetTranslateByKey(_configHolder.GetLevelConfig(_progressService.GetCurrentLevel()).TextHintKey);

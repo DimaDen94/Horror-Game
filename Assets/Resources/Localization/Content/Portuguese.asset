@@ -118,3 +118,9 @@ MonoBehaviour:
     value: Volte ao jogo.
   - key: 54
     value: "Se n\xE3o tens medo!"
+  - key: 35
+    value: Dica
+  - key: 36
+    value: Destacar
+  - key: 37
+    value: Desacelerar o inimigo

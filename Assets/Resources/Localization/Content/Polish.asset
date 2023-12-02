@@ -122,3 +122,9 @@ MonoBehaviour:
     value: "Wr\xF3\u0107 do gry."
   - key: 54
     value: "Je\u015Bli si\u0119 nie boisz!"
+  - key: 35
+    value: "Wskaz\xF3wka"
+  - key: 36
+    value: "Pod\u015Bwietl"
+  - key: 37
+    value: Spowolnij wroga

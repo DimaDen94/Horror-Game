@@ -115,3 +115,9 @@ MonoBehaviour:
     value: Torna nel gioco.
   - key: 54
     value: Se non hai paura!
+  - key: 35
+    value: Suggerimento
+  - key: 36
+    value: Evidenziare
+  - key: 37
+    value: Rallentare il nemico

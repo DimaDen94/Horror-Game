@@ -115,3 +115,9 @@ MonoBehaviour:
     value: Come back to the game.
   - key: 54
     value: If you're not afraid!
+  - key: 35
+    value: Hint
+  - key: 36
+    value: 'Show Highlight '
+  - key: 37
+    value: Slow Down Enemy

@@ -121,3 +121,9 @@ MonoBehaviour:
     value: Reviens dans le jeu.
   - key: 54
     value: Si tu n'as pas peur !
+  - key: 35
+    value: Indice
+  - key: 36
+    value: "Mettre en \xE9vidence"
+  - key: 37
+    value: Ralentir l'ennemi

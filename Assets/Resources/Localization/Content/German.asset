@@ -117,3 +117,9 @@ MonoBehaviour:
     value: "Komm zur\xFCck ins Spiel."
   - key: 54
     value: Wenn du keine Angst hast!
+  - key: 35
+    value: Hinweis
+  - key: 36
+    value: Hervorheben
+  - key: 37
+    value: Feind verlangsamen
