@@ -78,7 +78,7 @@ public class Hero : MonoBehaviour, IHitable
     public void Death(Transform killer)
     {
         _mover.Lock();
-        _audioService.PlayAudio(SoundEnum.Screamer1);
+        _audioService.PlayAudio(SoundEnum.Screamer);
         transform.DOLookAt(killer.position, 1).OnComplete(() =>
         {
             _stateMachine.Enter<DeadState>();

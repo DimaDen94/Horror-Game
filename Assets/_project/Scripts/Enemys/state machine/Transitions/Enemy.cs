@@ -15,7 +15,8 @@ public class Enemy: MonoBehaviour
 
     private void Awake()
     {
-        _startSpeed = _agent.speed;
+        if(_agent != null)
+            _startSpeed = _agent.speed;
     }
 
     public void SlowDown()

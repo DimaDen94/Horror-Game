@@ -25,7 +25,6 @@ public class FireTrap : MonoBehaviour
         {
             _fire.SetActive(true);
             _audioSourceAttack.Play();
-            other.transform.LookAt(transform);
             other.GetComponent<Hero>().Death(transform);
         }
     }

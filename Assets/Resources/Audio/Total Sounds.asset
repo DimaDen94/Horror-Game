@@ -31,19 +31,19 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - soundName: 12
+  - soundName: 13
     clip: {fileID: 8300000, guid: 9e7d29224fe414cb2b9a1a824c36e0bc, type: 3}
     valume: 0.5
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - soundName: 13
+  - soundName: 14
     clip: {fileID: 8300000, guid: 1689058eeeb072842b8c76940508c2a7, type: 3}
     valume: 0.5
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - soundName: 14
+  - soundName: 15
     clip: {fileID: 8300000, guid: 7c4ae6395213b416caec0d8feb7f1695, type: 3}
     valume: 0.5
     pitch: 1

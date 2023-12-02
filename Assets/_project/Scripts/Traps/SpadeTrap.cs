@@ -25,9 +25,7 @@ public class SpadeTrap : MonoBehaviour
         {
             _spades.DOMoveY(-1,1);
             _audioSourceAttack.Play();
-            other.transform.LookAt(transform);// transform.LookAt(other.transform);
             other.GetComponent<Hero>().Death(transform);
-
         }
     }
 }

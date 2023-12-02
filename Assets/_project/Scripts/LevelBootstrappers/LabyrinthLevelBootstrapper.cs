@@ -54,7 +54,7 @@ public class LabyrinthLevelBootstrapper : LevelBootstrapper
     private IEnumerator PlayScreamer()
     {
         yield return new WaitForSeconds(1f);
-        _audioService.PlayAudio(SoundEnum.Screamer1);
+        _audioService.PlayAudio(SoundEnum.Screamer);
         _screamer.JumpTo(_hero.transform);
         yield return new WaitForSeconds(0.25f);
         _uiFactory.CreateBlackout();

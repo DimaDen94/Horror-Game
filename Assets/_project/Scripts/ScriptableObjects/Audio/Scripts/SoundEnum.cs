@@ -8,7 +8,7 @@
     Click = 10,
     Drop = 11,
     PickUp = 12,
-    Wrong = 12,
-    Screamer1 = 13,
-    Paper = 14,
+    Wrong = 13,
+    Screamer = 14,
+    Paper = 15,
 }
