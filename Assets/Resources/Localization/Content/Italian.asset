@@ -121,3 +121,7 @@ MonoBehaviour:
     value: Evidenziare
   - key: 37
     value: Rallentare il nemico
+  - key: 55
+    value: Ho dovuto indossare una maschera per superarlo!
+  - key: 56
+    value: Devi arrivare alla porta prima del clown!

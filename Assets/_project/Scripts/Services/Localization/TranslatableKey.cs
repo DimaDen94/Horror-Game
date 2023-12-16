@@ -15,4 +15,7 @@
     ThePotionIsNotReady = 52,
     ComeBackToTheGame = 53,
     IfYoureNotAfraid = 54,
+
+    Level2_5 = 55,
+    HintLevel2_5 = 56,
 }

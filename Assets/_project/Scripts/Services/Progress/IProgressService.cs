@@ -16,6 +16,7 @@ public interface IProgressService
     void SetHintActive(LevelEnum level, HintEnum hint);
     void SetMemoryActive(LevelEnum level);
     int GetMemoryProgress();
+    int GetMemoryCount();
     bool GetMemoryActive(LevelEnum level);
     void PurchaseProduct(string producId);
     bool CanShowAd();

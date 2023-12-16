@@ -14,7 +14,7 @@ public class LeverMechanism : InteractionObject
     [SerializeField] private Vector3 _leverStartRotation = new Vector3(0, 0, 0);
 
     private bool _lock = false;
-    private const int MovementDuration = 3;
+    private const float MovementDuration = 1.5f;
     private bool _isActivated = false;
     private IToastService _toastService;
 
@@ -29,13 +29,13 @@ public class LeverMechanism : InteractionObject
     }
 
 
-    public override bool TryUse(HeroSlot slot)
+    public override InteractionResponse TryUse(HeroSlot slot)
     {
         if (slot.Thing is Lever)
         {
             PutInSlot((Lever)slot.Thing);
             slot.RemoveThing();
-            return true;
+            return InteractionResponse.Used;
         }
         else if (_lever != null && !IsActivated && !_lock)
         {
@@ -45,7 +45,7 @@ public class LeverMechanism : InteractionObject
             _audioSourceSwitch.Play();
             _isActivated = true;
             MechanismActivated?.Invoke();
-            return true;
+            return InteractionResponse.Activate;
         }
         else if (_lever != null && IsActivated && !_lock)
         {
@@ -55,14 +55,14 @@ public class LeverMechanism : InteractionObject
             _audioSourceSwitch.Play();
             _isActivated = false;
             MechanismActivated?.Invoke();
-            return true;
+            return InteractionResponse.Activate;
         }
         else if (_lever == null)
         {
             _toastService.ShowToast(TranslatableKey.ThisMechanismIsBroken);
         }
 
-        return false;
+        return InteractionResponse.Wrong;
     }
 
     private void PutInSlot(Lever lever)

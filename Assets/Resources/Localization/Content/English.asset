@@ -121,3 +121,7 @@ MonoBehaviour:
     value: 'Show Highlight '
   - key: 37
     value: Slow Down Enemy
+  - key: 55
+    value: Had to wear a mask to get over it!
+  - key: 56
+    value: You need to get to the door before the clown!

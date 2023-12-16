@@ -125,3 +125,7 @@ MonoBehaviour:
     value: Resaltar
   - key: 37
     value: Ralentizar al enemigo
+  - key: 55
+    value: "\xA1Tuve que usar una m\xE1scara para superarlo!"
+  - key: 56
+    value: "\xA1Tienes que llegar a la puerta antes que el payaso!"

@@ -22,15 +22,15 @@ public class Nightmare : InteractionObject
         _toastService = toastService;
     }
 
-    public override bool TryUse(HeroSlot slot)
+    public override InteractionResponse TryUse(HeroSlot slot)
     {
         if (slot.Thing is Bottle && ((Bottle)slot.Thing).IsRed())
         {
             ((Bottle)slot.Thing).Throw(this);
-            return true;
+            return InteractionResponse.Used;
         }
         _toastService.ShowToast(TranslatableKey.INeedToNeutralizeTheMonster);
-        return false;
+        return InteractionResponse.Wrong;
     }
 
     private void OnTriggerEnter(Collider other)

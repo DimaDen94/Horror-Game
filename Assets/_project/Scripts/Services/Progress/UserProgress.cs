@@ -18,11 +18,13 @@ public class UserProgress
         foreach (LevelConfig item in levelConfigs)
         {
             _levelHintStates.Add(new LevelHintState(item.level, item.hints));
-            _levelMemoryStates.Add(new LevelMemoryState(item.level));
+
+            if (item.level != LevelEnum.Level2_5)
+                _levelMemoryStates.Add(new LevelMemoryState(item.level));
         }
     }
 
-    public UserProgress() {}
+    public UserProgress() { }
 
     public LevelEnum CurrentLevel { get => _currentLevel; set => _currentLevel = value; }
 

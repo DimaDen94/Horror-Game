@@ -44,7 +44,7 @@ public class MemoryState : IState
         _memoryMenu.Construct(_audioService, _stateMachine);
         _memoryMenu.SetText(_localizationService.GetTranslateByKey(levelConfig.TextMemoryKey));
         _memoryMenu.SetSprite(_imageLoader.LoadFromResource(MemoryImagesPath + currentLevel.ToString()));
-        _memoryMenu.SetMemoryProgress(_progressService.GetMemoryProgress(), _levelConfigHolder.Configs.Count);
+        _memoryMenu.SetMemoryProgress(_progressService.GetMemoryProgress(), _progressService.GetMemoryCount());
 
         _analyticService.MemoryUnlock(currentLevel);
 

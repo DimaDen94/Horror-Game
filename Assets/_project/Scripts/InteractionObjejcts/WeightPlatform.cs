@@ -14,7 +14,7 @@ public class WeightPlatform : InteractionObject
 
     public event Action WeightAdded;
 
-    public override bool TryUse(HeroSlot slot)
+    public override InteractionResponse TryUse(HeroSlot slot)
     {
         ThingSlot emptySlot = _slots.Find(slot => slot.IsEmpty);
         if (emptySlot != null && slot.Thing is WeightThing)
@@ -24,9 +24,9 @@ public class WeightPlatform : InteractionObject
             MovePlatform();
             WeightAdded.Invoke();
 
-            return true;
+            return InteractionResponse.Used;
         }
-        return false;
+        return InteractionResponse.Wrong;
     }
 
     public bool IsFull() {

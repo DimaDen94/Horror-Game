@@ -15,18 +15,18 @@ public class ExitDoor : InteractionObject
         _toastService = toastService;
     }
 
-    public override bool TryUse(HeroSlot slot)
+    public override InteractionResponse TryUse(HeroSlot slot)
     {
         if (slot.Thing is ExitKey)
         {
             _audioSource.Play();
 
             NextLevel();
-            return true;
+            return InteractionResponse.Used;
 
         }
         _toastService.ShowToast(TranslatableKey.NeedTheRightKey);
-        return false;
+        return InteractionResponse.Wrong;
     }
 
     private void NextLevel()

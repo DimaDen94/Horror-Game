@@ -128,3 +128,8 @@ MonoBehaviour:
     value: "Pod\u015Bwietl"
   - key: 37
     value: Spowolnij wroga
+  - key: 55
+    value: "\u017Beby sobie z tym poradzi\u0107, trzeba by\u0142o za\u0142o\u017Cy\u0107
+      mask\u0119!"
+  - key: 56
+    value: "Musisz dotrze\u0107 do drzwi przed klaunem!"

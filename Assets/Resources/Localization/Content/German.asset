@@ -123,3 +123,7 @@ MonoBehaviour:
     value: Hervorheben
   - key: 37
     value: Feind verlangsamen
+  - key: 55
+    value: "Musste eine Maske tragen, um dar\xFCber hinwegzukommen!"
+  - key: 56
+    value: "Du musst vor dem Clown an der T\xFCr sein!"

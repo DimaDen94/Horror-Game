@@ -9,15 +9,15 @@ public class ThingSlot : InteractionObject
 
     public LiftedThing Thing  => _thing;
 
-    public override bool TryUse(HeroSlot slot)
+    public override InteractionResponse TryUse(HeroSlot slot)
     {
         if (!(slot.Thing is WeightThing))
-            return false;
+            return InteractionResponse.Wrong;
         else
         {
             PutThing(slot.Thing);
             slot.RemoveThing();
-            return true;
+            return InteractionResponse.Used;
         }
 
     }

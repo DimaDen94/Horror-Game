@@ -17,7 +17,7 @@ public class BlueChest : InteractionObject
 
     public void Construct(IToastService toastService) => _toastService = toastService;
 
-    public override bool TryUse(HeroSlot slot)
+    public override InteractionResponse TryUse(HeroSlot slot)
     {
         if (slot.Thing is BlueChestKye && !_isOpen)
         {
@@ -25,11 +25,11 @@ public class BlueChest : InteractionObject
             _audioSource.Play();
             _isOpen = true;
             ChestOpened?.Invoke();
-            return true;
+            return InteractionResponse.Used;
         }
         if (!_isOpen)
             _toastService.ShowToast(TranslatableKey.NeedTheRightKey);
-        return false;
+        return InteractionResponse.Wrong;
     }
 
     private void OpenChest()

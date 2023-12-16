@@ -127,3 +127,7 @@ MonoBehaviour:
     value: "Mettre en \xE9vidence"
   - key: 37
     value: Ralentir l'ennemi
+  - key: 55
+    value: "J'ai d\xFB porter un masque pour m'en remettre !"
+  - key: 56
+    value: "Il faut arriver \xE0 la porte avant le clown !"

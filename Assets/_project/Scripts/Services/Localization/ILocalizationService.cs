@@ -8,10 +8,10 @@ public interface ILocalizationService
 
     Sprite GetCurrentLanguageIcon();
     SystemLanguage GetCurrentLanguageType();
-    string GetTranslateByKey(TranslatableKey key);
     void SaveLanguage(SystemLanguage lang);
     event Action<SystemLanguage> LanguageChanged;
 
+    string GetTranslateByKey(TranslatableKey key);
     string GetTranslateByKey(string stringKey);
     Sprite GetLanguageIcon(SystemLanguage language);
 }

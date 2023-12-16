@@ -22,7 +22,7 @@ public class Pot : InteractionObject
         _analyticService = analyticService;
     }
 
-    public override bool TryUse(HeroSlot slot)
+    public override InteractionResponse TryUse(HeroSlot slot)
     {
         if (slot.Thing is Mushroom)
         {
@@ -34,19 +34,19 @@ public class Pot : InteractionObject
                 _audioSourceChemistry.Play();
             }
             _analyticService.MashroomInPot(_mushrooms.Count);
-            return true;
+            return InteractionResponse.Used;
         }
         else if (_mushrooms.Count == FoolCount && slot.Thing is Bottle)
         {
             ChurnPotion((Bottle)slot.Thing, slot);
             _analyticService.BottleInPot();
-            return true;
+            return InteractionResponse.Used;
         }
         else if (slot.Thing is Bottle) {
             _toastService.ShowToast(TranslatableKey.ThePotionIsNotReady);
         }
 
-        return false;
+        return InteractionResponse.Wrong;
     }
 
     private void ChurnPotion(Bottle bottle, HeroSlot slot)

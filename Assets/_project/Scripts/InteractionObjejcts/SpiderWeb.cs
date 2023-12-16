@@ -28,15 +28,15 @@ public class SpiderWeb : InteractionObject
         _spiderMaterial.SetFloat(ProgressShaderkey, _maxProgress);
     }
 
-    public override bool TryUse(HeroSlot slot)
+    public override InteractionResponse TryUse(HeroSlot slot)
     {
         if (slot.Thing is Torch && ((Torch)slot.Thing).IsBurning)
         {
             FadeWeb();
             _fire.SetActive(true);
-            return true;
+            return InteractionResponse.Used;
         }
-        return false;
+        return InteractionResponse.Wrong;
     }
 
     [Button]

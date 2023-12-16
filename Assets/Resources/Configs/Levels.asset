@@ -53,3 +53,7 @@ MonoBehaviour:
     TextHintKey: 27
     TextMemoryKey: 50
     hints: 0000000002000000
+  - level: 11
+    TextHintKey: 56
+    TextMemoryKey: -1
+    hints: 0000000002000000

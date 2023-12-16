@@ -9,15 +9,15 @@ public class LockBoard : InteractionObject
 
     public bool ISDestroy => _destroy;
 
-    public override bool TryUse(HeroSlot slot)
+    public override InteractionResponse TryUse(HeroSlot slot)
     {
         if (slot.Thing is Hammer)
         {
             Hit();
-            return true;
+            return InteractionResponse.Used;
         }
 
-        return false;
+        return InteractionResponse.Wrong;
     }
 
     public void Hit()

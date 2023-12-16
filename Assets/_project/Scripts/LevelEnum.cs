@@ -3,6 +3,7 @@
     None = 0,
     Level1 = 1,
     Level2 = 2,
+    Level2_5 = 11,
     Level3 = 3,
     Level4 = 4,
     Level5 = 5,

@@ -72,6 +72,9 @@ public class LevelBootstrapper : MonoBehaviour
 
     private void InitCollectedItem()
     {
+        if (_collectionMemoryItem == null)
+            return;
+
         if (_progressService.GetMemoryActive(_progressService.GetCurrentLevel()))
             _collectionMemoryItem.gameObject.SetActive(false);
         else

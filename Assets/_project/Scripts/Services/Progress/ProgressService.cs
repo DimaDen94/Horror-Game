@@ -89,6 +89,13 @@ public class ProgressService : IProgressService
     {
         List<LevelHintState> _hints = _userProgress.LevelHintStates;
         LevelHintState levelStates = _hints.Find(l => l.level == level);
+        if (levelStates == null)
+        {
+            levelStates = new LevelHintState();
+            levelStates.level = level;
+            levelStates.hintStates.Add(new HintState(hint,false));
+            _hints.Add(levelStates);
+        }    
         HintState state = levelStates.hintStates.Find(h => h.hint == hint);
         state.enable = true;
         SaveProgress();
@@ -123,4 +130,6 @@ public class ProgressService : IProgressService
     }
 
     public bool CanShowAd() => _userProgress.CanShowAd;
+
+    public int GetMemoryCount() => _userProgress.LevelMemoryStates.Count;
 }
