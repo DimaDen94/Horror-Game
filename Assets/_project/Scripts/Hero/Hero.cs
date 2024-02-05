@@ -42,6 +42,7 @@ public class Hero : MonoBehaviour, IHitable
                 _audioService.PlayAudio(SoundEnum.PickUp);
                 _slot.Drop();
                 _slot.Put((LiftedThing)_currentInteractionObject);
+                _currentInteractionObject.HideOutline();
                 _currentInteractionObject = null;
             }
             else if (_currentInteractionObject is InteractionObject)
@@ -102,9 +103,17 @@ public class Hero : MonoBehaviour, IHitable
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit) && hit.distance < HeroParameters.InteractionDistance && hit.transform.GetComponent<InteractionObject>() != _slot.Thing)
+        {
             _currentInteractionObject = hit.transform.GetComponent<InteractionObject>();
+            _currentInteractionObject?.ShowOutline();
+
+        }
         else
+        {
+            _currentInteractionObject?.HideOutline();
+            
             _currentInteractionObject = null;
+        }
     }
 
     private void UpdateUI()

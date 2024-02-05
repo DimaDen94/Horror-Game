@@ -1,4 +1,6 @@
-﻿public class BootstrapState:  IState
+﻿using UnityEngine;
+
+public class BootstrapState:  IState
 {
     private readonly StateMachine _stateMachine;
     private readonly ISceenLoader _sceneLoader;
@@ -21,6 +23,7 @@
         _sceneLoader.Load(SceneEnum.Initialize, OnSceenLoaded);
         _inAppReviewService.Init(_coroutineRunner);
         _pushNotificationService.CreatePushNotification();
+        Application.targetFrameRate = 60;
     }
 
     private void OnSceenLoaded()

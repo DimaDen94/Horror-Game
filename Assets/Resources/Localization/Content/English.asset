@@ -20,7 +20,7 @@ MonoBehaviour:
   - key: 2
     value: Settings
   - key: 3
-    value: Show Advertisement
+    value: Disable Ads
   - key: 4
     value: Sound
   - key: 5
