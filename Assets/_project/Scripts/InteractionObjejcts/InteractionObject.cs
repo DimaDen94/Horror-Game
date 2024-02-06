@@ -3,7 +3,7 @@
 public class InteractionObject : MonoBehaviour
 {
     protected bool _canUse = true;
-    private Outline _outline;
+    [SerializeField] private Outline _outline;
 
     public bool CanUse => _canUse;
 

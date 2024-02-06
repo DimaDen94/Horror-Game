@@ -1610,6 +1610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3d2404a80e924f09ae8c614254bb49d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _outline: {fileID: 0}
   _collider: {fileID: 377389866}
   _rigidbody: {fileID: 377389867}
   _slotRotation: {x: 124, y: -128, z: 43}
@@ -3466,6 +3467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 362d6969f0cd249a8822ba4be5398080, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _outline: {fileID: 0}
   _collider: {fileID: 973668346}
   _rigidbody: {fileID: 973668345}
   _slotRotation: {x: -120, y: 0, z: 0}
@@ -6014,7 +6016,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1814988961
 Transform:
@@ -6054,6 +6056,12 @@ MonoBehaviour:
   - {fileID: 973668344}
   - {fileID: 1942551423}
   - {fileID: 4029161438472794508}
+  _lightPoints: []
+  _outlines:
+  - {fileID: 4029161438472794509}
+  - {fileID: 90933885426884664}
+  - {fileID: 4548812219784746174}
+  - {fileID: 1479563612387178203}
   _chest: {fileID: 90933885426884660}
   _footSteps: {fileID: 732256767}
   _chestRed: {fileID: 4548812219784746171}
@@ -6365,6 +6373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdc3678e1ad0d424298fc8d214491e94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _outline: {fileID: 0}
   _collider: {fileID: 1942551424}
   _rigidbody: {fileID: 1942551425}
   _slotRotation: {x: 124, y: -128, z: 43}
@@ -6907,6 +6916,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c76c89b75fff478f9f5f406d46630a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _outline: {fileID: 0}
   _audioSource: {fileID: 2049807464}
 --- !u!23 &2049807462
 MeshRenderer:
@@ -7721,6 +7731,7 @@ GameObject:
   - component: {fileID: 90933885426884660}
   - component: {fileID: 90933885426884662}
   - component: {fileID: 90933885426884663}
+  - component: {fileID: 90933885426884664}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Untagged
@@ -7758,6 +7769,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c9844e0c89d54ca9ac3bbf4c2140664, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _outline: {fileID: 90933885426884664}
   _chestCover: {fileID: 90933885325093019}
   _loot: {fileID: 377389864}
   _audioSource: {fileID: 90933885426884662}
@@ -7966,6 +7978,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &90933885426884664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90933885426884658}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 4
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1001 &90933887043638521
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8533,6 +8563,7 @@ GameObject:
   - component: {fileID: 4029161438472794507}
   - component: {fileID: 4029161438472794506}
   - component: {fileID: 4029161438472794508}
+  - component: {fileID: 4029161438472794509}
   m_Layer: 0
   m_Name: KeyChest
   m_TagString: Untagged
@@ -8815,6 +8846,7 @@ GameObject:
   - component: {fileID: 1479563612387178202}
   - component: {fileID: 1479563612387178201}
   - component: {fileID: 1479563612387178200}
+  - component: {fileID: 1479563612387178203}
   m_Layer: 0
   m_Name: BlueChest
   m_TagString: Untagged
@@ -8834,6 +8866,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 534dc51230ee04dd1ba8753eb41b352a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _outline: {fileID: 1479563612387178203}
   _chestCover: {fileID: 1479563611696710678}
   _loot: {fileID: 973668343}
   _audioSource: {fileID: 1479563612387178201}
@@ -8946,6 +8979,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.2, y: 0.4, z: 0.8}
   m_Center: {x: 0, y: 0.2, z: 0}
+--- !u!114 &1479563612387178203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479563612387178199}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 4
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1001 &1479563613555238326
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11753,9 +11804,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08a9e1250c0e8415691b473eceec3f1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _outline: {fileID: 4029161438472794509}
   _collider: {fileID: 4029161438472794506}
   _rigidbody: {fileID: 4029161438472794507}
   _slotRotation: {x: 124, y: -128, z: 43}
+--- !u!114 &4029161438472794509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796714658619729046}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 4
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1001 &4065399063583027534
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12740,6 +12810,7 @@ GameObject:
   - component: {fileID: 4548812219784746173}
   - component: {fileID: 4548812219784746172}
   - component: {fileID: 4548812219784746171}
+  - component: {fileID: 4548812219784746174}
   m_Layer: 0
   m_Name: RedChest
   m_TagString: Untagged
@@ -12777,6 +12848,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c264ea7bde7cf406a9d990e7b67c6f3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _outline: {fileID: 4548812219784746174}
   _chestCover: {fileID: 4548812218974249748}
   _loot: {fileID: 1942551422}
   _audioSource: {fileID: 4548812219784746172}
@@ -12889,6 +12961,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.2, y: 0.4, z: 0.8}
   m_Center: {x: 0, y: 0.2, z: 0}
+--- !u!114 &4548812219784746174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4548812219784746169}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 4
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!4 &4549962758443417376
 Transform:
   m_ObjectHideFlags: 0

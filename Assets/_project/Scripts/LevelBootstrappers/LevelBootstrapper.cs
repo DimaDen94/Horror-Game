@@ -21,6 +21,8 @@ public class LevelBootstrapper : MonoBehaviour
     protected IAnalyticService _analyticService;
     private IAccessLayer _accessLayer;
     [SerializeField] private List<LiftedThing> _liftedThings;
+    [SerializeField] private List<LightPoint> _lightPoints;
+    [SerializeField] private List<Outline> _outlines;
 
     private IInputService _inputService;
     private IGameFactory _gameFactory;
@@ -93,12 +95,21 @@ public class LevelBootstrapper : MonoBehaviour
 
     protected virtual void EnemySlowDown() {}
 
-    private void ShowHighlight()
+    protected void ShowHighlight()
     {
         foreach (var liftedThing in _liftedThings)
         {
             var light = _gameFactory.CreateLight(liftedThing.transform);
             liftedThing.SetLight(light);
+        }
+        foreach (var lightPoint in _lightPoints)
+        {
+            var light = _gameFactory.CreateLight(lightPoint.transform);
+            lightPoint.SetLight(light);
+        }
+        foreach (var outline in _outlines)
+        {
+            outline.enabled = true;
         }
     }
 
