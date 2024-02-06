@@ -111,7 +111,6 @@ public class Hero : MonoBehaviour, IHitable
         else
         {
             _currentInteractionObject?.HideOutline();
-            
             _currentInteractionObject = null;
         }
     }

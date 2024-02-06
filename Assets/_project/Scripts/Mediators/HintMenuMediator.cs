@@ -9,13 +9,10 @@ public class HintMenuMediator : MonoBehaviour
 
     [SerializeField] private Button _close;
     [SerializeField] private Animator _animator;
-    [SerializeField] private Button _textHintButton;
     [SerializeField] private Button _highlightButton;
     [SerializeField] private Button _enemySlowDownButton;
     [SerializeField] private Button _adButton;
-    [SerializeField] private GameObject _checkmark;
 
-    [SerializeField] private TextMeshProUGUI _textHintStateText;
     [SerializeField] private TextMeshProUGUI _highlightStateText;
     [SerializeField] private TextMeshProUGUI _enemySlowDownStateText;
 
@@ -55,12 +52,11 @@ public class HintMenuMediator : MonoBehaviour
         _close.onClick.AddListener(CloseDialog);
 
         _close.GetComponent<ButtonClickPlayer>().Construct(_audioService);
-        _textHintButton.GetComponent<ButtonClickPlayer>().Construct(_audioService);
         _highlightButton.GetComponent<ButtonClickPlayer>().Construct(_audioService);
         _enemySlowDownButton.GetComponent<ButtonClickPlayer>().Construct(_audioService);
         _adButton.GetComponent<ButtonClickPlayer>().Construct(_audioService);
 
-        _textHintButton.onClick.AddListener(TextHintActivate);
+
         _highlightButton.onClick.AddListener(HighlightActivate);
         _enemySlowDownButton.onClick.AddListener(EnemySlowDownActivate);
 
@@ -75,15 +71,15 @@ public class HintMenuMediator : MonoBehaviour
 
         _progressService.HintStateChanged += UpdateHintStates;
         _progressService.ShowAdStateChanged += HideCheckmark;
+
+        ShowTextHint(true);
     }
 
-    private void HideCheckmark() => _checkmark.SetActive(false);
+    private void HideCheckmark() => _adButton.gameObject.SetActive(false);
 
-    private void TextHintActivate() => _accessLayer.OnHintClick(HintEnum.HintText);
+    private void HighlightActivate() => _accessLayer.OnHintCheckBoxClick(HintEnum.HintHighlight);
 
-    private void HighlightActivate() => _accessLayer.OnHintClick(HintEnum.HintHighlight);
-
-    private void EnemySlowDownActivate() => _accessLayer.OnHintClick(HintEnum.EnemySlowDown);
+    private void EnemySlowDownActivate() => _accessLayer.OnHintCheckBoxClick(HintEnum.EnemySlowDown);
 
     private void UpdateHintStates()
     {
@@ -93,11 +89,6 @@ public class HintMenuMediator : MonoBehaviour
 
             switch (item)
             {
-                case HintEnum.HintText:
-                    _textHintStateText.SetText(TextByState(enable));
-                    if (enable)
-                        _hintText.SetText(HintText());
-                    break;
                 case HintEnum.HintHighlight:
                     _highlightStateText.SetText(TextByState(enable));
                     break;
@@ -109,6 +100,12 @@ public class HintMenuMediator : MonoBehaviour
             }
 
         }
+    }
+
+    private void ShowTextHint(bool enable)
+    {
+        if (enable)
+            _hintText.SetText(HintText());
     }
 
     private void UpdateLocalization()
@@ -125,9 +122,6 @@ public class HintMenuMediator : MonoBehaviour
         {
             switch (item)
             {
-                case HintEnum.HintText:
-                    _textHintButton.gameObject.SetActive(true);
-                    break;
                 case HintEnum.HintHighlight:
                     _highlightButton.gameObject.SetActive(true);
                     break;

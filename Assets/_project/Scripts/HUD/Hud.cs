@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +11,7 @@ public class Hud : MonoBehaviour
 
     private StateMachine _stateMachine;
     private IAudioService _audioService;
+    private IAccessLayer _accessLayer;
 
     public void ShowActionButton() => _actionButton.Show();
     public void HideActionButton() => _actionButton.Hide();
@@ -19,9 +19,10 @@ public class Hud : MonoBehaviour
     public void ShowDropButton() => _dropButton.Show();
     public void HideDropButton() => _dropButton.Hide();
 
-    public void Construct(StateMachine stateMachine, IAudioService audioService) {
+    public void Construct(StateMachine stateMachine, IAudioService audioService, IAccessLayer accessLayer) {
         _stateMachine = stateMachine;
         _audioService = audioService;
+        _accessLayer = accessLayer;
     }
 
     private void Start()
@@ -39,6 +40,6 @@ public class Hud : MonoBehaviour
 
     private void OpenHintMenu()
     {
-        _stateMachine.Enter<HintMenuState>();
+        _accessLayer.TryOpenHintMenu();
     }
 }

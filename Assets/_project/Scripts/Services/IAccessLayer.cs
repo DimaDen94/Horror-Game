@@ -1,5 +1,6 @@
 ﻿public interface IAccessLayer
 {
     void OnAdCheckboxClick();
-    void OnHintClick(HintEnum hintType);
+    void OnHintCheckBoxClick(HintEnum hintType);
+    void TryOpenHintMenu();
 }

@@ -16,7 +16,6 @@ public class SettingMenuMediator : MonoBehaviour
     [SerializeField] private Button _menuButton;
 
     [SerializeField] private Button _adButton;
-    [SerializeField] private GameObject _checkmark;
 
     [SerializeField] private List<TextMeshProTranslator> _translators;
 
@@ -65,7 +64,7 @@ public class SettingMenuMediator : MonoBehaviour
     }
 
 
-    private void HideCheckmark() => _checkmark.SetActive(false);
+    private void HideCheckmark() => _adButton.gameObject.SetActive(false);
 
     private void UpdateButtons()
     {

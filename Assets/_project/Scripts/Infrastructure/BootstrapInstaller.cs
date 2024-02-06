@@ -22,12 +22,12 @@ public class BootstrapInstaller : MonoInstaller
         BindIAPService();
         BindLocalizationService();
         BindNotificationService();
+        BindStateMachine();
         BindAccessLayer();
         BindSceenLoader();
         BindAudioService();
         BindVibrationService();
         BindInputService();
-        BindStateMachine();
         BindUIFactory();
         BindToastService();
         BindGameFactory();

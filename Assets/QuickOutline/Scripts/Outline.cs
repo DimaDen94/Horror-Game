@@ -63,7 +63,7 @@ public class Outline : MonoBehaviour
     }
 
     [SerializeField]
-    private Mode outlineMode = Mode.OutlineAndSilhouette;
+    private Mode outlineMode = Mode.OutlineAll;
 
     [SerializeField]
     private Color outlineColor = Color.white;
