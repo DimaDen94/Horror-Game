@@ -125,3 +125,11 @@ MonoBehaviour:
     value: Ho dovuto indossare una maschera per superarlo!
   - key: 56
     value: Devi arrivare alla porta prima del clown!
+  - key: 57
+    value: Trova la chiave. Scorri il dito sullo schermo.
+  - key: 58
+    value: Prendi la chiave
+  - key: 59
+    value: Usa il joystick per muoverti
+  - key: 60
+    value: Ora puoi lasciare questo dungeon

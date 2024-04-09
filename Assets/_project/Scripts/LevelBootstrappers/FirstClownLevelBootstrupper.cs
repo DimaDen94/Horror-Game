@@ -25,6 +25,8 @@ public class FirstClownLevelBootstrupper : LevelBootstrapper
             _firstGate.OpenGate();
         else
             _firstGate.CloseGate();
+
+        _analyticService.FirstClownLevelStartGateOpen();
     }
 
     protected override void EnemySlowDown()
@@ -44,6 +46,7 @@ public class FirstClownLevelBootstrupper : LevelBootstrapper
             _clownGate.CloseGate();
             _lvlGate.CloseGate();
         }
+        _analyticService.FirstClownLevelSecondGateOpen();
     }
 
     private void StartHorrorStep()

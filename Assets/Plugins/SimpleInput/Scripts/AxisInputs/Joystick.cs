@@ -53,6 +53,37 @@ namespace SimpleInputNamespace
 		private Vector2 m_value = Vector2.zero;
 		public Vector2 Value { get { return m_value; } }
 
+		public void SwitchDynamicJoystick(bool enable) {
+            isDynamicJoystick = enable;
+
+			joystickTR = (RectTransform)transform;
+			thumbTR = thumb.rectTransform;
+			background = GetComponent<Graphic>();
+
+			if (isDynamicJoystick)
+			{
+				opacity = 0f;
+				thumb.raycastTarget = false;
+				if (background)
+					background.raycastTarget = false;
+
+				OnUpdate();
+			}
+			else
+			{
+				thumb.raycastTarget = true;
+				if (background)
+					background.raycastTarget = true;
+			}
+
+			_1OverMovementAreaRadius = 1f / movementAreaRadius;
+			movementAreaRadiusSqr = movementAreaRadius * movementAreaRadius;
+			deadzoneRadiusSqr = deadzoneRadius * deadzoneRadius;
+
+			joystickInitialPos = joystickTR.anchoredPosition;
+			thumbTR.localPosition = Vector3.zero;
+		}
+
 		private void Awake()
 		{
 			joystickTR = (RectTransform) transform;

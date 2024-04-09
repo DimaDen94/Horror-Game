@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PauseState : IState
 {
-    private const float DestroyDelay = 1;
+    private const float DestroyDelay = 0.5f;
 
     private StateMachine _stateMachine;
     private IUIFactory _uiFactory;

@@ -14,4 +14,5 @@
     public const string MemoryMenuPath = "UI/MemoryMenu";
     public const string LanguageItemPath = "Localization/LanguageItem";
     public const string LanguageMenuPath = "UI/LanguageMenuHud";
+    public const string TutorialHudPath = "UI/TutorialHud";
 }

@@ -49,6 +49,7 @@ public class HintMenuMediator : MonoBehaviour
 
     private void Start()
     {
+        Debug.Log("/");
         _close.onClick.AddListener(CloseDialog);
 
         _close.GetComponent<ButtonClickPlayer>().Construct(_audioService);
@@ -59,20 +60,22 @@ public class HintMenuMediator : MonoBehaviour
 
         _highlightButton.onClick.AddListener(HighlightActivate);
         _enemySlowDownButton.onClick.AddListener(EnemySlowDownActivate);
-
+        Debug.Log("?");
         UpdateLocalization();
-
+        Debug.Log("#");
         _adButton.onClick.AddListener(_accessLayer.OnAdCheckboxClick);
         if (!_progressService.CanShowAd())
             HideCheckmark();
-
+        Debug.Log("%");
         ShowHintButtons();
+        Debug.Log("*");
         UpdateHintStates();
-
+        Debug.Log("^");
         _progressService.HintStateChanged += UpdateHintStates;
         _progressService.ShowAdStateChanged += HideCheckmark;
 
         ShowTextHint(true);
+        Debug.Log("@");
     }
 
     private void HideCheckmark() => _adButton.gameObject.SetActive(false);

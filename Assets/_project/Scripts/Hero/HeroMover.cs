@@ -5,7 +5,8 @@ public class HeroMover : MonoBehaviour
 {
     [SerializeField] private CharacterController _characterController;
 
-    private bool _lock = false;
+    private bool _lockMovement = false;
+    private bool _lockRotate = false;
 
     private float _cinemachineTargetPitch;
     private float _rotationVelocity;
@@ -28,7 +29,7 @@ public class HeroMover : MonoBehaviour
     private void Move()
     {
 
-        if (_lock)
+        if (_lockMovement)
             return;
         Vector3 movementVector = Vector3.zero;
 
@@ -74,12 +75,19 @@ public class HeroMover : MonoBehaviour
         }
     }
 
-    public void Lock() => _lock = true;
+    public void LockMovement() => _lockMovement = true;
 
-    public void Unlock() => _lock = false;
+    public void UnlockMovement() => _lockMovement = false;
+
+    public void LockRotated() => _lockRotate = true;
+
+    public void UnlockRotated() => _lockRotate = false;
 
     private void CameraRotation()
     {
+        if (_lockRotate)
+            return;
+
         if (_inputService.LookAxis.sqrMagnitude >= Constants.Epsilon)
         {
             _cinemachineTargetPitch += _inputService.LookAxis.y * HeroParameters.RotationSpeed * Time.deltaTime;

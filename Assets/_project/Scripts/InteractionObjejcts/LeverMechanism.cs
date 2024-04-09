@@ -19,6 +19,7 @@ public class LeverMechanism : InteractionObject
     private IToastService _toastService;
 
     public event Action MechanismActivated;
+    public event Action MechanismFixed;
     
     public bool IsActivated => _isActivated;
 
@@ -35,6 +36,7 @@ public class LeverMechanism : InteractionObject
         {
             PutInSlot((Lever)slot.Thing);
             slot.RemoveThing();
+            MechanismFixed?.Invoke();
             return InteractionResponse.Used;
         }
         else if (_lever != null && !IsActivated && !_lock)

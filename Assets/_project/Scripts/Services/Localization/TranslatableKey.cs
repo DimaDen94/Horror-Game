@@ -18,4 +18,9 @@
 
     Level2_5 = 55,
     HintLevel2_5 = 56,
+    RotateTutorial = 57,
+    GetKeyTutorial = 58,
+    MoveTutorial = 59,
+    GoToExitTutorial = 60,
+    ThePotionIsReady = 61,
 }

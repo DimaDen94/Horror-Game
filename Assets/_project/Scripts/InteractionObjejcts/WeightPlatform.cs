@@ -12,7 +12,7 @@ public class WeightPlatform : InteractionObject
     [SerializeField] private List<ThingSlot> _slots;
     [SerializeField] private AudioSource _moveAudio;
 
-    public event Action WeightAdded;
+    public event Action<string> WeightAdded;
 
     public override InteractionResponse TryUse(HeroSlot slot)
     {
@@ -22,7 +22,7 @@ public class WeightPlatform : InteractionObject
             emptySlot.PutThing(slot.Thing);
             slot.RemoveThing();
             MovePlatform();
-            WeightAdded.Invoke();
+            WeightAdded.Invoke(name);
 
             return InteractionResponse.Used;
         }

@@ -1,8 +1,11 @@
 using UnityEngine;
 using DG.Tweening;
+using System;
 
 public class Hero : MonoBehaviour, IHitable
 {
+    public event Action OnInteractionObjectExist;
+
     [SerializeField] private HeroSlot _slot;
     [SerializeField] private HeroMover _mover;
     [SerializeField] private Camera _camera;
@@ -16,13 +19,17 @@ public class Hero : MonoBehaviour, IHitable
     private IAudioService _audioService;
     private StateMachine _stateMachine;
 
-    public void Construct(Hud hud, IInputService inputService, IAudioService audioService, StateMachine stateMachine)
+    public HeroMover Mover => _mover;
+    public HeroSlot Slot => _slot;
+
+    public void Construct(Hud hud, IInputService inputService, IAudioService audioService, StateMachine stateMachine, Vector3 cameraRotation)
     {
         _hud = hud;
         _centerPosition = new Vector3(Screen.width / 2, Screen.height / 2, 0);
         _inputService = inputService;
         _audioService = audioService;
         _stateMachine = stateMachine;
+        _camera.transform.rotation = Quaternion.Euler(cameraRotation);
         _mover.Construct(_inputService, _camera);
     }
 
@@ -68,17 +75,18 @@ public class Hero : MonoBehaviour, IHitable
         }
     }
 
-    public void LookAt(Transform subject) {
-        _mover.Lock();
+    public void LookAt(Transform subject)
+    {
+        _mover.LockMovement();
         transform.DOLookAt(subject.position, 1).OnComplete(() =>
         {
-            _mover.Unlock();
+            _mover.UnlockMovement();
         });
     }
 
     public void Death(Transform killer)
     {
-        _mover.Lock();
+        _mover.LockMovement();
         _audioService.PlayAudio(SoundEnum.Screamer);
         transform.DOLookAt(killer.position, 1).OnComplete(() =>
         {
@@ -97,23 +105,46 @@ public class Hero : MonoBehaviour, IHitable
         }
     }
 
+
+
     private void FindInteractionObject()
     {
         Ray ray = _camera.ScreenPointToRay(_centerPosition);
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit) && hit.distance < HeroParameters.InteractionDistance && hit.transform.GetComponent<InteractionObject>() != _slot.Thing)
+        if (Physics.Raycast(ray, out hit) && hit.distance < HeroParameters.InteractionDistance)
         {
-            _currentInteractionObject = hit.transform.GetComponent<InteractionObject>();
-            _currentInteractionObject?.ShowOutline();
+            InteractionObject interactionObject = hit.transform.GetComponent<InteractionObject>();
 
+            if (interactionObject != null && interactionObject != _slot.Thing)
+            {
+                if (_currentInteractionObject == null)
+                {
+                    OnInteractionObjectExist?.Invoke();
+                }
+
+                _currentInteractionObject = interactionObject;
+                _currentInteractionObject.ShowOutline();
+            }
+            else
+            {
+                if (_currentInteractionObject != null)
+                {
+                    _currentInteractionObject.HideOutline();
+                    _currentInteractionObject = null;
+                }
+            }
         }
         else
         {
-            _currentInteractionObject?.HideOutline();
-            _currentInteractionObject = null;
+            if (_currentInteractionObject != null)
+            {
+                _currentInteractionObject.HideOutline();
+                _currentInteractionObject = null;
+            }
         }
     }
+
 
     private void UpdateUI()
     {

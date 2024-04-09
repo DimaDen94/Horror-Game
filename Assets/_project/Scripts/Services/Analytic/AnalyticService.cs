@@ -1,4 +1,4 @@
-﻿public class AnalyticService : IAnalyticService
+﻿public class AnalyticService //: IAnalyticService
 {
     private IAnalyticService _firebaseAnalyticService;
 
@@ -27,8 +27,19 @@
         
     }
 
-    public void MashroomInPot(int count)
+    public void RotateTutorialCompleted()
     {
-        
+    }
+
+    public void PickUpKeyTutorialCompleted()
+    {
+    }
+
+    public void MoveTutorialCopmleted()
+    {
+    }
+
+    public void MashroomInPot(int count, string name)
+    {
     }
 }

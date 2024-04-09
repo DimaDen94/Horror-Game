@@ -24,7 +24,7 @@ public class MovingStairs : MonoBehaviour
 
     private bool AllPlatformFull() => _platforms.ToList().FindAll(platform => !platform.IsFull()).Count == 0;
 
-    public void TryMove()
+    public void TryMove(string name)
     {
         float platformCount = _platforms.Length;
         float slotFullCount = _platforms.ToList().FindAll(platform => platform.IsFull()).Count;
