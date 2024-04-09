@@ -32,6 +32,7 @@ public class BootstrapInstaller : MonoInstaller
         BindToastService();
         BindGameFactory();
         BindGameBootstrapper();
+
     }
 
     private void BindPlayerPrefsService() => Container.Bind<IPlayerPrefsService>().To<PlayerPrefsService>().AsSingle();
@@ -60,7 +61,6 @@ public class BootstrapInstaller : MonoInstaller
 
     private void BindNotificationService() => Container.Bind<IPushNotificationService>().To<PushNotificationService>().AsSingle();
 
-    private void BindAccessLayer() => Container.Bind<IAccessLayer>().To<AccessLayer>().AsSingle();
 
     private void BindAudioService() => Container.Bind<IAudioService>().To<AudioService>().AsSingle();
 
@@ -69,6 +69,8 @@ public class BootstrapInstaller : MonoInstaller
     private void BindUIFactory() => Container.Bind<IUIFactory>().To<UIFactory>().AsSingle();
 
     private void BindToastService() => Container.Bind<IToastService>().To<ToastService>().AsSingle();
+
+    private void BindAccessLayer() => Container.Bind<IAccessLayer>().To<AccessLayer>().AsSingle();
 
     private void BindGameFactory() => Container.Bind<IGameFactory>().To<GameFactory>().AsSingle();
 
@@ -80,9 +82,9 @@ public class BootstrapInstaller : MonoInstaller
 
     private void BindInputService()
     {
-        if (Application.isEditor)
-            Container.Bind<IInputService>().To<StandaloneInputService>().AsSingle();
-        else
+        //if (Application.isEditor)
+            //Container.Bind<IInputService>().To<StandaloneInputService>().AsSingle();
+        //else
             Container.Bind<IInputService>().To<MobileInputService>().AsSingle();
     }
 

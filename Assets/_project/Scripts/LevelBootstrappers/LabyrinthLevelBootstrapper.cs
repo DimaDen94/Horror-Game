@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class LabyrinthLevelBootstrapper : LevelBootstrapper
 {
+    [SerializeField] private ChestKey _chestKey;
+    [SerializeField] private RedChestKey _redChestKey;
+    [SerializeField] private BlueChestKye _blueChestKey;
+    [SerializeField] private ExitKey _exitKey;
+
     [SerializeField] private Chest _chest;
     [SerializeField] private AudioSource _footSteps;
 
@@ -13,33 +18,48 @@ public class LabyrinthLevelBootstrapper : LevelBootstrapper
     [SerializeField] private BlueChest _chestBlue;
     [SerializeField] private Screamer _screamer;
 
+
     private new void Start()
     {
         base.Start();
         _chest.Construct(_toastService);
         _chestRed.Construct(_toastService);
         _chestBlue.Construct(_toastService);
-        _chest.ChestOpened += OnChestOpened;
+
+        _chestKey.Lifted += OnFirstChestKeyLifted;
+
+        _chest.ChestOpened += OnFirstChestOpened;
+
+        _redChestKey.Lifted += OnRedKeyLifted;
+
         _chestRed.ChestOpened += OnRedChestOpened;
+
+        _blueChestKey.Lifted += OnBlueKeyLifted;
+
         _chestBlue.ChestOpened += OnBlueChestOpened;
+
+        _exitKey.Lifted += OnExitKeyLifted;
     }
 
-    private void OnChestOpened() => StartCoroutine(PlayFootSteps());
 
-    private IEnumerator PlayFootSteps()
+    private void OnFirstChestKeyLifted() => _analyticService.LabyrinthLevelFirstKeyLifted();
+
+    private void OnFirstChestOpened()
     {
-        yield return new WaitForSeconds(1);
-        _footSteps.Play();
+        StartCoroutine(PlayFootSteps());
+        _analyticService.LabyrinthLevelFirstChestOpened();
     }
 
-    private void OnRedChestOpened() => StartCoroutine(PlayLaught());
+    private void OnRedKeyLifted() => _analyticService.LabyrinthLevelRedKeyLifted();
 
-    private IEnumerator PlayLaught()
+
+    private void OnRedChestOpened()
     {
-        yield return new WaitForSeconds(1);
-        _laught.Play();
-
+        StartCoroutine(PlayLaught());
+        _analyticService.LabyrinthLevelRedChestOpened();
     }
+
+    private void OnBlueKeyLifted() => _analyticService.LabyrinthLevelBlueKeyLifted();
 
     private void OnBlueChestOpened()
     {
@@ -49,6 +69,22 @@ public class LabyrinthLevelBootstrapper : LevelBootstrapper
 
 
         StartCoroutine(PlayScreamer());
+    }
+
+    private void OnExitKeyLifted() => _analyticService.LabyrinthLevelExitKeyLifted();
+
+
+    private IEnumerator PlayFootSteps()
+    {
+        yield return new WaitForSeconds(1);
+        _footSteps.Play();
+    }
+
+    private IEnumerator PlayLaught()
+    {
+        yield return new WaitForSeconds(1);
+        _laught.Play();
+
     }
 
     private IEnumerator PlayScreamer()

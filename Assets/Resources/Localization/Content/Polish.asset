@@ -133,3 +133,11 @@ MonoBehaviour:
       mask\u0119!"
   - key: 56
     value: "Musisz dotrze\u0107 do drzwi przed klaunem!"
+  - key: 57
+    value: "Znale\u017A\u0107 klucz. Przesu\u0144 palcem po ekranie."
+  - key: 58
+    value: "We\u017A klucz"
+  - key: 59
+    value: "Do poruszania si\u0119 u\u017Cywaj joysticka"
+  - key: 60
+    value: "Mo\u017Cesz ju\u017C opu\u015Bci\u0107 ten loch"

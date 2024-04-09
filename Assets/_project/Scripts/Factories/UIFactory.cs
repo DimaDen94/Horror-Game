@@ -31,7 +31,14 @@ public class UIFactory : IUIFactory
 
     public PauseMenuMediator CreatePauseMenu() => _assetProvider.Instantiate(AsserPath.PauseMenuHudPath).GetComponent<PauseMenuMediator>();
 
-    public HintMenuMediator CreateHintMenu() => _assetProvider.Instantiate(AsserPath.HintMenuHudPath).GetComponent<HintMenuMediator>();
+    public HintMenuMediator CreateHintMenu()
+    {
+        Debug.Log(AsserPath.HintMenuHudPath);
+
+        var hud = _assetProvider.Instantiate(AsserPath.HintMenuHudPath);
+        Debug.Log("hud.GetComponent<HintMenuMediator>(");
+        return hud.GetComponent<HintMenuMediator>();
+    }
 
     public StoryBlackoutMediator CreateStoryBlackout()
     {
@@ -46,4 +53,6 @@ public class UIFactory : IUIFactory
     public LanguageSelectionMediator CreateLanguageMenu() => _assetProvider.Instantiate(AsserPath.LanguageMenuPath).GetComponent<LanguageSelectionMediator>();
 
     public LanguageItemView CreateLanguageItemView(Transform parent) => _assetProvider.Instantiate(AsserPath.LanguageItemPath, parent).GetComponent<LanguageItemView>();
+
+    public TutorialHUD CreateTutorialHud() => _assetProvider.Instantiate(AsserPath.TutorialHudPath).GetComponent<TutorialHUD>();
 }

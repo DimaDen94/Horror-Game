@@ -131,3 +131,11 @@ MonoBehaviour:
     value: "J'ai d\xFB porter un masque pour m'en remettre !"
   - key: 56
     value: "Il faut arriver \xE0 la porte avant le clown !"
+  - key: 57
+    value: "Trouve la cl\xE9. Faites glisser votre doigt sur l'\xE9cran."
+  - key: 58
+    value: "Prends la cl\xE9"
+  - key: 59
+    value: "Utilisez le joystick pour vous d\xE9placer"
+  - key: 60
+    value: Vous pouvez maintenant quitter ce donjon

@@ -16,7 +16,6 @@ public class MainMenuMediator : MonoBehaviour
     [SerializeField] private Button _setting;
     [SerializeField] private Button _adButton;
     [SerializeField] private Button _language;
-    [SerializeField] private GameObject _checkmark;
 
     [SerializeField] private List<TextMeshProTranslator> _translators;
 
@@ -61,12 +60,13 @@ public class MainMenuMediator : MonoBehaviour
         UpdateLocalization();
     }
 
+    private void HideCheckmark() => _adButton.gameObject.SetActive(false);
+
     private void UpdateLocalization() {
         foreach (var item in _translators)
             item.Construct(_localizationService);
     }
 
-    private void HideCheckmark() => _checkmark.SetActive(false);
 
     public void Hide()
     {

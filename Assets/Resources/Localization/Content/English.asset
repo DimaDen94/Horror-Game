@@ -125,3 +125,11 @@ MonoBehaviour:
     value: Had to wear a mask to get over it!
   - key: 56
     value: You need to get to the door before the clown!
+  - key: 57
+    value: Find the key. Swipe your finger across the screen.
+  - key: 58
+    value: Take the key
+  - key: 59
+    value: Use the joystick to move around
+  - key: 60
+    value: You can now leave this dungeon

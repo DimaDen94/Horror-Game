@@ -10,12 +10,9 @@ public class IAPService : IIAPService
     public event Action Initialized;
     public event Action FullAccessCompleted;
 
-
-    [Inject]
     public IAPService(IAPProvider provider, IProgressService progressService) {
         _provider = provider;
         _progressService = progressService;
-        Initialize();
     }
 
     public void Initialize()

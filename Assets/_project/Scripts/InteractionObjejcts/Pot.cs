@@ -33,16 +33,20 @@ public class Pot : InteractionObject
                 _dust.gameObject.SetActive(true);
                 _audioSourceChemistry.Play();
             }
-            _analyticService.MashroomInPot(_mushrooms.Count);
+            _analyticService.MashroomInPot(_mushrooms.Count, slot.Thing.name);
             return InteractionResponse.Used;
         }
-        else if (_mushrooms.Count == FoolCount && slot.Thing is Bottle)
+        else if (_mushrooms.Count == FoolCount && slot.Thing is Bottle && !((Bottle)slot.Thing).IsRed())
         {
             ChurnPotion((Bottle)slot.Thing, slot);
             _analyticService.BottleInPot();
             return InteractionResponse.Used;
         }
-        else if (slot.Thing is Bottle) {
+        else if (slot.Thing is Bottle && ((Bottle)slot.Thing).IsRed()) {
+            _toastService.ShowToast(TranslatableKey.ThePotionIsReady);
+        }
+        else if (slot.Thing is Bottle)
+        {
             _toastService.ShowToast(TranslatableKey.ThePotionIsNotReady);
         }
 

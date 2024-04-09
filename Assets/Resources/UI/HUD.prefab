@@ -310,6 +310,7 @@ MonoBehaviour:
   _dropButton: {fileID: 4114839686556167417}
   _menu: {fileID: 2835283800280724923}
   _hint: {fileID: 619577898491363762}
+  _joystick: {fileID: 4466257403514364422}
 --- !u!1 &6132035100989854540
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,6 +719,10 @@ PrefabInstance:
       value: Joystick
       objectReference: {fileID: 0}
     - target: {fileID: 114282555968907678, guid: e0815e227ed46e445b99930271e8942c, type: 3}
+      propertyPath: isDynamicJoystick
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114282555968907678, guid: e0815e227ed46e445b99930271e8942c, type: 3}
       propertyPath: dynamicJoystickMovementArea
       value: 
       objectReference: {fileID: 4354231044134944384}
@@ -815,6 +820,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0815e227ed46e445b99930271e8942c, type: 3}
+--- !u!114 &4466257403514364422 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114282555968907678, guid: e0815e227ed46e445b99930271e8942c, type: 3}
+  m_PrefabInstance: {fileID: 4354231045405690776}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d42b387efc83be49900b546e4052e28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &4571749653373986162 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224977699150327530, guid: e0815e227ed46e445b99930271e8942c, type: 3}

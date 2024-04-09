@@ -28,7 +28,7 @@ public class StairLevelBootstrapper : LevelBootstrapper
         }
     }
 
-    private void OnWaightAdded()
+    private void OnWaightAdded(string name)
     {
         _weightCount++;
         if (_weightCount == 2)
@@ -39,5 +39,6 @@ public class StairLevelBootstrapper : LevelBootstrapper
             _uiFactory.CreateBlackout();
             _uiFactory.Blackout.Daybreak();
         }
+        _analyticService.StairLevelCollectedWeight(_weightCount, name);
     }
 }

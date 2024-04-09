@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class HintMenuState : IState
 {
-    private const float DestroyDelay = 1;
+    private const float DestroyDelay = 0.5f;
 
     private StateMachine _stateMachine;
     private IUIFactory _uiFactory;
@@ -13,10 +13,11 @@ public class HintMenuState : IState
     private ILevelConfigHolder _configHolder;
     private ILocalizationService _localizationService;
     private IAccessLayer _accessLayer;
+    private IMainThreadDispatcher _mainThreadDispatcher;
     private HintMenuMediator _hud;
 
     public HintMenuState(StateMachine stateMachine,  IUIFactory uiFactory, IAudioService audioService, ICoroutineRunner coroutineRunner,
-        IProgressService progressService, ILevelConfigHolder configHolder, ILocalizationService localizationService, IAccessLayer accessLayer)
+        IProgressService progressService, ILevelConfigHolder configHolder, ILocalizationService localizationService, IAccessLayer accessLayer, IMainThreadDispatcher mainThreadDispatcher)
     {
         _stateMachine = stateMachine;
         _uiFactory = uiFactory;
@@ -26,11 +27,17 @@ public class HintMenuState : IState
         _configHolder = configHolder;
         _localizationService = localizationService;
         _accessLayer = accessLayer;
+        _mainThreadDispatcher = mainThreadDispatcher;
     }
 
     public void Enter()
     {
         Time.timeScale = 0;
+        _mainThreadDispatcher.Enqueue(CreateHud);
+    }
+
+    private void CreateHud()
+    {
         _hud = _uiFactory.CreateHintMenu();
         _hud.Construct(_stateMachine, _audioService, _progressService, _configHolder, _localizationService, _accessLayer);
     }

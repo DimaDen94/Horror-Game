@@ -127,3 +127,11 @@ MonoBehaviour:
     value: "Musste eine Maske tragen, um dar\xFCber hinwegzukommen!"
   - key: 56
     value: "Du musst vor dem Clown an der T\xFCr sein!"
+  - key: 57
+    value: "Finde den Schl\xFCssel. Streichen Sie mit Ihrem Finger \xFCber den Bildschirm."
+  - key: 58
+    value: "Nimm den Schl\xFCssel"
+  - key: 59
+    value: Benutzen Sie den Joystick, um sich zu bewegen
+  - key: 60
+    value: Du kannst diesen Dungeon nun verlassen

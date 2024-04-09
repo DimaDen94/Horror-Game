@@ -1,3 +1,5 @@
+using System;
+using SimpleInputNamespace;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +10,8 @@ public class Hud : MonoBehaviour
 
     [SerializeField] private Button _menu;
     [SerializeField] private Button _hint;
+
+    [SerializeField] private Joystick _joystick;
 
     private StateMachine _stateMachine;
     private IAudioService _audioService;
@@ -33,13 +37,15 @@ public class Hud : MonoBehaviour
         _hint.GetComponent<ButtonClickPlayer>().Construct(_audioService);
     }
 
-    private void OpenPauseMenu()
-    {
-        _stateMachine.Enter<PauseState>();
+    private void OpenPauseMenu() => _stateMachine.Enter<PauseState>();
+
+    private void OpenHintMenu() => _accessLayer.TryOpenHintMenu();
+    public void HideJoystick() {
+        _joystick.gameObject.SetActive(false);
+    }
+    public void ShowJoystick() {
+        _joystick.gameObject.SetActive(true);
     }
 
-    private void OpenHintMenu()
-    {
-        _accessLayer.TryOpenHintMenu();
-    }
+    public void ShowMoveAxis() => _joystick.SwitchDynamicJoystick(false);
 }

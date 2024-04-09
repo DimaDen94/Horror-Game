@@ -12,6 +12,7 @@ public class LevelBootstrapper : MonoBehaviour
     [SerializeField] protected CollectionItem _collectionMemoryItem;
 
     protected Hero _hero;
+    protected Hud _hud;
 
     protected StateMachine _stateMachine;
     protected IAudioService _audioService;
@@ -19,19 +20,19 @@ public class LevelBootstrapper : MonoBehaviour
     protected IUIFactory _uiFactory;
     protected IInAppReviewService _inAppReviewService;
     protected IAnalyticService _analyticService;
+    protected IInputService _inputService;
+    protected ILocalizationService _localizationService;
     private IAccessLayer _accessLayer;
     [SerializeField] private List<LiftedThing> _liftedThings;
     [SerializeField] private List<LightPoint> _lightPoints;
     [SerializeField] private List<Outline> _outlines;
 
-    private IInputService _inputService;
     private IGameFactory _gameFactory;
     private IProgressService _progressService;
 
-
     [Inject]
-    private void Construct(IInputService inputService, IUIFactory uiFactory, IAudioService audioService, StateMachine stateMachine, IGameFactory gameFactory,
-        IProgressService progressService, IToastService toastService, IInAppReviewService inAppReviewService, IAnalyticService analyticService, IAccessLayer accessLayer) {
+    private void Construct(IInputService inputService, IUIFactory uiFactory, IAudioService audioService, StateMachine stateMachine, IGameFactory gameFactory, IProgressService progressService,
+        IToastService toastService, IInAppReviewService inAppReviewService, IAnalyticService analyticService, IAccessLayer accessLayer, ILocalizationService localizationService) {
         _inputService = inputService;
         _uiFactory = uiFactory;
         _audioService = audioService;
@@ -42,6 +43,7 @@ public class LevelBootstrapper : MonoBehaviour
         _inAppReviewService = inAppReviewService;
         _analyticService = analyticService;
         _accessLayer = accessLayer;
+        _localizationService = localizationService;
     }
 
     protected void Start()
@@ -127,10 +129,10 @@ public class LevelBootstrapper : MonoBehaviour
 
     private void InitHero()
     {
-        Hud hud = _uiFactory.CreateGameHud();
-        hud.Construct(_stateMachine,_audioService, _accessLayer);
-        _hero = _gameFactory.CreateHero(_heroStartPosition, Quaternion.Euler(_heroStartRotation));
-        _hero.Construct(hud, _inputService, _audioService,_stateMachine);
+        _hud = _uiFactory.CreateGameHud();
+        _hud.Construct(_stateMachine,_audioService, _accessLayer);
+        _hero = _gameFactory.CreateHero(_heroStartPosition, Quaternion.Euler(new Vector3(0, _heroStartRotation.y, 0) ));
+        _hero.Construct(_hud, _inputService, _audioService,_stateMachine, new Vector3(_heroStartRotation.x, 0, 0));
     }
 
     protected void OnDestroy()

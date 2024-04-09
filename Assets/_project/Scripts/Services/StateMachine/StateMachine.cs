@@ -8,19 +8,19 @@ public class StateMachine
     private ICoroutineRunner _coroutineRunner;
 
 
-    public void Construct(ISceenLoader sceneLoader, IUIFactory uiFactory, IAudioService audioService, ICoroutineRunner coroutineRunner, IProgressService progressService,
-        IVibrationService vibrationService, IImageLoader imageLoader, ILocalizationService localizationService, ILevelConfigHolder configHolder,IAdvertisementService advertisementService,
-        IAnalyticService analyticService, IAccessLayer accessLayer, IInAppReviewService inAppReviewService, IPushNotificationService pushNotificationService)
+    public void Construct(ISceenLoader sceneLoader, IUIFactory uiFactory, IAudioService audioService, ICoroutineRunner coroutineRunner, IProgressService progressService, IVibrationService vibrationService,
+        IImageLoader imageLoader, ILocalizationService localizationService, ILevelConfigHolder configHolder,IAdvertisementService advertisementService, IAnalyticService analyticService,
+        IAccessLayer accessLayer, IInAppReviewService inAppReviewService, IPushNotificationService pushNotificationService, IMainThreadDispatcher mainThreadDispatcher, IIAPService iAPService)
     {
         _coroutineRunner = coroutineRunner;
         _states = new Dictionary<Type, IExitableState>()
         {
-            [typeof(BootstrapState)] = new BootstrapState(this, sceneLoader, inAppReviewService, coroutineRunner, pushNotificationService),
+            [typeof(BootstrapState)] = new BootstrapState(this, sceneLoader, inAppReviewService, coroutineRunner, pushNotificationService, iAPService),
             [typeof(MainMenuState)] = new MainMenuState(this, sceneLoader, uiFactory, audioService, progressService,coroutineRunner, localizationService, accessLayer),
             [typeof(SettingState)] = new SettingState(this, sceneLoader, uiFactory, audioService, coroutineRunner,vibrationService, progressService,localizationService,accessLayer),
             [typeof(LanguageSelectionState)] = new LanguageSelectionState(this, uiFactory, audioService, coroutineRunner, localizationService),
             [typeof(PauseState)] = new PauseState(this, uiFactory, audioService, coroutineRunner,vibrationService, localizationService, accessLayer, progressService),
-            [typeof(HintMenuState)] = new HintMenuState(this, uiFactory, audioService, coroutineRunner, progressService, configHolder, localizationService, accessLayer),
+            [typeof(HintMenuState)] = new HintMenuState(this, uiFactory, audioService, coroutineRunner, progressService, configHolder, localizationService, accessLayer, mainThreadDispatcher),
             [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader, audioService, uiFactory, coroutineRunner, advertisementService, progressService, analyticService),
             [typeof(LevelCompletedState)] = new LevelCompletedState(this, audioService, uiFactory, coroutineRunner, imageLoader, localizationService, progressService),
             [typeof(MemoryState)] = new MemoryState(this,  audioService, uiFactory, coroutineRunner, imageLoader, localizationService, progressService, configHolder, analyticService),

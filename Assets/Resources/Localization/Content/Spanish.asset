@@ -129,3 +129,11 @@ MonoBehaviour:
     value: "\xA1Tuve que usar una m\xE1scara para superarlo!"
   - key: 56
     value: "\xA1Tienes que llegar a la puerta antes que el payaso!"
+  - key: 57
+    value: Encontrar la llave. Pase el dedo por la pantalla.
+  - key: 58
+    value: toma la llave
+  - key: 59
+    value: Usa el joystick para moverte
+  - key: 60
+    value: Ahora puedes salir de esta mazmorra.

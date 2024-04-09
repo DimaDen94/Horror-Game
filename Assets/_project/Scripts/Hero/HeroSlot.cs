@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using UnityEngine;
 
@@ -11,12 +12,16 @@ public class HeroSlot : MonoBehaviour
     public LiftedThing Thing => _thing;
     public bool IsFull => _thing != null;
 
+    public event Action OnLootExist;
+
     public void Put(LiftedThing thing)
     {
         thing.transform.parent = transform;
         _thing = thing;
         _thing.transform.DOLocalRotate(_thing.SlotRotation, RotateDuration);
         _thing.DisablePhysics();
+
+        OnLootExist?.Invoke();
     }
 
     public void RemoveThing()

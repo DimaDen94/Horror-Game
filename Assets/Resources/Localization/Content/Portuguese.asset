@@ -128,3 +128,11 @@ MonoBehaviour:
     value: "Tive que usar uma m\xE1scara para superar isso!"
   - key: 56
     value: "Voc\xEA precisa chegar at\xE9 a porta antes do palha\xE7o!"
+  - key: 57
+    value: Ache a chave. Passe o dedo pela tela.
+  - key: 58
+    value: Pegue a chave
+  - key: 59
+    value: Use o joystick para se movimentar
+  - key: 60
+    value: "Agora voc\xEA pode sair desta masmorra"
